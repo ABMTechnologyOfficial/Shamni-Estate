@@ -17,6 +17,8 @@ import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.databinding.ActivityLoginBinding;
 import com.shamniestate.shamniestate.models.LoginModel;
 import com.shamniestate.shamniestate.ui.HomeActivity;
+import com.shamniestate.shamniestate.ui.UserHomeActivity;
+import com.shamniestate.shamniestate.utils.ProgressDialog;
 import com.shamniestate.shamniestate.utils.Session;
 
 import retrofit2.Call;
@@ -61,10 +63,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String email, String password) {
+        ProgressDialog pd = new ProgressDialog(activity);
+        pd.show();
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.login(email, password, AUTHORIZATION).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(@NonNull Call<LoginModel> call, @NonNull Response<LoginModel> response) {
+                pd.dismiss();
                 try {
                     if (response.code() == 200)
                         if (response.body() != null)
@@ -74,10 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                                 session.setUserId(data.getAssociateId());
                                 session.setAccessToken(data.getAccessToken());
 
-                                startActivity(new Intent(activity, HomeActivity.class));
+                                startActivity(new Intent(activity, UserHomeActivity.class));
                                 finish();
 
                             } else {
+                                pd.dismiss();
                                 Log.e(BaseUrls.TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
                             }
                 } catch (Exception e) {
@@ -87,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
+                pd.dismiss();
                 Log.e(BaseUrls.TAG, "login onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
