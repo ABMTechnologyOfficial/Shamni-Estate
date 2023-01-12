@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.SignupUserInfoActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_alignParentTop="true"
         android:background="@color/white">
 
         <ImageView
@@ -31,7 +28,7 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:fontFamily="@font/heebo_medium"
             android:gravity="center"
-            android:text="User Info"
+            android:text="Bank Information"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
             android:textStyle="bold" />
@@ -44,68 +41,18 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/layout_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:scrollbars="none">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingVertical="@dimen/_10sdp">
+            android:paddingHorizontal="@dimen/_15sdp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/heebo_regular"
-                    android:text="Create Account as"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp" />
-
-                <RadioGroup
-                    android:id="@+id/radio_group"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/edit_bg"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_3sdp"
-                    android:paddingVertical="@dimen/_3sdp">
-
-                    <RadioButton
-                        android:id="@+id/radio_btn_individual"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Individual"
-                        android:textSize="@dimen/_8sdp" />
-
-                    <RadioButton
-                        android:id="@+id/radio_btn_channel_partner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="Channel Partner"
-                        android:textSize="@dimen/_8sdp" />
-
-                    <RadioButton
-                        android:id="@+id/radio_btn_associate_prime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="Associate Prime"
-                        android:textSize="@dimen/_8sdp" />
-
-                </RadioGroup>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,87 +63,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Your Name"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Write Your Name"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Date of Birth"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="dd/yy/mm"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gender"
+                    android:text="Bank Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
@@ -227,13 +94,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mobile No."
+                    android:text="Bank Account Number"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
@@ -254,8 +121,9 @@
                         android:layout_height="match_parent"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:hint="Write associate mobile number"
-                        android:inputType="textEmailAddress"
+                        android:hint="Write Account Number"
+                        android:inputType="number"
+                        android:maxLength="12"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -263,166 +131,192 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account Holder Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write Account Holder Name"
+                        android:inputType="number"
+                        android:maxLength="12"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IFSC Code"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write Bank IFSC Code"
+                        android:inputType="number"
+                        android:maxLength="12"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RERA Registration Number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write RERA Registration Number"
+                        android:inputType="number"
+                        android:maxLength="12"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Address"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
+                    android:layout_marginEnd="@dimen/_5sdp"
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Write associate address"
-                        android:inputType="textEmailAddress"
+
+                    <ImageView
+                        android:id="@+id/s_cancel_cheque_image"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/login_input_bg"
+                        android:contentDescription="@string/ic_tab"
+                        android:fontFamily="@font/heebo_regular"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="@dimen/_12sdp"
+                        android:src="@drawable/ic_add"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/s_cancel_cheque_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/heebo_regular"
                         android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:text="Bank Cheque Attachment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="invisible">
+
+                </View>
 
             </LinearLayout>
 
-            <LinearLayout
+            <ProgressBar
+                android:id="@+id/kyc_progress_bar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="City"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="City"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="State"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="State"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Zip"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Zip"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/text_continue"
@@ -443,6 +337,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</RelativeLayout>
+</LinearLayout>

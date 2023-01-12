@@ -31,7 +31,7 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:fontFamily="@font/heebo_medium"
             android:gravity="center"
-            android:text="User Info"
+            android:text="Authentication"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
             android:textStyle="bold" />
@@ -60,15 +60,175 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/heebo_regular"
-                    android:text="Create Account as"
+                    android:text="Email Address"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="you@example.com"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write associate Password"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Confirm Password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write associate Confirm Password"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Referral Code (Optional)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Referral Code"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="With Shamniestate ?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:id="@+id/radio_group"
@@ -81,346 +241,19 @@
                     android:paddingVertical="@dimen/_3sdp">
 
                     <RadioButton
-                        android:id="@+id/radio_btn_individual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Individual"
+                        android:text="Part Time"
                         android:textSize="@dimen/_8sdp" />
 
                     <RadioButton
-                        android:id="@+id/radio_btn_channel_partner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:text="Channel Partner"
-                        android:textSize="@dimen/_8sdp" />
-
-                    <RadioButton
-                        android:id="@+id/radio_btn_associate_prime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="Associate Prime"
+                        android:text="Full Time"
                         android:textSize="@dimen/_8sdp" />
 
                 </RadioGroup>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your Name"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Write Your Name"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Date of Birth"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="dd/yy/mm"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gender"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/edit_bg"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_3sdp">
-
-                    <com.jaredrummler.materialspinner.MaterialSpinner
-                        android:id="@+id/gender_spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_10sdp"
-                        app:background="@color/white"
-                        app:ms_background_color="@color/white"
-                        app:ms_padding_bottom="@dimen/_8sdp"
-                        app:ms_padding_top="@dimen/_9sdp"
-                        app:ms_text_color="@color/black" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mobile No."
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Write associate mobile number"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Address"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Write associate address"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="City"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="City"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="State"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="State"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Zip"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Zip"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
