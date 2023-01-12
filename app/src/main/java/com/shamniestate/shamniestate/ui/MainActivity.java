@@ -1,8 +1,10 @@
-package com.shamniestate.shamniestate;
+package com.shamniestate.shamniestate.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.shamniestate.shamniestate.R;
 
 public class MainActivity extends AppCompatActivity {
 

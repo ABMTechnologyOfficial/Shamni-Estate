@@ -1,4 +1,4 @@
-package com.shamniestate.shamniestate.auth;
+package com.shamniestate.shamniestate.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
