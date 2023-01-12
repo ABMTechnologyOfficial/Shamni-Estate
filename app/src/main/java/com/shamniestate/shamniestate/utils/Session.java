@@ -39,7 +39,7 @@ public class Session extends Object {
         return Rapidine_pref.getString(Mobile, "");
 
     }
-    public  String getUser_name() {
+    public  String getUserName() {
         return Rapidine_pref.getString(User_name, "");
 
     }
@@ -48,13 +48,13 @@ public class Session extends Object {
         this.editor.apply();
     }
 
-    public void set_role(String role) {
+    public void setRole(String role) {
         editor.putString(role_, role);
         editor.apply();
         editor.commit();
     }
 
-    public String get_role()
+    public String getRole()
     {
         return Rapidine_pref.getString(role_, "");
     }
@@ -63,7 +63,7 @@ public class Session extends Object {
         return Rapidine_pref.getString(UserId, "");
     }
 
-    public void setUser_name(String user_name) {
+    public void setUserName(String user_name) {
         editor.putString(User_name, user_name);
         this.editor.apply();
     }
@@ -92,18 +92,18 @@ public class Session extends Object {
         return Rapidine_pref.getString(key, "");
     }
 
-    public void setmyLogin (boolean tf) {
+    public void setMyLogin (boolean tf) {
         editor.putBoolean(LOGEDIN,tf);
         editor.apply();
 
     }
 
 
-    public boolean getmyLogin() {
+    public boolean getMyLogin() {
         return Rapidine_pref.getBoolean(LOGEDIN, false);
     }
 
-    public void setmyLogout (boolean tf) {
+    public void setMyLogout (boolean tf) {
         editor.putBoolean(LOGEDOUT,tf);
         editor.clear();
         editor.apply();
