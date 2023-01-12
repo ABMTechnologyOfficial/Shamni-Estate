@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.SignupUserInfoActivity">
+
+    <LinearLayout
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account as"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/heebo_regular"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                >
+
+                <RadioButton
+                    android:textSize="@dimen/_10sdp"
+                    android:id="@+id/radio_btn_individual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Individual"/>
+
+                <RadioButton
+                    android:textSize="@dimen/_10sdp"
+                    android:id="@+id/radio_btn_channel_partner"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Channel Partner"/>
+
+
+                <RadioButton
+                    android:textSize="@dimen/_10sdp"
+                    android:id="@+id/radio_btn_associate_prime"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Associate Prime"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextOutLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/colorPrimary"
+                android:padding="@dimen/_2sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:hintTextColor="@color/black">
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:autofillHints="emailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/heebo_regular"
+                    android:hint="Name"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/_12sdp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_3sdp"
+            >
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/state_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_10sdp"
+                app:background="@color/white"
+                app:ms_background_color="@color/white"
+                app:ms_padding_bottom="@dimen/_8sdp"
+                app:ms_padding_top="@dimen/_9sdp"
+                app:ms_text_color="@color/white" />
+
+            <!--                        -->
+            <!--                        <ImageView-->
+            <!--                            android:visibility="invisible"-->
+            <!--                            android:layout_width="@dimen/_20sdp"-->
+            <!--                            android:layout_height="@dimen/_20sdp"-->
+            <!--                            android:src="@drawable/ic_baseline_arrow_circle_down_24"-->
+            <!--                            app:tint="@color/grey" />-->
+            <!--                        -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/EditTextOutLineStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/colorPrimary"
+                android:padding="@dimen/_2sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+                app:boxCornerRadiusTopStart="@dimen/_4sdp"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:hintTextColor="@color/black">
+
+                <EditText
+                    android:id="@+id/edt_mobile"
+                    android:autofillHints="emailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/heebo_regular"
+                    android:hint="Mobile"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/_12sdp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_2sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:padding="@dimen/_10sdp"
+                android:id="@+id/edt_dob"
+                android:autofillHints="emailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@null"
+                android:fontFamily="@font/heebo_regular"
+                android:text="dd-mm-yyyy"
+                android:singleLine="true"
+                android:textColor="#393939"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

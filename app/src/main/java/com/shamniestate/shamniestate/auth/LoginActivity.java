@@ -3,6 +3,7 @@ package com.shamniestate.shamniestate.auth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.shamniestate.shamniestate.R;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         activity = LoginActivity.this;
 
+        binding.textSignup.setOnClickListener(view -> startActivity(new Intent(activity, SignupUserInfoActivity.class)));
 
     }
 }
