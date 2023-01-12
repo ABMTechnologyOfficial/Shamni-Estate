@@ -56,4 +56,13 @@ dependencies {
     // Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    // Lotte Animation
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Image Animation
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+
 }
