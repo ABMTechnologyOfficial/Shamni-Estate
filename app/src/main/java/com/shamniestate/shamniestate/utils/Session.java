@@ -7,6 +7,7 @@ public class Session extends Object {
 
     private static final String PREF_NAME = "Rapidine_pref2";
     private static final String IS_LOGGEDIN = "isLoggedIn";
+    private static final String ACCESS_TOKEN = "ACCESS_TOKEN";
     private static final String FAV = "fav";
     private static final String Mobile = "mobile";
     private static final String Email = "email";
@@ -28,9 +29,8 @@ public class Session extends Object {
         editor.apply();
     }
 
-    public void setMobile(String mobile ) {
+    public void setMobile(String mobile) {
         editor.putString(Mobile, mobile);
-       // editor.putString(Email, email);
         editor.apply();
         editor.commit();
     }
@@ -75,6 +75,15 @@ public class Session extends Object {
     public void setLogin(boolean isLoggedIn) {
         editor.putBoolean(IS_LOGGEDIN, isLoggedIn);
         editor.commit();
+    }
+
+    public void setAccessToken(String accessToken) {
+        editor.putString(ACCESS_TOKEN, accessToken);
+        editor.commit();
+    }
+
+    public String getAccessToken() {
+        return Rapidine_pref.getString(ACCESS_TOKEN, "");
     }
 
     public boolean isLoggedIn() {
