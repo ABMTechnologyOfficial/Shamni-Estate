@@ -77,7 +77,7 @@
                     android:padding="@dimen/_3sdp">
 
                     <com.jaredrummler.materialspinner.MaterialSpinner
-                        android:id="@+id/gender_spinner"
+                        android:id="@+id/bank_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"

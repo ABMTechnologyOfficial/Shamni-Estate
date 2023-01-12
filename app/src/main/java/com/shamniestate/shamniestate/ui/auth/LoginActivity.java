@@ -1,5 +1,6 @@
 package com.shamniestate.shamniestate.ui.auth;
 
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 import static com.shamniestate.shamniestate.utils.CommonMethods.isValidEmail;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login(String email, String password) {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
-        apiInterface.login(email, password).enqueue(new Callback<LoginModel>() {
+        apiInterface.login(email, password, AUTHORIZATION).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(@NonNull Call<LoginModel> call, @NonNull Response<LoginModel> response) {
                 try {
@@ -71,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginModel.Datum data = response.body().getData().get(0);
                                 session.setLogin(true);
                                 session.setUserId(data.getAssociateId());
+                                session.setAccessToken(data.getAccessToken());
 
                                 startActivity(new Intent(activity, HomeActivity.class));
                                 finish();
