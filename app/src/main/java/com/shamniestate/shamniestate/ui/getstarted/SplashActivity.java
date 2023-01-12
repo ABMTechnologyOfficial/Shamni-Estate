@@ -1,4 +1,4 @@
-package com.shamniestate.shamniestate.getstarted;
+package com.shamniestate.shamniestate.ui.getstarted;
 
 import static java.lang.Thread.sleep;
 
@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.shamniestate.shamniestate.R;
-import com.shamniestate.shamniestate.auth.LoginActivity;
+import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
