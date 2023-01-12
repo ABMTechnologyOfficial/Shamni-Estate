@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.UserHomeActivity"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/ic_menu"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/heebo_medium"
+                android:gravity="center"
+                android:text="Shamni Estate"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/nav_view_bottom"
+            android:layout_below="@id/header"
+            app:navGraph="@navigation/bottom_navigation_graph" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/bottom_navigation" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#310850"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:paddingVertical="@dimen/_13sdp"
+                        android:src="@drawable/ic_person"
+                        android:tint="@color/white"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width=".3dp"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/heebo_medium"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="Shamni Estate"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:drawableRightCompat="@drawable/ic_arrow_next"
+                        app:drawableTint="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Home"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic1"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic2"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Residential Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic2"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic3"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Commercial Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic3"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic4"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Farm House Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic4"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic5"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Premium Property"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic5"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic6"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Home Loan Enquiry"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic6"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic7"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="EMI Calculater"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic7"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_calculator"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic8"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Chat Support"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic8"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_contact_us"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic9"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="About Us"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic9"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
