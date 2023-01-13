@@ -156,20 +156,41 @@
                     android:orientation="vertical">
 
 
-                    <ImageView
-                        android:id="@+id/s_cancel_cheque_image"
+                    <LinearLayout
                         android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:background="@drawable/login_input_bg"
-                        android:contentDescription="@string/ic_tab"
-                        android:fontFamily="@font/heebo_regular"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:padding="@dimen/_12sdp"
-                        android:src="@drawable/ic_add"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:layout_height="@dimen/_80sdp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_front_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/login_input_bg"
+                            android:contentDescription="@string/ic_tab"
+                            android:fontFamily="@font/heebo_regular"
+                            android:inputType="text"
+                            android:visibility="visible"
+                            android:maxLines="1"
+                            android:padding="@dimen/_12sdp"
+                            android:src="@drawable/ic_add"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ProgressBar
+                            android:visibility="gone"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:id="@+id/aahdr_f_progress"/>
+
+
+                    </LinearLayout>
+
 
                     <TextView
                         android:id="@+id/s_cancel_cheque_tv"
@@ -193,22 +214,40 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/s_aadhaar_card_image"
+                    <LinearLayout
                         android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:background="@drawable/login_input_bg"
-                        android:contentDescription="@string/ic_tab"
-                        android:fontFamily="@font/heebo_regular"
-                        android:padding="@dimen/_12sdp"
-                        android:src="@drawable/ic_add"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_height="@dimen/_80sdp">
+
+                        <ImageView
+                            android:id="@+id/aadhar_back_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/login_input_bg"
+                            android:contentDescription="@string/ic_tab"
+                            android:fontFamily="@font/heebo_regular"
+                            android:inputType="text"
+                            android:visibility="visible"
+                            android:maxLines="1"
+                            android:padding="@dimen/_12sdp"
+                            android:src="@drawable/ic_add"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ProgressBar
+                            android:visibility="gone"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:id="@+id/aahdr_back_progress"/>
+
+
+                    </LinearLayout>
 
 
                     <TextView
@@ -245,20 +284,39 @@
                     android:orientation="vertical">
 
 
-                    <ImageView
-                        android:id="@+id/s_pan_card_image"
+                    <LinearLayout
                         android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:background="@drawable/login_input_bg"
-                        android:contentDescription="@string/ic_tab"
-                        android:fontFamily="@font/heebo_regular"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:padding="@dimen/_12sdp"
-                        android:src="@drawable/ic_add"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:layout_height="@dimen/_80sdp">
+
+                        <ImageView
+                            android:id="@+id/pan_image"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/login_input_bg"
+                            android:contentDescription="@string/ic_tab"
+                            android:fontFamily="@font/heebo_regular"
+                            android:inputType="text"
+                            android:visibility="visible"
+                            android:maxLines="1"
+                            android:padding="@dimen/_12sdp"
+                            android:src="@drawable/ic_add"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <ProgressBar
+                            android:visibility="gone"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:id="@+id/pan_progress"/>
+
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/s_pan_card_tv"

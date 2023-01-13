@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.ActivitySignupUserInfoBinding;
+import com.shamniestate.shamniestate.models.UtilModel;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -60,19 +62,22 @@ public class SignupUserInfoActivity extends AppCompatActivity {
 
     private void addData() {
 
-        Intent intent = new Intent(activity, SignupDocumentsActivity.class);
-        intent.putExtra("account_type", selectedAccountType);
-        intent.putExtra("city", binding.userCityEdit.getText().toString());
-        intent.putExtra("state", binding.userStateEdit.getText().toString());
-        intent.putExtra("name", binding.userNameEdit.getText().toString());
-        intent.putExtra("email", binding.userStateEdit.getText().toString());
-        intent.putExtra("dob", binding.userDobEdit.getText().toString());
-        intent.putExtra("gender", selectedGender);
-        intent.putExtra("mobile", binding.userMobileEdit.getText().toString());
-        intent.putExtra("address", binding.userAddressEdit.getText().toString());
-        intent.putExtra("zip", binding.userZipEdit.getText().toString());
-        startActivity(intent);
 
+        UtilModel model = new UtilModel();
+
+        model.setAccountType(selectedAccountType);
+        model.setAssociateAddress(binding.userAddressEdit.getText().toString());
+        model.setAssociateCity(binding.userCityEdit.getText().toString());
+        model.setAssociateCityZip( binding.userZipEdit.getText().toString());
+        model.setAssociateMobile( binding.userMobileEdit.getText().toString());
+        model.setAssociateState( binding.userStateEdit.getText().toString());
+        model.setAssociateGender(selectedGender);
+        model.setAssociateDob(binding.userDobEdit.getText().toString());
+        model.setAssociateName(binding.userNameEdit.getText().toString());
+
+        Intent intent = new Intent(activity, SignupDocumentsActivity.class);
+        intent.putExtra("model",(Serializable) model);
+        startActivity(intent);
 
     }
 
@@ -85,17 +90,9 @@ public class SignupUserInfoActivity extends AppCompatActivity {
             binding.userAddressEdit.setError("Enter Address..!");
             binding.userAddressEdit.requestFocus();
             return false;
-        } else if (binding.userEmailEdit.getText().toString().equalsIgnoreCase("")) {
-            binding.userEmailEdit.setError("Enter Address..!");
-            binding.userEmailEdit.requestFocus();
-            return false;
         } else if (binding.userNameEdit.getText().toString().equalsIgnoreCase("")) {
             binding.userNameEdit.setError("Enter Name..!");
             binding.userNameEdit.requestFocus();
-            return false;
-        } else if (!emailValidator(binding.userEmailEdit.getText().toString())) {
-            binding.userEmailEdit.setError("Invalid Email..!");
-            binding.userEmailEdit.requestFocus();
             return false;
         } else if (binding.userMobileEdit.getText().toString().equalsIgnoreCase("")) {
             binding.userMobileEdit.setError("Enter Mobile..!");

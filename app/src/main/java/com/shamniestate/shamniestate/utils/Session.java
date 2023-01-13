@@ -20,6 +20,10 @@ public class Session extends Object {
     private static final String role_ = "user_role";
     private static final String LOGEDIN = "logedIn";
     private static final String LOGEDOUT = "logedout";
+    private static final String aadhar_front_image = "aadhar_front_image";
+    private static final String aadhar_back_image = "aadhar_front_image";
+    private static final String pan_image = "pan_image";
+    private static final String cancel_cheque_image = "cancel_cheque_image";
 
     private Context _context;
     private SharedPreferences Rapidine_pref;
@@ -84,6 +88,24 @@ public class Session extends Object {
         editor.putString(ACCESS_TOKEN, accessToken);
         editor.commit();
     }
+
+
+    public  String getAadhar_front_image(){
+       return Rapidine_pref.getString(aadhar_front_image,"");
+    }
+
+    public  String getCancel_cheque_image(){
+       return Rapidine_pref.getString(cancel_cheque_image,"");
+    }
+
+    public  String getAadhar_back_image(){
+        return Rapidine_pref.getString(aadhar_back_image,"");
+    }
+
+    public  String getPan_image(){
+        return Rapidine_pref.getString(pan_image,"");
+    }
+
 
     public String getAccessToken() {
         return Rapidine_pref.getString(ACCESS_TOKEN, "");
