@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".home.UserHomeActivity"
+    tools:context=".ui.UserHomeActivity"
     tools:openDrawer="start">
 
     <RelativeLayout
@@ -49,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_above="@id/nav_view_bottom"
             android:layout_below="@id/header"
-             />
+            app:navGraph="@navigation/bottom_navigation_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view_bottom"
@@ -429,7 +429,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_about_us"
+                        android:src="@drawable/ic_home"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
