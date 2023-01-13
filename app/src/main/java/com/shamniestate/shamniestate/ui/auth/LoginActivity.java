@@ -16,7 +16,7 @@ import com.shamniestate.shamniestate.RetrofitApis.BaseUrls;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.databinding.ActivityLoginBinding;
 import com.shamniestate.shamniestate.models.LoginModel;
-import com.shamniestate.shamniestate.ui.UserHomeActivity;
+import com.shamniestate.shamniestate.home.UserHomeActivity;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
 import com.shamniestate.shamniestate.utils.Session;
 

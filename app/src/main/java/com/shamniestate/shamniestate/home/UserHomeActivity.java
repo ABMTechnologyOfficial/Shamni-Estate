@@ -1,4 +1,4 @@
-package com.shamniestate.shamniestate.ui;
+package com.shamniestate.shamniestate.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 

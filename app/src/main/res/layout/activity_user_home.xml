@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.UserHomeActivity"
+    tools:context=".home.UserHomeActivity"
     tools:openDrawer="start">
 
     <RelativeLayout
@@ -429,7 +429,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
+                        android:src="@drawable/ic_about_us"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
