@@ -10,13 +10,14 @@ import com.shamniestate.shamniestate.databinding.ActivitySignupDocumentsBinding;
 
 public class SignupDocumentsActivity extends AppCompatActivity {
     private Activity activity;
-    private ActivitySignupDocumentsBinding binding;
+    ActivitySignupDocumentsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignupDocumentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        activity = this;
 
         binding.icBack.setOnClickListener(view -> onBackPressed());
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, BankingInformationActivity.class)));

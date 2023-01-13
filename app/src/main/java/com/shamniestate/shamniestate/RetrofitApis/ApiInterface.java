@@ -2,9 +2,11 @@ package com.shamniestate.shamniestate.RetrofitApis;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.admin_bank_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
 
 import com.shamniestate.shamniestate.models.BankListModel;
 import com.shamniestate.shamniestate.models.LoginModel;
+import com.shamniestate.shamniestate.models.SignupModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -25,5 +27,9 @@ public interface ApiInterface {
 
     @GET(admin_bank_list)
     Call<BankListModel> getBankList();
+
+    @FormUrlEncoded
+    @POST(register_form)
+    Call<SignupModel> signup();
 
 }

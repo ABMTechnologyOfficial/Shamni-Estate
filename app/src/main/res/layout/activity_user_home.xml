@@ -40,7 +40,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
-
         </RelativeLayout>
 
         <androidx.fragment.app.FragmentContainerView
@@ -49,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_above="@id/bottom_navigation"
             android:layout_below="@id/header"
-            app:navGraph="@navigation/bottom_navigation_graph" />
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

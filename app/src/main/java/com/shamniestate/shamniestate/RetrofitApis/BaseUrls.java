@@ -8,4 +8,5 @@ public class BaseUrls extends Object{
 
     public static final String login_check = "login_check";
     public static final String admin_bank_list = "admin_bank_list";
+    public static final String register_form = "register_form";
 }

@@ -81,6 +81,7 @@
                     android:paddingVertical="@dimen/_3sdp">
 
                     <RadioButton
+                        android:checked="true"
                         android:id="@+id/radio_btn_individual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -133,6 +134,48 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_name_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Write Your Name"
+                        android:inputType="textPersonName"
+                        android:singleLine="true"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Email"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/EditTextOutLineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintTextColor="@color/colorPrimary"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/user_email_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -172,13 +215,15 @@
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/user_dob_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/edit_bg"
                         android:gravity="center_vertical"
                         android:hint="dd/yy/mm"
                         android:inputType="textEmailAddress"
+                        android:padding="@dimen/_13sdp"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -253,6 +298,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
+                        android:id="@+id/user_mobile_edit"
                         android:gravity="center_vertical"
                         android:hint="Write associate mobile number"
                         android:inputType="textEmailAddress"
@@ -290,6 +336,7 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_address_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -330,12 +377,13 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_city_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="City"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textEmailAddress|textCapWords"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -370,12 +418,13 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_state_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="State"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textEmailAddress|textCapWords"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -410,12 +459,13 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_zip_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Zip"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number|textCapWords"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />

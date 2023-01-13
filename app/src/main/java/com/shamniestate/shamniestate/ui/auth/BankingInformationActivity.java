@@ -37,6 +37,7 @@ public class BankingInformationActivity extends AppCompatActivity {
         binding.icBack.setOnClickListener(view -> onBackPressed());
 
         getBankList();
+
     }
 
     private void getBankList() {

@@ -3,6 +3,7 @@ package com.shamniestate.shamniestate.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class LoginModel {
@@ -40,7 +41,8 @@ public class LoginModel {
     public void setData(List<Datum> data) {
         this.data = data;
     }
-    public class Datum {
+
+    public class Datum implements Serializable {
 
         @SerializedName("associate_id")
         @Expose
