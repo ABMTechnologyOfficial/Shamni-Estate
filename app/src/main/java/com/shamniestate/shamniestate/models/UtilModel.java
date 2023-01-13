@@ -339,5 +339,39 @@ public class UtilModel implements Serializable {
         this.created = created;
     }
 
-
+    @Override
+    public String toString() {
+        return "UtilModel{" +
+                "associateId='" + associateId + '\'' +
+                ", accountType='" + accountType + '\'' +
+                ", workingType='" + workingType + '\'' +
+                ", associateProfile='" + associateProfile + '\'' +
+                ", associateName='" + associateName + '\'' +
+                ", associateGender='" + associateGender + '\'' +
+                ", associateDob='" + associateDob + '\'' +
+                ", associateMobile='" + associateMobile + '\'' +
+                ", associateAddress='" + associateAddress + '\'' +
+                ", associateCity='" + associateCity + '\'' +
+                ", associateState='" + associateState + '\'' +
+                ", associateCityZip='" + associateCityZip + '\'' +
+                ", associateEmail='" + associateEmail + '\'' +
+                ", associateAadharCardNo='" + associateAadharCardNo + '\'' +
+                ", associateAadharCardFront='" + associateAadharCardFront + '\'' +
+                ", associateAadharCardBack='" + associateAadharCardBack + '\'' +
+                ", associatePanNo='" + associatePanNo + '\'' +
+                ", associatePanCardFront='" + associatePanCardFront + '\'' +
+                ", associateBankName='" + associateBankName + '\'' +
+                ", associateAccNo='" + associateAccNo + '\'' +
+                ", associateBnkIfscNo='" + associateBnkIfscNo + '\'' +
+                ", associateBnkAccName='" + associateBnkAccName + '\'' +
+                ", associateGstinNo='" + associateGstinNo + '\'' +
+                ", associateReraRegNo='" + associateReraRegNo + '\'' +
+                ", associateBlankCheque='" + associateBlankCheque + '\'' +
+                ", associateInviteCode='" + associateInviteCode + '\'' +
+                ", sponsorId='" + sponsorId + '\'' +
+                ", associateAccountStatus='" + associateAccountStatus + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                ", created='" + created + '\'' +
+                '}';
+    }
 }

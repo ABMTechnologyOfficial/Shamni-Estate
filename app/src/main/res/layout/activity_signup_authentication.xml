@@ -83,6 +83,7 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -123,6 +124,7 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -163,6 +165,7 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_c_password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -203,6 +206,7 @@
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_referrral_code"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -241,12 +245,14 @@
                     android:paddingVertical="@dimen/_3sdp">
 
                     <RadioButton
+                        android:id="@+id/user_shamni_part"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Part Time"
                         android:textSize="@dimen/_8sdp" />
 
                     <RadioButton
+                        android:id="@+id/user_shamni_full"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
@@ -272,7 +278,7 @@
 
                     <CheckBox
                         android:visibility="visible"
-                        android:id="@+id/txtprivacy"
+                        android:id="@+id/user_shamni_check"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -289,7 +295,7 @@
                         android:textSize="@dimen/_10sdp"
                         android:fontFamily="@font/heebo_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txtprivacy"
+                        app:layout_constraintStart_toEndOf="@+id/user_shamni_check"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.3" />
 
@@ -355,7 +361,7 @@
                         android:fontFamily="@font/heebo_regular"
                         android:textColor="#ff0000"
                         android:textFontWeight="400"
-                        app:layout_constraintStart_toEndOf="@+id/txtprivacy"
+                        app:layout_constraintStart_toEndOf="@+id/user_shamni_check"
                         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

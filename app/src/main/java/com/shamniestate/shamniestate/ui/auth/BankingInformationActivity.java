@@ -170,8 +170,6 @@ public class BankingInformationActivity extends AppCompatActivity {
 
     private void uploadImage(ImageView aadharFrontImage, String key, ProgressBar aahdrFProgress, File aadharCardFront, Bitmap bitmap, String pan_image) {
 
-
-
         ANRequest.MultiPartBuilder anAdd = AndroidNetworking.upload((BaseUrls.BASE_URL + signup_img));
         anAdd.addMultipartFile(key, aadharCardFront);
         anAdd.setPriority(Priority.HIGH);
