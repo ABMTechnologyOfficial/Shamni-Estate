@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shamniestate.shamniestate.R;
-import com.shamniestate.shamniestate.home.UserHomeActivity;
+import com.shamniestate.shamniestate.ui.home.UserHomeActivity;
 import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 import com.shamniestate.shamniestate.utils.Session;
 

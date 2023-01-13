@@ -20,5 +20,6 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
         activity = SignupAuthenticationActivity.this;
 
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, SignupDocumentsActivity.class)));
+        binding.icBack.setOnClickListener(view -> onBackPressed());
     }
 }

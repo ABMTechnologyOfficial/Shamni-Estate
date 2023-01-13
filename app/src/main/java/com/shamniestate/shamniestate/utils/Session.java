@@ -1,7 +1,10 @@
 package com.shamniestate.shamniestate.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 
 public class Session extends Object {
 
@@ -90,31 +93,22 @@ public class Session extends Object {
         return Rapidine_pref.getBoolean(IS_LOGGEDIN, false);
     }
 
-
     public void setValue(String key, String value ){
         editor.putString(key,value);
         editor.apply();
     }
 
-
     public String getValue(String key) {
         return Rapidine_pref.getString(key, "");
     }
 
-    public void setMyLogin (boolean tf) {
-        editor.putBoolean(LOGEDIN,tf);
-        editor.apply();
-
-    }
-
-
-    public boolean getMyLogin() {
-        return Rapidine_pref.getBoolean(LOGEDIN, false);
-    }
-
-    public void setMyLogout (boolean tf) {
-        editor.putBoolean(LOGEDOUT,tf);
+    public void logout() {
         editor.clear();
         editor.apply();
+        Intent showLogin = new Intent(_context, LoginActivity.class);
+        showLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        showLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        _context.startActivity(showLogin);
     }
+
 }

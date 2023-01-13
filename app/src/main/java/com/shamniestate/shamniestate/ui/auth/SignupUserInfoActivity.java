@@ -27,5 +27,6 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         binding.genderSpinner.setAdapter(adapter);
 
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, SignupDocumentsActivity.class)));
+        binding.icBack.setOnClickListener(view -> onBackPressed());
     }
 }

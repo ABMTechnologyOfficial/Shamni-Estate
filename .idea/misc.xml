@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_contact_us.xml" value="0.214" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_logout.xml" value="0.116" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_banking_information.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.33" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_splash.xml" value="0.2552083333333333" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_user_home.xml" value="0.33" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/custom_progress_dialog.xml" value="0.19375" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/no_internet_layout.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable-v24/button_background.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/button_background.xml" value="0.166" />
@@ -17,17 +21,21 @@
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/ic_contact_us.xml" value="0.1155" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/ic_logout.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/login_input_bg.xml" value="0.166" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_banking_information.xml" value="0.16" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_about_us.xml" value="0.20051303976058144" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_banking_information.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_chat_support.xml" value="0.18896964514749892" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_emi_calculator.xml" value="0.18896964514749892" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_home_loan_enquiry.xml" value="0.18896964514749892" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_login.xml" value="0.20051303976058144" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_documents.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.2" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_splash.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_user_home.xml" value="0.264" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_user_home.xml" value="0.1" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/custom_progress_dialog.xml" value="0.1" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/spinner_item.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1996579734929457" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/menu/bottom_navigation.xml" value="0.24427083333333333" />
       </map>
     </option>

@@ -18,6 +18,7 @@ public class SignupDocumentsActivity extends AppCompatActivity {
         binding = ActivitySignupDocumentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.icBack.setOnClickListener(view -> onBackPressed());
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, BankingInformationActivity.class)));
     }
 }

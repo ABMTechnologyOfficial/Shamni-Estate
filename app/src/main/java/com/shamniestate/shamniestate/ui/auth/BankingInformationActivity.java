@@ -34,6 +34,7 @@ public class BankingInformationActivity extends AppCompatActivity {
         activity = BankingInformationActivity.this;
 
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, SignupAuthenticationActivity.class)));
+        binding.icBack.setOnClickListener(view -> onBackPressed());
 
         getBankList();
     }
