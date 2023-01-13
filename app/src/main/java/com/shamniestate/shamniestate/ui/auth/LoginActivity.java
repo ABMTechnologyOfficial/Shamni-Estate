@@ -16,7 +16,6 @@ import com.shamniestate.shamniestate.RetrofitApis.BaseUrls;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.databinding.ActivityLoginBinding;
 import com.shamniestate.shamniestate.models.LoginModel;
-import com.shamniestate.shamniestate.ui.HomeActivity;
 import com.shamniestate.shamniestate.ui.UserHomeActivity;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
 import com.shamniestate.shamniestate.utils.Session;
@@ -65,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     private void login(String email, String password) {
         ProgressDialog pd = new ProgressDialog(activity);
         pd.show();
+
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.login(email, password, AUTHORIZATION).enqueue(new Callback<LoginModel>() {
             @Override
