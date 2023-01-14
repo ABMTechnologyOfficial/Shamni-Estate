@@ -302,7 +302,7 @@
                         android:id="@+id/user_mobile_edit"
                         android:gravity="center_vertical"
                         android:hint="Write associate mobile number"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />

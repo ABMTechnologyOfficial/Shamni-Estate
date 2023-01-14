@@ -1,5 +1,6 @@
 package com.shamniestate.shamniestate.ui.auth;
 
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.signup_img;
 import static com.shamniestate.shamniestate.utils.BitmapToFile.bitmapToFile;
 
@@ -10,7 +11,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.icu.util.UniversalTimeScale;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -48,6 +48,7 @@ public class SignupDocumentsActivity extends AppCompatActivity {
     int AADHARCARDFRONT = 100 , AADHARCARDBACK = 200 , PANCARD = 300 ;
     ActivitySignupDocumentsBinding binding;
     private File panImage = null, aadharCardFront= null, aadharCardBack = null;
+    private  String selectedAadharCardFront = "" , selectedAadharCardBack = "" , selectedPanCArd = "";
     private Uri filepath;
     private Bitmap bitmap;
     Session session ;
@@ -144,6 +145,9 @@ public class SignupDocumentsActivity extends AppCompatActivity {
                 model.setAssociatePanCardFront(session.getPan_image());
                 model.setAssociatePanNo(binding.panNumberEdit.getText().toString());
                 model.setAssociateAadharCardNo(binding.aahdarNumberEdit.getText().toString());
+                model.setAssociateAadharCardFront(selectedAadharCardFront);
+                model.setAssociateAadharCardBack(selectedAadharCardBack);
+                model.setAssociatePanCardFront(selectedPanCArd);
                 startActivity(new Intent(activity,BankingInformationActivity.class).putExtra("model",(Serializable) model));
             }
         });
@@ -198,25 +202,25 @@ public class SignupDocumentsActivity extends AppCompatActivity {
             if(requestCode == AADHARCARDFRONT ){
                 bitmap = setBitmap(binding.aadharFrontImage);
                 aadharCardFront = bitmapToFile(activity, bitmap);
-                uploadImage(binding.aadharFrontImage, "associate_aadhar_card_front" , binding.aahdrFProgress, aadharCardFront ,bitmap, "aadhar_front_image");
+                uploadImage(binding.aadharFrontImage, "associate_aadhar_card_front" , binding.aahdrFProgress, aadharCardFront ,bitmap, "aadhar_front_image" , 1);
             }else if(requestCode == AADHARCARDBACK){
                 bitmap = setBitmap(binding.aadharBackImage);
                 aadharCardBack = bitmapToFile(activity, bitmap);
-                uploadImage(binding.aadharBackImage, "associate_aadhar_card_back" , binding.aahdrBackProgress, aadharCardBack ,bitmap , "aadhar_front_image");
+                uploadImage(binding.aadharBackImage, "associate_aadhar_card_back" , binding.aahdrBackProgress, aadharCardBack ,bitmap , "aadhar_front_image", 2);
             }else {
                 bitmap = setBitmap(binding.panImage);
                 panImage = bitmapToFile(activity, bitmap);
-                uploadImage(binding.panImage, "associate_pan_card_front" , binding.panProgress, panImage ,bitmap,"pan_image");
+               uploadImage(binding.panImage, "associate_pan_card_front" , binding.panProgress, panImage ,bitmap,"pan_image", 3);
             }
 
         }
     }
 
-    private void uploadImage(ImageView aadharFrontImage, String key, ProgressBar aahdrFProgress, File aadharCardFront, Bitmap bitmap, String pan_image) {
-
-
-
+    private void uploadImage(ImageView aadharFrontImage, String key, ProgressBar aahdrFProgress, File aadharCardFront, Bitmap bitmap, String pan_image, int i) {
+        aahdrFProgress.setVisibility(View.VISIBLE);
+        aadharFrontImage.setVisibility(View.GONE);
         ANRequest.MultiPartBuilder anAdd = AndroidNetworking.upload((BaseUrls.BASE_URL + signup_img));
+        anAdd.addHeaders("Authorization",AUTHORIZATION);
         anAdd.addMultipartFile(key, aadharCardFront);
         anAdd.setPriority(Priority.HIGH);
         anAdd.build()
@@ -233,6 +237,12 @@ public class SignupDocumentsActivity extends AppCompatActivity {
                             if (code == 200) {
                                 aadharFrontImage.setImageBitmap(bitmap);
                                 session.setValue(pan_image , Data);
+                                aadharFrontImage.setVisibility(View.VISIBLE);
+
+                                if(i == 1) selectedAadharCardFront = Data ;
+                                else  if (i == 2 ) selectedAadharCardBack = Data;
+                                else  selectedPanCArd = Data ;
+
                                 Log.e("TAG", "onResponse() called with: jsonObject = [" + Data + "]");
                             }
                         } catch (JSONException e) {
@@ -246,7 +256,6 @@ public class SignupDocumentsActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         aahdrFProgress.setVisibility(View.GONE);
                         Log.e("TAG", "onError: " + anError.getErrorBody());
-
                     }
                 });
 
