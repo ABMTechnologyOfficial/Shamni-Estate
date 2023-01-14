@@ -1,5 +1,6 @@
 package com.shamniestate.shamniestate.ui.auth;
 
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.signup_img;
 import static com.shamniestate.shamniestate.utils.BitmapToFile.bitmapToFile;
 
@@ -61,6 +62,7 @@ public class BankingInformationActivity extends AppCompatActivity {
     private Uri filepath;
     private Bitmap bitmap;
     int CANCELCHEQUE = 100;
+    private  String selectedCnacelCheque = "";
     Session session ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +110,7 @@ public class BankingInformationActivity extends AppCompatActivity {
                 model.setAssociateAccNo(binding.userBankAccountNumber.getText().toString());
                 model.setAssociateBnkIfscNo(binding.userBankIfsc.getText().toString());
                 model.setAssociateBnkAccName(binding.userBankHolderName.getText().toString());
+                model.setAssociateBlankCheque(selectedCnacelCheque);
                 startActivity(new Intent(activity,SignupAuthenticationActivity.class).putExtra("model",(Serializable) model));
             }
         });
@@ -169,8 +172,10 @@ public class BankingInformationActivity extends AppCompatActivity {
     }
 
     private void uploadImage(ImageView aadharFrontImage, String key, ProgressBar aahdrFProgress, File aadharCardFront, Bitmap bitmap, String pan_image) {
-
+        aahdrFProgress.setVisibility(View.VISIBLE);
+        aadharFrontImage.setVisibility(View.GONE);
         ANRequest.MultiPartBuilder anAdd = AndroidNetworking.upload((BaseUrls.BASE_URL + signup_img));
+        anAdd.addHeaders("Authorization",AUTHORIZATION);
         anAdd.addMultipartFile(key, aadharCardFront);
         anAdd.setPriority(Priority.HIGH);
         anAdd.build()
@@ -187,6 +192,8 @@ public class BankingInformationActivity extends AppCompatActivity {
                             if (code == 200) {
                                 aadharFrontImage.setImageBitmap(bitmap);
                                 session.setValue(pan_image , Data);
+                                aadharFrontImage.setVisibility(View.VISIBLE);
+                                selectedCnacelCheque = Data ;
                                 Log.e("TAG", "onResponse() called with: jsonObject = [" + Data + "]");
                             }
                         } catch (JSONException e) {
@@ -244,3 +251,20 @@ public class BankingInformationActivity extends AppCompatActivity {
         });
     }
 }
+
+
+
+
+
+
+
+/*
+*
+*
+*
+* aaaf file_63c2ecaf58075.png
+* aaab file_63c2ecc89adb2.png
+* pan file_63c2ecd9f185d.png
+* cac file_63c2ecfdf0316.png
+*
+* */

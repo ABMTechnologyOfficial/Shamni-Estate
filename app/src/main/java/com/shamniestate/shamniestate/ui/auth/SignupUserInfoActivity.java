@@ -6,7 +6,11 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +26,7 @@ import java.util.regex.Pattern;
 public class SignupUserInfoActivity extends AppCompatActivity {
     private Activity activity;
     private ActivitySignupUserInfoBinding binding;
-    private String selectedAccountType = "0", selectedGender = "Male";
+    private String selectedAccountType = "0", selectedGender = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +40,29 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(activity, R.layout.spinner_item, gender);
         binding.genderSpinner.setAdapter(adapter);
 
-        binding.genderSpinner.setOnItemSelectedListener((view, position, id, item) -> selectedGender = gender[position]);
+        binding.genderSpinner.setOnItemSelectedListener((view, position, id, item) -> {
+            selectedGender = String.valueOf(position);
+            Log.e("TAG", "onCheckedChanged() called with: selectedGender = [" + selectedGender + "]");
+        });
 
         binding.textContinue.setOnClickListener(v -> {
             if (validate()) addData();
         });
         binding.icBack.setOnClickListener(view -> onBackPressed());
 
-        binding.radioBtnChannelPartner.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked)
-                selectedAccountType = "1";
-        });
-
         binding.userDobEdit.setOnClickListener(v -> selectDate(binding.userDobEdit));
 
-        binding.radioBtnAssociatePrime.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked)
+        binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton button = findViewById(checkedId);
+            if(button.getText().toString().equalsIgnoreCase("Individual")){
                 selectedAccountType = "0";
+            }else if(button.getText().toString().equalsIgnoreCase("Channel Partner")){
+                selectedAccountType = "1";
+            }else {
+                selectedAccountType = "2";
+            }
+            Log.e("TAG", "onCheckedChanged() called with: selectedAccountType = [" + selectedAccountType + "], checkedId = [" + checkedId + "]");
         });
-
-        binding.radioBtnIndividual.setOnCheckedChangeListener((buttonView, isChecked) -> selectedAccountType = "0");
 
 
     }

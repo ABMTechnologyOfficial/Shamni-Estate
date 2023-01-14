@@ -10,4 +10,5 @@ public class BaseUrls extends Object{
     public static final String admin_bank_list = "admin_bank_list";
     public static final String register_form = "register_form";
     public static final String signup_img = "signup_img";
+    public static final String property_list = "property_list";
 }

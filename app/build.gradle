@@ -68,7 +68,9 @@ dependencies {
     // Permission
     implementation 'com.karumi:dexter:6.2.3'
 
-   // Dhaval Library
-//    implementation 'com.github.dhaval2404:imagepicker:2.1'
-//    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+    ////// Rounded Image View
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+//    Picaso
+    implementation 'com.squareup.picasso:picasso:2.8'
 }

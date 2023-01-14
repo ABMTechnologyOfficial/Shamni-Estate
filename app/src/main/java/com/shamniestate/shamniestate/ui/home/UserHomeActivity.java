@@ -31,6 +31,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         setUpNavigationView();
         setUpBottomNav();
+        loadFrag(new UserHomeFragment());
     }
 
     private void setUpBottomNav() {
