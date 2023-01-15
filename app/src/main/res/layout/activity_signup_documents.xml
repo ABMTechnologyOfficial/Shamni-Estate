@@ -76,6 +76,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -118,6 +119,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -129,7 +131,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="0000 0000 0000 00"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:maxLength="12"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
@@ -165,6 +167,7 @@
                         android:layout_height="@dimen/_80sdp">
 
                         <ImageView
+                            android:scaleType="fitXY"
                             android:id="@+id/aadhar_front_image"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"
@@ -223,6 +226,7 @@
                         android:layout_height="@dimen/_80sdp">
 
                         <ImageView
+                            android:scaleType="fitXY"
                             android:id="@+id/aadhar_back_image"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"
@@ -293,6 +297,7 @@
                         android:layout_height="@dimen/_80sdp">
 
                         <ImageView
+                            android:scaleType="fitXY"
                             android:id="@+id/pan_image"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"

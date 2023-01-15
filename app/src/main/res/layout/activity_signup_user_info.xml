@@ -129,6 +129,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -210,6 +211,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_3sdp"
+                    app:hintEnabled="false"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
                     app:boxStrokeColor="@color/colorPrimary"
@@ -291,15 +293,16 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
 
                     <EditText
+                        android:id="@+id/user_mobile_edit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
-                        android:id="@+id/user_mobile_edit"
                         android:gravity="center_vertical"
                         android:hint="Write associate mobile number"
                         android:inputType="number"
@@ -332,6 +335,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -373,6 +377,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -414,6 +419,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -455,6 +461,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">

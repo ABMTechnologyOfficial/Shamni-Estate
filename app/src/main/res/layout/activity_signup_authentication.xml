@@ -78,6 +78,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -119,6 +120,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -160,6 +162,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">
@@ -201,6 +204,7 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
+                    app:hintEnabled="false"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:hintTextColor="@color/colorPrimary"
                     app:startIconTint="@color/colorPrimary">

@@ -16,9 +16,17 @@ import android.view.ViewGroup;
 
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
+import com.shamniestate.shamniestate.adapters.HomePageSlider;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentUserHomeBinding;
+import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,6 +35,7 @@ import retrofit2.Response;
 public class UserHomeFragment extends Fragment {
     private Activity activity;
     private FragmentUserHomeBinding binding;
+    private List<HomeSliderModel.HomeSliderData> models = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -35,6 +44,19 @@ public class UserHomeFragment extends Fragment {
         activity = getActivity();
 
         getPropertyList();
+
+        binding.homeBanerSliderNew.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        binding.homeBanerSliderNew.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        binding.homeBanerSliderNew.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        binding.homeBanerSliderNew.setScrollTimeInSec(4); //set scroll delay in seconds :
+        binding.homeBanerSliderNew.startAutoCycle();
+
+        models.add(new HomeSliderModel.HomeSliderData(1));
+        models.add(new HomeSliderModel.HomeSliderData(1));
+        models.add(new HomeSliderModel.HomeSliderData(1));
+
+        HomePageSlider homePageSlider = new HomePageSlider(models,getContext());
+        binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
 
         return binding.getRoot();
     }
