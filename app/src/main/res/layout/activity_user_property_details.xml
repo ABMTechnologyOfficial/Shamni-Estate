@@ -375,7 +375,7 @@
                                     android:text="hhhasfghjastyhasgvbh"
                                     android:textColor="@color/light_black"
                                     android:textFontWeight="400"
-                                    android:textSize="@dimen/_10sdp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                             </LinearLayout>
 
@@ -784,83 +784,83 @@
                                         </LinearLayout>
                                     </LinearLayout>
 
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="@dimen/_1sdp"
-                                        android:layout_margin="@dimen/_10sdp"
-                                        android:background="@color/view_divider" />
+<!--                                    <View-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_1sdp"-->
+<!--                                        android:layout_margin="@dimen/_10sdp"-->
+<!--                                        android:background="@color/view_divider" />-->
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:weightSum="2">
-
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:orientation="vertical">
-
-                                            <TextView
-                                                android:id="@+id/s_c_insurance"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/_5sdp"
-                                                android:ellipsize="end"
-                                                android:fontFamily="@font/heebo_regular"
-                                                android:maxLines="1"
-                                                android:text="Insurance Validity"
-                                                android:textColor="@color/black"
-                                                android:textSize="@dimen/_12sdp" />
-
-                                            <TextView
-                                                android:id="@+id/s_c_insurance_expire"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/_5sdp"
-                                                android:ellipsize="end"
-                                                android:fontFamily="@font/heebo_medium"
-                                                android:maxLines="2"
-                                                android:text=""
-                                                android:textColor="@color/light_black"
-                                                android:textSize="@dimen/_12sdp" />
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:orientation="vertical">
-
-                                            <TextView
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/_5sdp"
-                                                android:ellipsize="end"
-                                                android:fontFamily="@font/heebo_regular"
-                                                android:maxLines="1"
-                                                android:text="Insurance Type"
-                                                android:textColor="@color/black"
-                                                android:textSize="@dimen/_12sdp" />
-
-                                            <TextView
-                                                android:id="@+id/s_c_insurance_type"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/_5sdp"
-                                                android:ellipsize="end"
-                                                android:fontFamily="@font/heebo_medium"
-                                                android:maxLines="2"
-                                                android:text="Comprehensive"
-                                                android:textColor="@color/light_black"
-                                                android:textSize="@dimen/_12sdp" />
+<!--                                    <LinearLayout-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:orientation="horizontal"-->
+<!--                                        android:weightSum="2">-->
 
 
-                                        </LinearLayout>
-                                    </LinearLayout>
+<!--                                        <LinearLayout-->
+<!--                                            android:layout_width="match_parent"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1"-->
+<!--                                            android:orientation="vertical">-->
+
+<!--                                            <TextView-->
+<!--                                                android:id="@+id/s_c_insurance"-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                                android:ellipsize="end"-->
+<!--                                                android:fontFamily="@font/heebo_regular"-->
+<!--                                                android:maxLines="1"-->
+<!--                                                android:text="Insurance Validity"-->
+<!--                                                android:textColor="@color/black"-->
+<!--                                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                                            <TextView-->
+<!--                                                android:id="@+id/s_c_insurance_expire"-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                                android:ellipsize="end"-->
+<!--                                                android:fontFamily="@font/heebo_medium"-->
+<!--                                                android:maxLines="2"-->
+<!--                                                android:text=""-->
+<!--                                                android:textColor="@color/light_black"-->
+<!--                                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                                        </LinearLayout>-->
+
+<!--                                        <LinearLayout-->
+<!--                                            android:layout_width="match_parent"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1"-->
+<!--                                            android:orientation="vertical">-->
+
+<!--                                            <TextView-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                                android:ellipsize="end"-->
+<!--                                                android:fontFamily="@font/heebo_regular"-->
+<!--                                                android:maxLines="1"-->
+<!--                                                android:text="Insurance Type"-->
+<!--                                                android:textColor="@color/black"-->
+<!--                                                android:textSize="@dimen/_12sdp" />-->
+
+<!--                                            <TextView-->
+<!--                                                android:id="@+id/s_c_insurance_type"-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                                android:ellipsize="end"-->
+<!--                                                android:fontFamily="@font/heebo_medium"-->
+<!--                                                android:maxLines="2"-->
+<!--                                                android:text="Comprehensive"-->
+<!--                                                android:textColor="@color/light_black"-->
+<!--                                                android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                                        </LinearLayout>-->
+<!--                                    </LinearLayout>-->
 
                                     <View
                                         android:layout_width="match_parent"
@@ -951,6 +951,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/map_linar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -966,14 +967,21 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_17sdp" />
 
-
                             <LinearLayout
+                                android:id="@+id/map_linear"
                                 android:layout_width="match_parent"
-                                android:orientation="vertical"
-                                android:layout_height="@dimen/_250sdp">
+                                android:layout_height="@dimen/_300sdp"
+                                android:orientation="vertical">
 
+                                <FrameLayout
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_300sdp"
+                                    android:id="@+id/fragment_container"/>
 
                             </LinearLayout>
+
+
 
                         </LinearLayout>
 

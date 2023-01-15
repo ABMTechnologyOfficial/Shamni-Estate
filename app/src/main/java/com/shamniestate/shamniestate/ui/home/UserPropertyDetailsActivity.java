@@ -1,8 +1,10 @@
 package com.shamniestate.shamniestate.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -45,6 +47,17 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
         binding.imageSlider.setImageList(slideModelArrayList);
 
+        String lat , lang ;
+        lat = data.getPropertyLatitude() ;
+        lang = data.getPropertyLongitude();
+
+        if(!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")){
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.fragment_container, new MapFragment(Double.parseDouble(lat), Double.parseDouble(lang), false));
+            transaction.commit();
+        }else {
+            binding.mapLinar.setVisibility(View.GONE);
+        }
 
     }
 }
