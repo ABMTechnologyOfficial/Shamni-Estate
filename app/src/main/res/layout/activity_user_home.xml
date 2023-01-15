@@ -29,6 +29,7 @@
                 android:src="@drawable/ic_menu" />
 
             <TextView
+                android:id="@+id/text_home_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -40,6 +41,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
         <androidx.fragment.app.FragmentContainerView
@@ -72,7 +74,6 @@
         app:itemTextColor="@color/white">
 
         <ScrollView
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
@@ -83,10 +84,11 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_38sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#310850"
-                    android:paddingTop="@dimen/_20sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/_10sdp"

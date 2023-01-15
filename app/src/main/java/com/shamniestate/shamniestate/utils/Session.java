@@ -18,6 +18,7 @@ public class Session extends Object {
     private static final String User_name = "user_name";
     private static final String Pro_Image = "pro_img";
     private static final String role_ = "user_role";
+    private static final String SearchMode = "SearchMode";
     private static final String LOGEDIN = "logedIn";
     private static final String LOGEDOUT = "logedout";
     private static final String aadhar_front_image = "aadhar_front_image";
@@ -38,6 +39,16 @@ public class Session extends Object {
 
     public void setMobile(String mobile) {
         editor.putString(Mobile, mobile);
+        editor.apply();
+        editor.commit();
+    }
+
+    public String getSearch() {
+        return Rapidine_pref.getString(SearchMode, "");
+    }
+
+    public void setSearch(String search) {
+        editor.putString(SearchMode, search);
         editor.apply();
         editor.commit();
     }
