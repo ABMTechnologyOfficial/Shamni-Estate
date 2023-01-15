@@ -67,66 +67,79 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                 Log.e("TAG", "onClick() called with: pass  = [" + binding.userPassword.getText().toString() + "]");
                 Log.e("TAG", "onClick() called with: c pass = [" + binding.userCPassword.getText().toString() + "]");
 
-                ApiInterface apiInterface = RetrofitClient.getClient(activity);
-                apiInterface.signup(
-                        AUTHORIZATION,
-                        model.getAccountType(),
-                        selectedWorkingType,
-                        model.getAssociateName(),
-                        model.getAssociateDob(),
-                        model.getAssociateGender(),
-                        model.getAssociateMobile(),
-                        model.getAssociateAddress(),
-                        model.getAssociateCity(),
-                        model.getAssociateState(),
-                        model.getAssociateCityZip(),
-                        model.getAssociateAadharCardNo(),
-                        model.getAssociatePanNo(),
-                        model.getAssociateBankName(),
-                        model.getAssociateAccNo(),
-                        model.getAssociateBnkIfscNo(),
-                        model.getAssociateBnkAccName(),
-                        model.getAssociateEmail(),
-                        binding.userPassword.getText().toString(),
-                        binding.userCPassword.getText().toString(),
-                        binding.userReferrralCode.getText().toString(),
-                        "1",
-                        model.getAssociateReraRegNo(),
-                        model.getAssociateAadharCardFront(),
-                        model.getAssociateAadharCardBack(),
-                        model.getAssociateBlankCheque(),
-                        model.getAssociatePanCardFront()
-                ).enqueue(new Callback<SignupModel>() {
-                    @Override
-                    public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
-                        progressDialog.dismiss();
-                        startActivity(new Intent(activity,LoginActivity.class)
-                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-
-                        finish();
-                        if (response.code() == 200)
-                            if (response.body() != null && response.body().getCode() == 200) {
-                                Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
-                            }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<SignupModel> call, @NonNull Throwable t) {
-                        progressDialog.dismiss();
-                        Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
-                    }
-                });
-
-
+                if(model.getAccountType().equalsIgnoreCase("2")){
+                    startActivity(new Intent(activity,PaymentActivity.class)
+                            .putExtra("data",model)
+                            .putExtra("pass",binding.userPassword.getText().toString())
+                            .putExtra("workType",selectedWorkingType)
+                            .putExtra("ref_code",binding.userReferrralCode.getText().toString()));
+                      progressDialog.dismiss();
+                }else {
+                    addData(progressDialog);
+                }
             }
         });
         binding.userShamniCheck.setOnCheckedChangeListener((buttonView, isChecked) -> ischecked = isChecked);
 
+
+    }
+
+    private  void addData(ProgressDialog progressDialog){
+
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+        apiInterface.signup(
+                AUTHORIZATION,
+                model.getAccountType(),
+                selectedWorkingType,
+                model.getAssociateName(),
+                model.getAssociateDob(),
+                model.getAssociateGender(),
+                model.getAssociateMobile(),
+                model.getAssociateAddress(),
+                model.getAssociateCity(),
+                model.getAssociateState(),
+                model.getAssociateCityZip(),
+                model.getAssociateAadharCardNo(),
+                model.getAssociatePanNo(),
+                model.getAssociateBankName(),
+                model.getAssociateAccNo(),
+                model.getAssociateBnkIfscNo(),
+                model.getAssociateBnkAccName(),
+                model.getAssociateEmail(),
+                binding.userPassword.getText().toString(),
+                binding.userCPassword.getText().toString(),
+                binding.userReferrralCode.getText().toString(),
+                "1",
+                model.getAssociateReraRegNo(),
+                model.getAssociateAadharCardFront(),
+                model.getAssociateAadharCardBack(),
+                model.getAssociateBlankCheque(),
+                model.getAssociatePanCardFront()
+        ).enqueue(new Callback<SignupModel>() {
+            @Override
+            public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
+                progressDialog.dismiss();
+                startActivity(new Intent(activity,LoginActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+
+                finish();
+                if (response.code() == 200)
+                    if (response.body() != null && response.body().getCode() == 200) {
+                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
+                    }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SignupModel> call, @NonNull Throwable t) {
+                progressDialog.dismiss();
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+            }
+        });
 
     }
 
