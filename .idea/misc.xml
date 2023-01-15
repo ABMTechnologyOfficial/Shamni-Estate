@@ -3,14 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/greenbackground.xml" value="0.1985" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_baseline_circle.xml" value="0.1985" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_baseline_next.xml" value="0.1985" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_contact_us.xml" value="0.214" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_logout.xml" value="0.116" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/primerybackground.xml" value="0.1985" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/redbackground.xml" value="0.1985" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/redbackgroundcorner.xml" value="0.1015" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_banking_information.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.33" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_splash.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_user_home.xml" value="0.33" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_user_property_details.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/custom_progress_dialog.xml" value="0.19375" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/fragment_map.xml" value="0.2552083333333333" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/fragment_user_home.xml" value="0.2552083333333333" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/home_property_layout.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/no_internet_layout.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable-v24/button_background.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/button_background.xml" value="0.166" />

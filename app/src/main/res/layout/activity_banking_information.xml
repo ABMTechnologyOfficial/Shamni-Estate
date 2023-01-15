@@ -164,8 +164,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Write Account Holder Name"
-                        android:inputType="number"
-                        android:maxLength="12"
+                        android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -205,8 +204,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Write Bank IFSC Code"
-                        android:inputType="number"
-                        android:maxLength="12"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -246,8 +244,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Write RERA Registration Number"
-                        android:inputType="number"
-                        android:maxLength="12"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />

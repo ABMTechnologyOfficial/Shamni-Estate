@@ -6,7 +6,10 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +40,10 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(activity, R.layout.spinner_item, gender);
         binding.genderSpinner.setAdapter(adapter);
 
-        binding.genderSpinner.setOnItemSelectedListener((view, position, id, item) -> selectedGender = String.valueOf(position));
+        binding.genderSpinner.setOnItemSelectedListener((view, position, id, item) -> {
+            selectedGender = String.valueOf(position);
+            Log.e("TAG", "onCheckedChanged() called with: selectedGender = [" + selectedGender + "]");
+        });
 
         binding.textContinue.setOnClickListener(v -> {
             if (validate()) addData();
@@ -46,11 +52,16 @@ public class SignupUserInfoActivity extends AppCompatActivity {
 
         binding.userDobEdit.setOnClickListener(v -> selectDate(binding.userDobEdit));
 
-        binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-              selectedAccountType  = String.valueOf(i);
+        binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton button = findViewById(checkedId);
+            if(button.getText().toString().equalsIgnoreCase("Individual")){
+                selectedAccountType = "0";
+            }else if(button.getText().toString().equalsIgnoreCase("Channel Partner")){
+                selectedAccountType = "1";
+            }else {
+                selectedAccountType = "2";
             }
+            Log.e("TAG", "onCheckedChanged() called with: selectedAccountType = [" + selectedAccountType + "], checkedId = [" + checkedId + "]");
         });
 
 

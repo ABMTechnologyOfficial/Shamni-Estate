@@ -16,6 +16,8 @@
     <color name="lighter_gray">#CBCBCB</color>
     <color name="nav_parent_title">#310850</color>
     <color name="view_divider">#E0DEDE</color>
-    <color name="transparent">#00000000</color>
+    <color name="transparant">#00000000</color>
+    <color name="light_black">#818181</color>
+    <color name="red">#FF3939</color>
 
 </resources>

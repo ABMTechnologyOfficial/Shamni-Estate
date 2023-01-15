@@ -68,7 +68,24 @@ dependencies {
     // Permission
     implementation 'com.karumi:dexter:6.2.3'
 
-   // Dhaval Library
-//    implementation 'com.github.dhaval2404:imagepicker:2.1'
-//    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+    ////// Rounded Image View
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+//    Picaso
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    ///image slider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
+    ///Elastic Card View
+    implementation 'com.github.skydoves:elasticviews:2.1.0'
+
+//    Map Libraries
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+
+
 }
