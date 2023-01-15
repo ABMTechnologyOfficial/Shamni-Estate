@@ -21,16 +21,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".HomeLoanEnquiryActivity"
+            android:name=".ui.misc.HomeLoanEnquiryActivity"
             android:exported="false" />
         <activity
-            android:name=".EmiCalculatorActivity"
+            android:name=".ui.misc.EmiCalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatSupportActivity"
+            android:name=".ui.misc.ChatSupportActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".ui.misc.AboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.home.UserHomeActivity"

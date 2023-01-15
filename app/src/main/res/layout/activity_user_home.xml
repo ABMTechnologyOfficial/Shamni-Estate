@@ -40,6 +40,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
         <androidx.fragment.app.FragmentContainerView

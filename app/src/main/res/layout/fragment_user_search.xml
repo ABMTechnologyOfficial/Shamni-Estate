@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.UserSearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcvSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:cardBackgroundColor="#eeeeee"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="@dimen/_2sdp"
+        app:contentPadding="@dimen/_10sdp">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/heebo_medium"
+            android:hint="Search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            app:drawableStartCompat="@drawable/ic_search"
+            android:drawableTint="@color/black"
+            tools:ignore="SpUsage" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

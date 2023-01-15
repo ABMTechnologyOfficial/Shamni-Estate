@@ -30,6 +30,29 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST(register_form)
-    Call<SignupModel> signup();
+    Call<SignupModel> signup(
+            @Header("Authorization") String Authorization ,
+            @Field("account_type") String account_type,
+            @Field("associate_name") String associate_name,
+            @Field("associate_dob") String associate_dob,
+            @Field("associate_gender") String associate_gender,
+            @Field("associate_mobile") String associate_mobile,
+            @Field("associate_address") String associate_address,
+            @Field("associate_city") String associate_city,
+            @Field("associate_state") String associate_state,
+            @Field("associate_city_zip") String associate_city_zip,
+            @Field("associate_aadhar_card_no") String associate_aadhar_card_no,
+            @Field("associate_pan_no") String associate_pan_no,
+            @Field("associate_bank_name") String associate_bank_name,
+            @Field("associate_acc_no") String associate_acc_no,
+            @Field("associate_bnk_ifsc_no") String associate_bnk_ifsc_no,
+            @Field("associate_bnk_acc_name") String associate_bnk_acc_name,
+            @Field("associate_email") String associate_email,
+            @Field("associate_pass") String associate_pass,
+            @Field("associate_con_pass") String associate_con_pass,
+            @Field("sponsor_id") String sponsor_id,
+            @Field("terms_and_conditions") String terms_and_conditions,
+            @Field("associate_rera_reg_no") String associate_rera_reg_no
+    );
 
 }
