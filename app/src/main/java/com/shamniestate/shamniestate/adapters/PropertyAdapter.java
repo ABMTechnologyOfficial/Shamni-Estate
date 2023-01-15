@@ -1,6 +1,7 @@
 package com.shamniestate.shamniestate.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.HomePropertyLayoutBinding;
 import com.shamniestate.shamniestate.models.PropertyModel;
+import com.shamniestate.shamniestate.ui.home.UserPropertyDetailsActivity;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
@@ -39,6 +42,9 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
         holder.binding.propertyPricePerFeet.setText(models.get(position).getPropertyPricePerUnit());
 
         Picasso.get().load(models.get(position).getPropertyImage()).into(holder.binding.image);
+
+        holder.itemView.setOnClickListener(v -> context.startActivity(new Intent(context, UserPropertyDetailsActivity.class)
+                .putExtra("data", (Serializable) models.get(holder.getAdapterPosition()))));
     }
 
     @Override

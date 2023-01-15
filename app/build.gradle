@@ -73,4 +73,10 @@ dependencies {
 
 //    Picaso
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    ///image slider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
+    ///Elastic Card View
+    implementation 'com.github.skydoves:elasticviews:2.1.0'
 }
