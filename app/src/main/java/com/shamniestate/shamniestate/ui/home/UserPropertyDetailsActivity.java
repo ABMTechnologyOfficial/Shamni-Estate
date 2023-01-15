@@ -32,17 +32,17 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
             data = (PropertyModel.PropertyData) getIntent().getSerializableExtra("data");
         }
 
-
         binding.propertyName.setText(data.getPropertyTitle());
         binding.propertyBuilderAddress.setText(data.getCityName());
         binding.propertyCityName.setText(data.getCityName());
         binding.propertyCode.setText(data.getPropertyCode());
         binding.propertyByName.setText(data.getPropertyBuilder());
+        binding.propertyByName.setText(data.getPropertyBuilder());
         binding.propertyDescription.setText(data.getPropertyDes());
         binding.propertyLication.setText(data.getPropertyAddress());
         binding.propertyPricePerUnit.setText(data.getPropertyPricePerUnit());
         binding.propertyArea.setText(data.getMaxUnitArea()+" "+data.getAreaUnitType());
-        binding.propertyPrice.setText(data.getPropertyMaxPrice());
+        binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice()))+" - "+calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
 
         slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
         binding.imageSlider.setImageList(slideModelArrayList);
@@ -60,4 +60,20 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         }
 
     }
+
+    private String calculate_price(int price) {
+
+        String comnfir_price = "";
+        if (price >= 100000 && price <= 10000000) {
+            comnfir_price = String.valueOf(price / 100000) + " Lac";
+        } else if (price >= 10000000) {
+            comnfir_price = String.valueOf(price / 10000000) + " Cr";
+        } else {
+            comnfir_price = String.valueOf(price / 1000) + " K ";
+        }
+
+        return comnfir_price;
+
+    }
+
 }

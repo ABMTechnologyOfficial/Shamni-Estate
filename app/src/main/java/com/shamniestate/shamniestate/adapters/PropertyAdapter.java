@@ -39,6 +39,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.propertyName.setText(models.get(position).getPropertyTitle());
         holder.binding.propertyPrice.setText(models.get(position).getPropertyMinPrice());
+        holder.binding.propertyPrice.setText(calculate_price(Integer.parseInt(models.get(position).getPropertyMinPrice())));
         holder.binding.propertyPricePerFeet.setText(models.get(position).getPropertyPricePerUnit());
 
         Picasso.get().load(models.get(position).getPropertyImage()).into(holder.binding.image);
@@ -46,6 +47,23 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
         holder.itemView.setOnClickListener(v -> context.startActivity(new Intent(context, UserPropertyDetailsActivity.class)
                 .putExtra("data", (Serializable) models.get(holder.getAdapterPosition()))));
     }
+
+
+    private String calculate_price(int price) {
+
+        String comnfir_price = "";
+        if (price >= 100000 && price <= 10000000) {
+            comnfir_price = String.valueOf(price / 100000) + " Lac";
+        } else if (price >= 10000000) {
+            comnfir_price = String.valueOf(price / 10000000) + " Cr";
+        } else {
+            comnfir_price = String.valueOf(price / 1000) + " K ";
+        }
+
+        return comnfir_price;
+
+    }
+
 
     @Override
     public int getItemCount() {
