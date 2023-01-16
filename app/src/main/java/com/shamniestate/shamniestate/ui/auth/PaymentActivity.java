@@ -36,6 +36,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
     String password = "" , ref_code = "";
     PaymentActivity activity ;
     private ActivityPaymentBinding binding ;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +45,16 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         setContentView(binding.getRoot());
 
         activity = PaymentActivity.this;
+
+        progressDialog = new ProgressDialog(activity);
+        progressDialog.show();
+
         model = (UtilModel) getIntent().getSerializableExtra("data");
         selectedWorkType = getIntent().getStringExtra("workType");
         password = getIntent().getStringExtra("pass");
         ref_code = getIntent().getStringExtra("ref_code");
 
         makePayment();
-
     }
 
 
@@ -81,7 +85,6 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
     }
 
     private  void addData(ProgressDialog progressDialog){
-        progressDialog.show();
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.signup(
                 AUTHORIZATION,
@@ -115,15 +118,15 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
             @Override
             public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
                 progressDialog.dismiss();
-                startActivity(new Intent(activity,LoginActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                finish();
-                if (response.code() == 200)
-                    if (response.body() != null && response.body().getCode() == 200) {
-                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
 
+                if (response.code() == 200)
+                    if (response.body() != null) {
+                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(activity,LoginActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+                        finish();
                     } else {
                         Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
                     }
@@ -131,7 +134,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
             @Override
             public void onFailure(@NonNull Call<SignupModel> call, @NonNull Throwable t) {
-                progressDialog.dismiss();
+
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
             }
         });
@@ -140,6 +143,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
     @Override
     public void onPaymentSuccess(String s) {
+        progressDialog.dismiss();
         binding.successAnimation.setVisibility(View.VISIBLE);
         Toast.makeText(activity, "Payment Success", Toast.LENGTH_SHORT).show();
         ProgressDialog progressDialog = new ProgressDialog(activity);
@@ -148,6 +152,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
     @Override
     public void onPaymentError(int i, String s) {
+        progressDialog.dismiss();
         binding.errorAnimation.setVisibility(View.VISIBLE);
         Toast.makeText(activity, "Payment Failed", Toast.LENGTH_SHORT).show();
     }

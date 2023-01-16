@@ -43,18 +43,50 @@
             android:paddingHorizontal="@dimen/_5sdp"
             android:paddingBottom="@dimen/_30sdp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/white">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:fontFamily="@font/heebo_medium"
+                    android:gravity="center"
+                    android:text="Login"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/lighter_gray"/>
+
+            </RelativeLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_180sdp"
+                android:layout_height="@dimen/_200sdp"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/logo" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/error_animation"
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:layout_height="@dimen/_250sdp"
+                    app:lottie_rawRes="@raw/login"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
 
             </LinearLayout>
 

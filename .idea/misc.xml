@@ -33,12 +33,15 @@
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/ic_back.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/login_input_bg.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_banking_information.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_forgot_password.xml" value="0.20051303976058144" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_documents.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.2" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_splash.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_user_property_details.xml" value="0.19797382861967075" />
+        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/fragment_user_associate.xml" value="0.20051303976058144" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/spinner_item.xml" value="0.24427083333333333" />
       </map>
     </option>

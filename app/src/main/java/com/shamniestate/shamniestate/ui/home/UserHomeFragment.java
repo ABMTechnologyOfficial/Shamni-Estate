@@ -3,6 +3,7 @@ package com.shamniestate.shamniestate.ui.home;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentUserHomeBinding;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
+import com.shamniestate.shamniestate.ui.misc.FilterActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -57,6 +59,13 @@ public class UserHomeFragment extends Fragment {
 
         HomePageSlider homePageSlider = new HomePageSlider(models,getContext());
         binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
+
+        binding.searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), FilterActivity.class));
+            }
+        });
 
         return binding.getRoot();
     }

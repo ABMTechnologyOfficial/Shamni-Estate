@@ -119,16 +119,15 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
                 progressDialog.dismiss();
-                startActivity(new Intent(activity,LoginActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
 
-                finish();
                 if (response.code() == 200)
-                    if (response.body() != null && response.body().getCode() == 200) {
+                    if (response.body() != null) {
                         Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-
+                        startActivity(new Intent(activity,LoginActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+                        finish();
                     } else {
                         Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
                     }
@@ -152,14 +151,13 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
-
     private boolean validate() {
         if (binding.userEmail.getText().toString().equalsIgnoreCase("")) {
-            binding.userEmail.setError("Enter Account Number");
+            binding.userEmail.setError("Enter Account  Number");
             binding.userEmail.requestFocus();
             return false;
         } else if (binding.userPassword.getText().toString().equalsIgnoreCase("")) {
-            binding.userPassword.setError("Enter Bank Holder Name");
+            binding.userPassword.setError("Enter  Bank Holder Name");
             binding.userPassword.requestFocus();
             return false;
         } else if (binding.userCPassword.getText().toString().equalsIgnoreCase("")) {

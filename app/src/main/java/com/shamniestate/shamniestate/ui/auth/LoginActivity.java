@@ -20,6 +20,9 @@ import com.shamniestate.shamniestate.ui.home.UserHomeActivity;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
 import com.shamniestate.shamniestate.utils.Session;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         session = new Session(activity);
 
         binding.textSignup.setOnClickListener(view -> startActivity(new Intent(activity, SignupUserInfoActivity.class)));
+        binding.textForgotPassword.setOnClickListener(view -> startActivity(new Intent(activity, ForgotPasswordActivity.class)));
 
         binding.textLogin.setOnClickListener(view -> validateLogin());
     }
@@ -61,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
     private void login(String email, String password) {
         ProgressDialog pd = new ProgressDialog(activity);
         pd.show();
@@ -79,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                                 session.setUserId(data.getAssociateId());
                                 session.setAccessToken(data.getAccessToken());
 
-                                startActivity(new Intent(activity, UserHomeActivity.class));
+                                startActivity(new Intent(activity, LoginSuccessActivity.class));
                                 finish();
 
                             } else {

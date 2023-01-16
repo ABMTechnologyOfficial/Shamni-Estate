@@ -1,6 +1,7 @@
 package com.shamniestate.shamniestate.RetrofitApis;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.admin_bank_list;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
@@ -67,6 +68,13 @@ public interface ApiInterface {
             @Field("associate_aadhar_card_back")String associate_aadhar_card_back,
             @Field("associate_blank_cheque")String associate_blank_cheque,
             @Field("associate_pan_card_front")String associate_pan_card_front
+    );
+
+
+    @FormUrlEncoded
+    @POST(forgot_password)
+    Call<SignupModel> forgotPassword(
+            @Field("associate_email") String associate_email
     );
 
 }
