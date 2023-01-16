@@ -1,14 +1,22 @@
 package com.shamniestate.shamniestate.RetrofitApis;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.admin_bank_list;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.amenities_list;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
 
+import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.BankListModel;
+import com.shamniestate.shamniestate.models.CityListModel;
 import com.shamniestate.shamniestate.models.LoginModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
+import com.shamniestate.shamniestate.models.PropertyPlanModel;
+import com.shamniestate.shamniestate.models.PropertyTypeModel;
 import com.shamniestate.shamniestate.models.SignupModel;
 
 import retrofit2.Call;
@@ -75,6 +83,27 @@ public interface ApiInterface {
     @POST(forgot_password)
     Call<SignupModel> forgotPassword(
             @Field("associate_email") String associate_email
+    );
+
+
+    @GET(property_type)
+    Call<PropertyTypeModel> getPropertyType(
+            @Header("Access_Token") String Access_Token
+    );
+
+    @GET(property_plan)
+    Call<PropertyPlanModel> getPropertyPlan(
+            @Header("Access_Token") String Access_Token
+    );
+
+    @GET(amenities_list)
+    Call<AmenitiesListModel> getPropertyAmenities(
+            @Header("Access_Token") String Access_Token
+    );
+
+   @GET(city_list)
+    Call<CityListModel> getCityList(
+            @Header("Access_Token") String Access_Token
     );
 
 }

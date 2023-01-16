@@ -42,6 +42,17 @@ public class CityListModel {
     }
 
     public  class  CityData{
+
+        boolean isSelected = false;
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
+
         @SerializedName("city_id")
         @Expose
         private String cityId;

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.HomeSliderLayoutBinding;
+import com.shamniestate.shamniestate.databinding.MainSliderLayoutBinding;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
@@ -17,9 +18,6 @@ public class HomePageSlider extends SliderViewAdapter<HomePageSlider.SlideView> 
 
     List<HomeSliderModel.HomeSliderData> model;
     Context context;
-    String url;
-
-    List<String> images;
 
     public HomePageSlider(List<HomeSliderModel.HomeSliderData> model, Context context) {
         this.model = model;
@@ -29,7 +27,7 @@ public class HomePageSlider extends SliderViewAdapter<HomePageSlider.SlideView> 
 
     @Override
     public SlideView onCreateViewHolder(ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.home_slider_layout, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.main_slider_layout, parent, false);
         return new SlideView(view);
     }
 
@@ -47,11 +45,11 @@ public class HomePageSlider extends SliderViewAdapter<HomePageSlider.SlideView> 
     }
 
     public class SlideView extends ViewHolder {
-        HomeSliderLayoutBinding binding;
+        MainSliderLayoutBinding binding;
 
         public SlideView(View itemView) {
             super(itemView);
-            binding = HomeSliderLayoutBinding.bind(itemView);
+            binding = MainSliderLayoutBinding.bind(itemView);
 
         }
     }

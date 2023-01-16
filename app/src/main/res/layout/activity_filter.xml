@@ -23,6 +23,23 @@
             android:src="@drawable/ic_back" />
 
 
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/heebo_bold"
+            android:gravity="center"
+            android:text="Apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height=".5dp"
@@ -111,6 +128,7 @@
 
                 <SeekBar
                     android:max="100"
+                    android:padding="@dimen/_1sdp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp" />
 
@@ -142,6 +160,12 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/plan_property_recy"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/light_gray" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -167,6 +191,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/type_property_recy"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/light_gray" />
 
             </LinearLayout>
 
@@ -194,6 +224,12 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/amenities_property_recy"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/light_gray" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -219,6 +255,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/city_property_recy"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/light_gray" />
 
             </LinearLayout>
 

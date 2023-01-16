@@ -10,17 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.PropeertyTypeLayoutBinding;
-import com.shamniestate.shamniestate.models.PropertyModel;
-import com.shamniestate.shamniestate.models.PropertyTypeModel;
+import com.shamniestate.shamniestate.models.AmenitiesListModel;
 
 import java.util.List;
 
-public class PropertyTypeAdapter extends RecyclerView.Adapter<PropertyTypeAdapter.ViewHolder>{
+public class PropertyAmenitiesAdapter extends RecyclerView.Adapter<PropertyAmenitiesAdapter.ViewHolder>{
 
-    Context context;
-     List<PropertyTypeModel.PropertyTypeData> models ;
+    Context context ;
+    List<AmenitiesListModel.AmenitiesData> models ;
 
-    public PropertyTypeAdapter(Context context, List<PropertyTypeModel.PropertyTypeData> models) {
+    public PropertyAmenitiesAdapter(Context context, List<AmenitiesListModel.AmenitiesData> models) {
         this.context = context;
         this.models = models;
     }
@@ -33,7 +32,7 @@ public class PropertyTypeAdapter extends RecyclerView.Adapter<PropertyTypeAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.typeProperty.setText(models.get(position).getPropertyTypeName());
+        holder.binding.typeProperty.setText(models.get(position).getAmenitiesName());
 
         holder.itemView.setOnClickListener(v -> {
             if(models.get(holder.getAdapterPosition()).isSelected()){
@@ -48,7 +47,6 @@ public class PropertyTypeAdapter extends RecyclerView.Adapter<PropertyTypeAdapte
                 holder.binding.image.setImageResource(R.drawable.ic_baseline_check_24);
             }
         });
-
     }
 
     @Override

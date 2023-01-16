@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_light"
     android:orientation="vertical"
     tools:context=".ui.home.UserHomeFragment">
 
@@ -14,7 +15,7 @@
 
         <LinearLayout
             android:id="@+id/search_view"
-            android:layout_marginVertical="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:padding="@dimen/_10sdp"
@@ -47,36 +48,26 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginHorizontal="@dimen/_5sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="@dimen/_200sdp"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/home_baner_slider_new"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_10sdp">
-
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/home_baner_slider_new"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#DAD6D6"
-                    app:sliderScrollTimeInSec="1"
-                    app:sliderStartAutoCycle="true" />
-
-            </androidx.cardview.widget.CardView>
-
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#DAD6D6"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
 
         </LinearLayout>
         <ProgressBar

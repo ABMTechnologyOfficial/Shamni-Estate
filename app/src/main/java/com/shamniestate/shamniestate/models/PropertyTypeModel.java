@@ -42,6 +42,9 @@ public class PropertyTypeModel {
     }
 
     public  class  PropertyTypeData{
+
+        boolean isSelected = false ;
+
         @SerializedName("property_type_name")
         @Expose
         private String propertyTypeName;
@@ -54,6 +57,14 @@ public class PropertyTypeModel {
         @SerializedName("property_type_master_name")
         @Expose
         private String propertyTypeMasterName;
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
 
         public String getPropertyTypeName() {
             return propertyTypeName;

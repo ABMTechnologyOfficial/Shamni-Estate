@@ -45,6 +45,8 @@ public class AmenitiesListModel {
 
     public  class  AmenitiesData{
 
+        boolean isSelected = false ;
+
         @SerializedName("amenities_id")
         @Expose
         private String amenitiesId;
@@ -54,6 +56,14 @@ public class AmenitiesListModel {
         @SerializedName("amenities_icon")
         @Expose
         private String amenitiesIcon;
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
 
         public String getAmenitiesId() {
             return amenitiesId;

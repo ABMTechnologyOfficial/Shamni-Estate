@@ -41,12 +41,23 @@ public class PropertyPlanModel {
     }
 
     public  class  PropertyPlanData{
+
+        boolean isSelected =false ;
+
         @SerializedName("property_plan")
         @Expose
         private Integer propertyPlan;
         @SerializedName("property_plan_name")
         @Expose
         private String propertyPlanName;
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean selected) {
+            isSelected = selected;
+        }
 
         public Integer getPropertyPlan() {
             return propertyPlan;

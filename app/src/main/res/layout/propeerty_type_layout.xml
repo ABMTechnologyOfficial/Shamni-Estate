@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/type_property"
-        android:layout_margin="@dimen/_2sdp"
+
+    <LinearLayout
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/property_type_unselected_bg"
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Type of Property"
-        android:textSize="@dimen/_14sdp"
-        android:drawablePadding="@dimen/_5sdp"
-        android:drawableLeft="@drawable/ic_baseline_add_24"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:drawableTint="@color/light_black"
-        android:paddingVertical="@dimen/_8sdp"
-        android:background="@drawable/property_type_unselected_bg"
-        android:textColor="@color/light_black"></TextView>
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/image"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_baseline_add_24"/>
+
+        <TextView
+            android:id="@+id/type_property"
+            android:layout_margin="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type of Property"
+            android:textSize="@dimen/_11sdp"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:drawableTint="@color/light_black"
+            android:paddingVertical="@dimen/_5sdp"
+            android:textColor="@color/light_black"></TextView>
+
+    </LinearLayout>
 
 </LinearLayout>

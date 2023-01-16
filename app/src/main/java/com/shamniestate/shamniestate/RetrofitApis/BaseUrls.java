@@ -12,4 +12,8 @@ public class BaseUrls extends Object{
     public static final String signup_img = "signup_img";
     public static final String property_list = "property_list";
     public static final String forgot_password = "forgot_password";
+    public static final String property_type = "property_type";
+    public static final String property_plan = "property_plan";
+    public static final String amenities_list = "amenities_list";
+    public static final String city_list = "city_list";
 }

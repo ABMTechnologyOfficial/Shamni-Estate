@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_6sdp"
+        android:layout_marginVertical="@dimen/_8sdp"
+        app:cardElevation="@dimen/_8sdp"
+        android:elevation="@dimen/_5sdp">
+        <LinearLayout
+            android:layout_marginTop="@dimen/_7sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingStart="@dimen/_7sdp"
+            android:paddingEnd="@dimen/_7sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Team Member "
+                android:textColor="@color/black"
+                android:fontFamily="@font/heebo_regular"
+                android:textSize="@dimen/_11sdp"></TextView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/view_divider"
+                android:layout_marginTop="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/total_count"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/heebo_bold"
+                android:textSize="@dimen/_14sdp"></TextView>
+
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Team Member"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/heebo_regular"
+                android:textSize="@dimen/_12sdp"></TextView>
+
+            <TextView
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="All your team member who associated with you"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/heebo_regular"
+                android:textSize="@dimen/_11sdp"></TextView>
+
+            <TextView
+                android:id="@+id/text_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/rounded_btn_bg"
+                android:fontFamily="@font/heebo_bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_60sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="View"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
