@@ -41,6 +41,9 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         binding.propertyDescription.setText(data.getPropertyDes());
         binding.propertyLication.setText(data.getPropertyAddress());
         binding.propertyPricePerUnit.setText(data.getPropertyPricePerUnit());
+        binding.totalBalcony.setText(data.getNoOfBalcony());
+        binding.totalBedroom.setText(data.getNoOfBedroom());
+        binding.totalBathroom.setText(data.getNoOfBathroom());
         binding.propertyArea.setText(data.getMaxUnitArea()+" "+data.getAreaUnitType());
         binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice()))+" - "+calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
 

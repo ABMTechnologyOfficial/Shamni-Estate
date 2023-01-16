@@ -44,10 +44,10 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         setContentView(binding.getRoot());
 
         activity = PaymentActivity.this;
-//        model = (UtilModel) getIntent().getSerializableExtra("data");
-//        selectedWorkType = getIntent().getStringExtra("workType");
-//        password = getIntent().getStringExtra("pass");
-//        ref_code = getIntent().getStringExtra("ref_code");
+        model = (UtilModel) getIntent().getSerializableExtra("data");
+        selectedWorkType = getIntent().getStringExtra("workType");
+        password = getIntent().getStringExtra("pass");
+        ref_code = getIntent().getStringExtra("ref_code");
 
         makePayment();
 
@@ -70,9 +70,9 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
             object.put("name", "Shamni Estate");
             object.put("description", "Premium Associate Account Creation ");
             object.put("currency", "INR");
-            object.put("amount", 10);
-            object.put("prefill.contact", "model.getAssociateMobile()");
-            object.put("prefill.email", "model.getAssociateEmail()");
+            object.put("amount", 100);
+            object.put("prefill.contact", model.getAssociateMobile());
+            object.put("prefill.email", model.getAssociateEmail());
             checkout.open(PaymentActivity.this, object);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -119,7 +119,6 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-
                 finish();
                 if (response.code() == 200)
                     if (response.body() != null && response.body().getCode() == 200) {
@@ -144,7 +143,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         binding.successAnimation.setVisibility(View.VISIBLE);
         Toast.makeText(activity, "Payment Success", Toast.LENGTH_SHORT).show();
         ProgressDialog progressDialog = new ProgressDialog(activity);
-        ////addData(progressDialog);
+        addData(progressDialog);
     }
 
     @Override
