@@ -155,11 +155,11 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
 
     private boolean validate() {
         if (binding.userEmail.getText().toString().equalsIgnoreCase("")) {
-            binding.userEmail.setError("Enter Account  Number");
+            binding.userEmail.setError("Enter Account Number");
             binding.userEmail.requestFocus();
             return false;
         } else if (binding.userPassword.getText().toString().equalsIgnoreCase("")) {
-            binding.userPassword.setError("Enter  Bank Holder Name");
+            binding.userPassword.setError("Enter Bank Holder Name");
             binding.userPassword.requestFocus();
             return false;
         } else if (binding.userCPassword.getText().toString().equalsIgnoreCase("")) {

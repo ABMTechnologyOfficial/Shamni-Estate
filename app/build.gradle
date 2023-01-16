@@ -65,33 +65,31 @@ dependencies {
     // Image Animation
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
     // Permission
     implementation 'com.karumi:dexter:6.2.3'
 
-    ////// Rounded Image View
+    // Rounded Image View
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-//    Picaso
+    // Picasso
     implementation 'com.squareup.picasso:picasso:2.8'
 
-    ///image slider
+    // image slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
-    ///Elastic Card View
+    // Elastic Card View
     implementation 'com.github.skydoves:elasticviews:2.1.0'
 
-//    Map Libraries
+    // Map Libraries
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'com.google.android.libraries.places:places:1.1.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
-
-    /////Razorpay
+    // Razorpay
     implementation 'com.razorpay:checkout:1.6.4'
 
-    /////Custom Image Slider
+    // Custom Image Slider
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
-
-
 }
