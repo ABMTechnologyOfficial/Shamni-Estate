@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.bumptech.glide.load.model.ModelLoader;
 import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 
 public class Session extends Object {
@@ -25,6 +26,7 @@ public class Session extends Object {
     private static final String aadhar_back_image = "aadhar_front_image";
     private static final String pan_image = "pan_image";
     private static final String cancel_cheque_image = "cancel_cheque_image";
+    private static final Object user_profile = "user_profile";
 
     private Context _context;
     private SharedPreferences Rapidine_pref;
@@ -36,6 +38,7 @@ public class Session extends Object {
         editor = Rapidine_pref.edit();
         editor.apply();
     }
+
 
     public void setMobile(String mobile) {
         editor.putString(Mobile, mobile);

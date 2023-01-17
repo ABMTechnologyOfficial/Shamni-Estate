@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.BaseUrls;
@@ -89,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 pd.dismiss();
+                                Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();
                                 Log.e(BaseUrls.TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
                             }
                 } catch (Exception e) {

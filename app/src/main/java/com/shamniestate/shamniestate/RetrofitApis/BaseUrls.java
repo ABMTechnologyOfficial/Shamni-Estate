@@ -16,4 +16,6 @@ public class BaseUrls extends Object{
     public static final String property_plan = "property_plan";
     public static final String amenities_list = "amenities_list";
     public static final String city_list = "city_list";
+    public static final String get_profile = "get_profile";
+
 }

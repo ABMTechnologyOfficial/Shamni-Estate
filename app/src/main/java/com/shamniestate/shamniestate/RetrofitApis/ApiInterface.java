@@ -4,6 +4,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.admin_bank_lis
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.amenities_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
@@ -104,6 +105,13 @@ public interface ApiInterface {
    @GET(city_list)
     Call<CityListModel> getCityList(
             @Header("Access_Token") String Access_Token
+    );
+
+    @FormUrlEncoded
+    @POST(get_profile)
+    Call<LoginModel> getProfile(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
     );
 
 }

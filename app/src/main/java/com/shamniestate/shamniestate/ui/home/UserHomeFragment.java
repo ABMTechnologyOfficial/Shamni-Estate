@@ -60,12 +60,8 @@ public class UserHomeFragment extends Fragment {
         HomePageSlider homePageSlider = new HomePageSlider(models,getContext());
         binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
 
-        binding.searchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), FilterActivity.class));
-            }
-        });
+        binding.searchView.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
+        binding.userEmail.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
 
         return binding.getRoot();
     }
