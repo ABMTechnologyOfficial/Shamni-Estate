@@ -69,7 +69,6 @@ public class SignupUserInfoActivity extends AppCompatActivity {
 
     private void addData() {
 
-
         UtilModel model = new UtilModel();
 
         model.setAccountType(selectedAccountType);
