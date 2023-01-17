@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.ActivitySignupUserInfoBinding;
 import com.shamniestate.shamniestate.models.UtilModel;
+import com.shamniestate.shamniestate.utils.Session;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -27,6 +28,7 @@ public class SignupUserInfoActivity extends AppCompatActivity {
     private Activity activity;
     private ActivitySignupUserInfoBinding binding;
     private String selectedAccountType = "0", selectedGender = "0";
+    private Session session ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         binding = ActivitySignupUserInfoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         activity = SignupUserInfoActivity.this;
+
+        session = new Session(activity);
 
         String[] gender = new String[]{"Male", "Female"};
 
@@ -71,6 +75,10 @@ public class SignupUserInfoActivity extends AppCompatActivity {
 
         UtilModel model = new UtilModel();
 
+        if(!session.getUserId().equalsIgnoreCase(""))
+             model.setSponsorId(session.getUserId());
+
+
         model.setAccountType(selectedAccountType);
         model.setAssociateAddress(binding.userAddressEdit.getText().toString());
         model.setAssociateCity(binding.userCityEdit.getText().toString());
@@ -85,6 +93,7 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         intent.putExtra("model",(Serializable) model);
         startActivity(intent);
 
+       /// Log.e("TAG", "addData() called"+model);
     }
 
     private boolean validate() {

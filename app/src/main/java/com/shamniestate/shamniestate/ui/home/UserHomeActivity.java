@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.ActivityUserHomeBinding;
+import com.shamniestate.shamniestate.ui.auth.SignupUserInfoActivity;
 import com.shamniestate.shamniestate.ui.misc.AboutUsActivity;
 import com.shamniestate.shamniestate.ui.misc.ChatSupportActivity;
 import com.shamniestate.shamniestate.ui.misc.EmiCalculatorActivity;
@@ -79,6 +80,7 @@ public class UserHomeActivity extends AppCompatActivity {
     private void setUpNavigationView() {
         binding.navAboutUsLay.setOnClickListener(v -> startActivity(new Intent(activity, AboutUsActivity.class)));
         binding.navEmiCalculatorLay.setOnClickListener(v -> startActivity(new Intent(activity, EmiCalculatorActivity.class)));
+        binding.navNewAssoLay.setOnClickListener(v -> startActivity(new Intent(activity, SignupUserInfoActivity.class)));
         binding.navChatSupportLay.setOnClickListener(v -> startActivity(new Intent(activity, ChatSupportActivity.class)));
         binding.navHomeLoanLay.setOnClickListener(v -> startActivity(new Intent(activity, HomeLoanEnquiryActivity.class)));
 
