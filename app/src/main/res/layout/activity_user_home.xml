@@ -199,6 +199,44 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
+
+                <RelativeLayout
+                    android:id="@+id/nav_my_asso_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic_11"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="My Associate"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic_11"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+
                 <RelativeLayout
                     android:id="@+id/nav_residential_search_lay"
                     android:layout_width="match_parent"

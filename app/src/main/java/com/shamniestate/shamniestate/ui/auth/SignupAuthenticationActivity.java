@@ -18,7 +18,9 @@ import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.databinding.ActivitySignupAuthenticationBinding;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.UtilModel;
+import com.shamniestate.shamniestate.ui.home.UserHomeActivity;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
+import com.shamniestate.shamniestate.utils.Session;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,6 +35,7 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
     private UtilModel model = new UtilModel();
     String selectedWorkingType = "0";
     boolean ischecked = false;
+    private Session session ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
         binding = ActivitySignupAuthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         activity = SignupAuthenticationActivity.this;
+
+        session = new Session(activity);
 
         model = (UtilModel) getIntent().getSerializableExtra("model");
 
@@ -123,11 +128,21 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                 if (response.code() == 200)
                     if (response.body() != null) {
                         Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(activity,LoginActivity.class)
-                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                        finish();
+                      if(session.isLoggedIn()){
+                          startActivity(new Intent(activity, UserHomeActivity.class)
+                                  .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                  .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                          Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+                          finish();
+                      }else {
+                          startActivity(new Intent(activity,LoginActivity.class)
+                                  .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                  .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                          Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+                          finish();
+                      }
+
+
                     } else {
                         Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
                     }

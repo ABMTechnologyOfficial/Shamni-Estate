@@ -97,6 +97,8 @@ public class UserHomeFragment extends Fragment {
                             linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
                             binding.popularPropertyRecycelr.setLayoutManager(linearLayoutManager);
                             binding.popularPropertyRecycelr.setAdapter(new PopularPropertyAdapter(activity,response.body().getData()));
+                            binding.propertyProgress.setVisibility(View.GONE);
+                            binding.categoryProgress.setVisibility(View.GONE);
                         }
                 } catch (Exception e) {
                     e.printStackTrace();

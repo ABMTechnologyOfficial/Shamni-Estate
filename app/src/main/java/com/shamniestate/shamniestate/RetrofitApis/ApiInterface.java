@@ -6,15 +6,18 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
 
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
+import com.shamniestate.shamniestate.models.AppDetailsModel;
 import com.shamniestate.shamniestate.models.BankListModel;
 import com.shamniestate.shamniestate.models.CityListModel;
 import com.shamniestate.shamniestate.models.LoginModel;
+import com.shamniestate.shamniestate.models.MyAssociateModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;
@@ -28,6 +31,13 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
+
+    @FormUrlEncoded
+    @POST("app_block.php")
+    Call<AppDetailsModel> getAppDetails(
+            @Field("id") String id
+    );
+
 
     @FormUrlEncoded
     @POST(login_check)
@@ -110,6 +120,13 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(get_profile)
     Call<LoginModel> getProfile(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
+    );
+
+    @FormUrlEncoded
+    @POST(my_associates)
+    Call<MyAssociateModel> getMyAssociates(
             @Header("Access_Token") String Access_Token,
             @Field("associate_id") String associate_id
     );

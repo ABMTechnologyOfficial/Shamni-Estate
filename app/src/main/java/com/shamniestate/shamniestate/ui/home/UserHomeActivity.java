@@ -113,6 +113,11 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
+        binding.navMyAssoLay.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
         binding.navChatSupportLay.setOnClickListener(v -> {
             if (session.isLoggedIn()){
                 String url = "https://api.whatsapp.com/send?phone=+919993511311";

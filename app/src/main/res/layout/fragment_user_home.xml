@@ -136,6 +136,11 @@
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/_13sdp" />
 
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/category_progress"
+                    android:layout_marginTop="@dimen/_10sdp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/paln_recycelr"
@@ -175,6 +180,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/property_progress"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/popular_property_recycelr"
