@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.textForgotPassword.setOnClickListener(view -> startActivity(new Intent(activity, ForgotPasswordActivity.class)));
 
         binding.textLogin.setOnClickListener(view -> validateLogin());
+        binding.textGuestLogin.setOnClickListener(view -> startActivity(new Intent(activity,UserHomeActivity.class)));
     }
 
     private void validateLogin() {
@@ -65,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
             login(binding.edtEmail.getText().toString().trim(), binding.edtPassword.getText().toString().trim());
         }
     }
-
 
     private void login(String email, String password) {
         ProgressDialog pd = new ProgressDialog(activity);
@@ -87,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                 startActivity(new Intent(activity, LoginSuccessActivity.class));
                                 finish();
-
                             } else {
                                 pd.dismiss();
                                 Toast.makeText(activity, "Login Failed", Toast.LENGTH_SHORT).show();

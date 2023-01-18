@@ -34,7 +34,6 @@ public class SplashActivity extends AppCompatActivity {
         Thread thread = new Thread(() -> {
             try {
                 sleep(2000);
-
                 if (session.isLoggedIn()) {
                     startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
                 } else {

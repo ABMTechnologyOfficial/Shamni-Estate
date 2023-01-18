@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.shamniestate.shamniestate.databinding.ActivityEmiCalculatorBinding;
 
@@ -20,5 +21,21 @@ public class EmiCalculatorActivity extends AppCompatActivity {
 
         binding.icBack.setOnClickListener(view -> onBackPressed());
 
+        binding.textLogin.setOnClickListener(view -> binding.calculatedEmi.setText(String.valueOf(emi_calculator(
+                Float.parseFloat(binding.edtLoanAmount.getText().toString()),
+                Float.parseFloat(binding.edtInterestRate.getText().toString()),
+                Float.parseFloat(binding.edtTenure.getText().toString())))+" /Per Month"));
     }
+
+    public  float emi_calculator(float p, float r, float t)
+    {
+        float emi;
+
+        r = r / (12 * 100); // one month interest
+       /// t = t * 12; // one month period
+        emi = (p * r * (float)Math.pow(1 + r, t))
+                / (float)(Math.pow(1 + r, t) - 1);
+        return (Math.round(emi));
+    }
+
 }

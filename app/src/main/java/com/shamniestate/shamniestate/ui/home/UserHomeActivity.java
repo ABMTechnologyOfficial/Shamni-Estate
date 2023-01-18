@@ -3,6 +3,7 @@ package com.shamniestate.shamniestate.ui.home;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.ActivityUserHomeBinding;
+import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 import com.shamniestate.shamniestate.ui.auth.SignupUserInfoActivity;
 import com.shamniestate.shamniestate.ui.misc.AboutUsActivity;
 import com.shamniestate.shamniestate.ui.misc.ChatSupportActivity;
@@ -55,16 +57,34 @@ public class UserHomeActivity extends AppCompatActivity {
             int itemId = item.getItemId();
 
             if (itemId == R.id.bottom_nav_home) {
-                loadFrag(new UserHomeFragment());
+
+                if (session.isLoggedIn()) {
+                    loadFrag(new UserHomeFragment());
+                } else {
+                    startActivity(new Intent(activity, LoginActivity.class));
+                }
                 binding.textHomeTitle.setText(R.string.app_name);
             } else if (itemId == R.id.bottom_nav_search) {
-                loadFrag(new UserSearchFragment());
+
+                if (session.isLoggedIn()) {
+                    loadFrag(new UserSearchFragment());
+                } else {
+                    startActivity(new Intent(activity, LoginActivity.class));
+                }
                 binding.textHomeTitle.setText(R.string.search);
             } else if (itemId == R.id.bottom_nav_need_help) {
-                loadFrag(new UserNeedHelpFragment());
+                if (session.isLoggedIn()) {
+                    loadFrag(new UserNeedHelpFragment());
+                } else {
+                    startActivity(new Intent(activity, LoginActivity.class));
+                }
                 binding.textHomeTitle.setText(R.string.need_help);
             } else if (itemId == R.id.bottom_nav_associate) {
-                loadFrag(new UserAssociateFragment());
+                if (session.isLoggedIn()) {
+                    loadFrag(new UserAssociateFragment());
+                } else {
+                    startActivity(new Intent(activity, LoginActivity.class));
+                }
                 binding.textHomeTitle.setText(R.string.associate);
             }
 
@@ -78,29 +98,68 @@ public class UserHomeActivity extends AppCompatActivity {
     }
 
     private void setUpNavigationView() {
-        binding.navAboutUsLay.setOnClickListener(v -> startActivity(new Intent(activity, AboutUsActivity.class)));
-        binding.navEmiCalculatorLay.setOnClickListener(v -> startActivity(new Intent(activity, EmiCalculatorActivity.class)));
-        binding.navNewAssoLay.setOnClickListener(v -> startActivity(new Intent(activity, SignupUserInfoActivity.class)));
-        binding.navChatSupportLay.setOnClickListener(v -> startActivity(new Intent(activity, ChatSupportActivity.class)));
-        binding.navHomeLoanLay.setOnClickListener(v -> startActivity(new Intent(activity, HomeLoanEnquiryActivity.class)));
+        binding.navAboutUsLay.setOnClickListener(v -> {
+            if (session.isLoggedIn())startActivity(new Intent(activity, AboutUsActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navEmiCalculatorLay.setOnClickListener(v -> {
+             if(session.isLoggedIn())startActivity(new Intent(activity, EmiCalculatorActivity.class));
+             else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navNewAssoLay.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navChatSupportLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()){
+                String url = "https://api.whatsapp.com/send?phone=+919993511311";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navHomeLoanLay.setOnClickListener(v -> {
+            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
 
         binding.navCommercialSearchLay.setOnClickListener(v -> {
-            session.setSearch("commercial");
-            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
-            binding.drawerLayout.close();
-        });
-        binding.navFarmhouseSearchLay.setOnClickListener(v -> {
-            session.setSearch("farmhouse");
-            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
-            binding.drawerLayout.close();
-        });
-        binding.navResidentialSearchLay.setOnClickListener(v -> {
-            session.setSearch("residential");
-            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
-            binding.drawerLayout.close();
+            if (session.isLoggedIn()){
+                session.setSearch("commercial");
+                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
+                binding.drawerLayout.close();
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-        binding.navLogoutLay.setOnClickListener(v -> logout());
+        binding.navFarmhouseSearchLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()){
+                session.setSearch("farmhouse");
+                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
+                binding.drawerLayout.close();
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navResidentialSearchLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()){
+                session.setSearch("residential");
+                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
+                binding.drawerLayout.close();
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
+
+        });
+
+        binding.navLogoutLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()) logout();
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
     }
 
     private void logout() {

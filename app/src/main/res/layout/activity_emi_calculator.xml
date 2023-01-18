@@ -7,6 +7,7 @@
     tools:context=".ui.misc.EmiCalculatorActivity">
 
     <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/white">
@@ -41,5 +42,146 @@
             android:background="@color/light_gray"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextOutLineStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/black">
+
+            <EditText
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableLeft="@drawable/ic_baseline_currency_rupee_242"
+                android:id="@+id/edt_loan_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:autofillHints="password"
+                android:background="@null"
+                android:fontFamily="@font/heebo_regular"
+                android:hint="Loan Amount"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextOutLineStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/black">
+
+            <EditText
+                android:id="@+id/edt_tenure"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:autofillHints="password"
+                android:background="@null"
+                android:fontFamily="@font/heebo_regular"
+                android:hint="Tenure (Months) "
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextOutLineStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_4sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_4sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_4sdp"
+            app:boxCornerRadiusTopStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/black">
+
+            <EditText
+                android:id="@+id/edt_Interest_rate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:autofillHints="password"
+                android:background="@null"
+                android:fontFamily="@font/heebo_regular"
+                android:hint="Interest Rate"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <TextView
+                android:id="@+id/calculated_emi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:autofillHints="password"
+                android:background="@drawable/edit_bg"
+                android:padding="@dimen/_15sdp"
+                android:drawableLeft="@drawable/ic_baseline_currency_rupee_242"
+                android:fontFamily="@font/heebo_regular"
+                android:hint="Calculated EMI "
+                android:drawablePadding="@dimen/_5sdp"
+                android:inputType="numberDecimal"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/heebo_bold"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_60sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="Calculate"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

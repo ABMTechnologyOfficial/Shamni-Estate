@@ -441,7 +441,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_contact_us"
+                        android:src="@drawable/ic_baseline_chat_24"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
