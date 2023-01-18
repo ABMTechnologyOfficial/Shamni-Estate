@@ -20,6 +20,7 @@ import com.shamniestate.shamniestate.ui.misc.ChatSupportActivity;
 import com.shamniestate.shamniestate.ui.misc.EmiCalculatorActivity;
 import com.shamniestate.shamniestate.ui.misc.HomeLoanEnquiryActivity;
 import com.shamniestate.shamniestate.utils.Session;
+import com.shamniestate.shamniestate.visitors.VisitorListActivity;
 
 public class UserHomeActivity extends AppCompatActivity {
     private Activity activity;
@@ -110,6 +111,11 @@ public class UserHomeActivity extends AppCompatActivity {
 
         binding.navNewAssoLay.setOnClickListener(v -> {
             if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navVisitorListLay.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
