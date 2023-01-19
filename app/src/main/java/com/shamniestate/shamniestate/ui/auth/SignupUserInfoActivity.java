@@ -76,7 +76,7 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         UtilModel model = new UtilModel();
 
         if(!session.getUserId().equalsIgnoreCase(""))
-             model.setSponsorId(session.getUserId());
+             model.setAssociateInviteCode(session.getUserInviteCode());
 
 
         model.setAccountType(selectedAccountType);
@@ -93,7 +93,7 @@ public class SignupUserInfoActivity extends AppCompatActivity {
         intent.putExtra("model",(Serializable) model);
         startActivity(intent);
 
-       /// Log.e("TAG", "addData() called"+model);
+      /// Log.e("TAG", "addData() called"+model);
     }
 
     private boolean validate() {

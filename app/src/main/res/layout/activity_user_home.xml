@@ -73,7 +73,7 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
@@ -525,11 +525,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_chat_support_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -561,11 +563,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_about_us_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -597,11 +601,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
-                <RelativeLayout
+                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_logout_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -633,13 +639,14 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
             </LinearLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </com.google.android.material.navigation.NavigationView>
 

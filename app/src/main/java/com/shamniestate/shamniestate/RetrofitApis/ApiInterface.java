@@ -22,6 +22,7 @@ import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;
 import com.shamniestate.shamniestate.models.SignupModel;
+import com.shamniestate.shamniestate.models.UserProfileModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -119,8 +120,8 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST(get_profile)
-    Call<LoginModel> getProfile(
-            @Header("Access_Token") String Access_Token,
+    Call<UserProfileModel> getProfile(
+            @Header("Authorization") String Access_Token,
             @Field("associate_id") String associate_id
     );
 

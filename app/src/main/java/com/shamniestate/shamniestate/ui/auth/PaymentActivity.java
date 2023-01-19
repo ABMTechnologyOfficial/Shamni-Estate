@@ -84,6 +84,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
 
     }
 
+
     private  void addData(ProgressDialog progressDialog){
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.signup(
@@ -107,7 +108,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
                 model.getAssociateEmail(),
                 password,
                 password,
-                ref_code,
+                model.getAssociateInviteCode(),
                 "1",
                 model.getAssociateReraRegNo(),
                 model.getAssociateAadharCardFront(),
@@ -129,7 +130,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
                         finish();
                     } else {
                         Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
-                    }
+                }
             }
 
             @Override

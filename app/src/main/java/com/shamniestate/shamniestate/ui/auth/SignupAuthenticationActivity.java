@@ -48,6 +48,8 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
 
         model = (UtilModel) getIntent().getSerializableExtra("model");
 
+        Log.e("TAG", "addData() called"+model);
+
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, SignupDocumentsActivity.class)));
         binding.icBack.setOnClickListener(view -> onBackPressed());
 
@@ -80,12 +82,12 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                             .putExtra("ref_code",binding.userReferrralCode.getText().toString()));
                       progressDialog.dismiss();
                 }else {
-                    addData(progressDialog);
+                    Log.e("TAG", "addData() called"+model);
+                   addData(progressDialog);
                 }
             }
         });
         binding.userShamniCheck.setOnCheckedChangeListener((buttonView, isChecked) -> ischecked = isChecked);
-
 
     }
 
@@ -113,7 +115,7 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                 model.getAssociateEmail(),
                 binding.userPassword.getText().toString(),
                 binding.userCPassword.getText().toString(),
-                binding.userReferrralCode.getText().toString(),
+                model.getAssociateInviteCode(),
                 "1",
                 model.getAssociateReraRegNo(),
                 model.getAssociateAadharCardFront(),

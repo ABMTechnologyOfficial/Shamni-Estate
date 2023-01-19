@@ -65,6 +65,8 @@ public class SignupDocumentsActivity extends AppCompatActivity {
 
         model = (UtilModel) getIntent().getSerializableExtra("model");
 
+        Log.e("TAG", "addData() called"+model);
+
         binding.icBack.setOnClickListener(view -> onBackPressed());
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, BankingInformationActivity.class)));
 

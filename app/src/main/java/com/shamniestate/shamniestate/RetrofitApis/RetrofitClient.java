@@ -108,8 +108,4 @@ public class RetrofitClient {
         return retrofit.create(ApiInterface.class);
     }
 
-
-
-
-
 }

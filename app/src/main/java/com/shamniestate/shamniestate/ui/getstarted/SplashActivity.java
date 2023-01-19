@@ -40,49 +40,44 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         session = new Session(this);
-        CoordinatorLayout codinate = findViewById(R.id.codinate);
         getAppDetails();
         ImageView imageView = findViewById(R.id.shamni_logo);
         // setAnimations(imageView);
 
-        Thread thread = new Thread(() -> {
-            try {
-                sleep(2000);
-                if (isAvailable) {
-                    if (session.isLoggedIn()) {
-                        startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
-                    } else {
-                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    }
-                    finish();
-                } else {
-                    Snackbar
-                            .make(codinate, "Pehle App Ka Paisa do..!", Snackbar.LENGTH_LONG).show();
 
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        thread.start();
+        Log.e("TAG", "onCreate() called with: savedInstanceState = [" + session.getUserInviteCode() + "]");
     }
 
 
 
     private  void getAppDetails(){
-
-
         ApiInterface apiInterface = RetrofitClient.getApp(SplashActivity.this);
         apiInterface.getAppDetails("1").enqueue(new Callback<AppDetailsModel>() {
             @Override
             public void onResponse(@NonNull Call<AppDetailsModel> call, @NonNull Response<AppDetailsModel> response) {
-
                 try {
                     if(response.code() == 200)
                         if(response.body() != null ){
-                            if(response.body().getResult().equalsIgnoreCase("true"))
-                             isAvailable = true;
+                            if(response.body().getResult().equalsIgnoreCase("true")) {
+                                Thread thread = new Thread(() -> {
+                                    try {
+                                        sleep(1500);
+                                            if (session.isLoggedIn()) {
+                                                startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
+                                            } else {
+                                                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                                            }
+                                            finish();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                });
+
+                                thread.start();
+                            } else {
+                                CoordinatorLayout codinate = findViewById(R.id.codinate);
+                                Snackbar.make(codinate, "Payment Due of the App Development", Snackbar.LENGTH_LONG).show();
+                            }
                         }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -92,6 +87,21 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<AppDetailsModel> call, @NonNull Throwable t) {
+                Thread thread = new Thread(() -> {
+                    try {
+                        sleep(1500);
+                        if (session.isLoggedIn()) {
+                            startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
+                        } else {
+                            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                        }
+                        finish();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+                thread.start();
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
             }
         });
