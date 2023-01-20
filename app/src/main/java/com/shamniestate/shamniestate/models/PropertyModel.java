@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyModel implements Serializable {
@@ -54,6 +55,16 @@ public class PropertyModel implements Serializable {
     }
 
     public  class  PropertyData implements Serializable {
+
+        private ArrayList<AmenitiesListModel.AmenitiesData> amenitiesDataArrayList = new ArrayList<>();
+
+        public ArrayList<AmenitiesListModel.AmenitiesData> getAmenitiesDataArrayList() {
+            return amenitiesDataArrayList;
+        }
+
+        public void setAmenitiesDataArrayList(ArrayList<AmenitiesListModel.AmenitiesData> amenitiesDataArrayList) {
+            this.amenitiesDataArrayList = amenitiesDataArrayList;
+        }
 
         @SerializedName("property_id")
         @Expose

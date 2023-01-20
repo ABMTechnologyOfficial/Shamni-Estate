@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -54,6 +55,9 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
             holder.binding.textLocality.setText(current.getLocalityName());
             holder.binding.textPropertyCode.setText("Property Code: " + current.getPropertyCode());
+
+            holder.binding.recyclerView.setAdapter(new SearchResultAmenityAdapter(context, current.getAmenitiesDataArrayList()));
+            holder.binding.recyclerView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
         }
     }
 

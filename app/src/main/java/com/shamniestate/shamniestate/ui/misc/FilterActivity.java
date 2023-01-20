@@ -1,11 +1,11 @@
 package com.shamniestate.shamniestate.ui.misc;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -50,7 +50,6 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     private void getPropertyType() {
-
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyType(session.getAccessToken()).enqueue(new Callback<PropertyTypeModel>() {
             @Override
@@ -62,7 +61,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.typePropertyRecy.setLayoutManager(layoutManager);
-                            binding.typePropertyRecy.setAdapter(new PropertyTypeAdapter(activity,response.body().getData()));
+                            binding.typePropertyRecy.setAdapter(new PropertyTypeAdapter(activity, response.body().getData()));
                         }
             }
 
@@ -71,12 +70,9 @@ public class FilterActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
-
     }
 
-
     private void getPropertyPlan() {
-
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyPlan(session.getAccessToken()).enqueue(new Callback<PropertyPlanModel>() {
             @Override
@@ -88,7 +84,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.planPropertyRecy.setLayoutManager(layoutManager);
-                            binding.planPropertyRecy.setAdapter(new PropertyPlanAdapter(activity,response.body().getData()));
+                            binding.planPropertyRecy.setAdapter(new PropertyPlanAdapter(activity, response.body().getData()));
                         }
             }
 
@@ -97,11 +93,9 @@ public class FilterActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
-
     }
 
     private void getPropertyAmenities() {
-
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyAmenities(session.getAccessToken()).enqueue(new Callback<AmenitiesListModel>() {
             @Override
@@ -113,7 +107,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.amenitiesPropertyRecy.setLayoutManager(layoutManager);
-                            binding.amenitiesPropertyRecy.setAdapter(new PropertyAmenitiesAdapter(activity,response.body().getData()));
+                            binding.amenitiesPropertyRecy.setAdapter(new PropertyAmenitiesAdapter(activity, response.body().getData()));
                         }
             }
 
@@ -122,11 +116,9 @@ public class FilterActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
-
     }
 
     private void getCities() {
-
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getCityList(session.getAccessToken()).enqueue(new Callback<CityListModel>() {
             @Override
@@ -138,7 +130,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.cityPropertyRecy.setLayoutManager(layoutManager);
-                            binding.cityPropertyRecy.setAdapter(new CityAdapter(activity,response.body().getData()));
+                            binding.cityPropertyRecy.setAdapter(new CityAdapter(activity, response.body().getData()));
                         }
             }
 
@@ -147,7 +139,5 @@ public class FilterActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
-
     }
-
 }
