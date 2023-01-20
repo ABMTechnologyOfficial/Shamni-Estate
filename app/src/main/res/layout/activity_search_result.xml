@@ -120,6 +120,13 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:layout_alignTop="@id/recycler_view"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_5sdp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

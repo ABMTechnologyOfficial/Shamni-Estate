@@ -11,15 +11,17 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.ActivityUserPropertyDetailsBinding;
 import com.shamniestate.shamniestate.models.PropertyModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class UserPropertyDetailsActivity extends AppCompatActivity {
 
-  ActivityUserPropertyDetailsBinding binding ;
-  UserPropertyDetailsActivity activity ;
-  PropertyModel.PropertyData data = null;
+    ActivityUserPropertyDetailsBinding binding;
+    UserPropertyDetailsActivity activity;
+    PropertyModel.PropertyData data = null;
     ArrayList<SlideModel> slideModelArrayList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
 
         activity = UserPropertyDetailsActivity.this;
 
-        if (getIntent() != null){
+        if (getIntent() != null) {
             data = (PropertyModel.PropertyData) getIntent().getSerializableExtra("data");
         }
 
@@ -44,24 +46,25 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         binding.totalBalcony.setText(data.getNoOfBalcony());
         binding.totalBedroom.setText(data.getNoOfBedroom());
         binding.totalBathroom.setText(data.getNoOfBathroom());
-        binding.propertyArea.setText(data.getMaxUnitArea()+" "+data.getAreaUnitType());
-        binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice()))+" - "+calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
+        binding.propertyArea.setText(data.getMaxUnitArea() + " " + data.getAreaUnitType());
+        binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice())) + " - " + calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
 
-        slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
-        binding.imageSlider.setImageList(slideModelArrayList);
+        ///// slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
+        // binding.imageSlider.setImageList(slideModelArrayList);
 
-        String lat , lang ;
-        lat = data.getPropertyLatitude() ;
+        Picasso.get().load(data.getPropertyImage()).placeholder(com.denzcoskun.imageslider.R.drawable.loading).into(binding.imageSlider);
+
+        String lat, lang;
+        lat = data.getPropertyLatitude();
         lang = data.getPropertyLongitude();
 
-        if(!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")){
+        if (!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.fragment_container, new MapFragment(Double.parseDouble(lat), Double.parseDouble(lang), false));
             transaction.commit();
-        }else {
+        } else {
             binding.mapLinar.setVisibility(View.GONE);
         }
-
     }
 
     private String calculate_price(int price) {
@@ -78,5 +81,4 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         return comnfir_price;
 
     }
-
 }

@@ -16,6 +16,7 @@ import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
+import com.shamniestate.shamniestate.adapters.SearchResultAdapter;
 import com.shamniestate.shamniestate.databinding.ActivitySearchResultBinding;
 import com.shamniestate.shamniestate.models.PropertyModel;
 
@@ -34,11 +35,9 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         activity = this;
 
-      ///  getPropertyList();
+        getPropertyList();
     }
 
-
- /*
     private void getPropertyList() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getAllProperty(AUTHORIZATION,"").enqueue(new Callback<PropertyModel>() {
@@ -48,9 +47,14 @@ public class SearchResultActivity extends AppCompatActivity {
                 try {
                     if (response.code() == 200)
                         if (response.isSuccessful() && response.body() != null) {
-                            binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-                            binding.recyclerView.setAdapter(new PropertyAdapter(activity, response.body().getData()));
 
+                            for (int i = 0; i < response.body().getData().size(); i++) {
+
+                            }
+
+
+                            binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+                            binding.recyclerView.setAdapter(new SearchResultAdapter(activity, response.body().getData()));
                         }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -64,7 +68,5 @@ public class SearchResultActivity extends AppCompatActivity {
             }
         });
     }
-
-  */
 
 }

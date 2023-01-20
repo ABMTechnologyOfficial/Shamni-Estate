@@ -3,6 +3,7 @@ package com.shamniestate.shamniestate.ui.misc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -44,6 +45,8 @@ public class FilterActivity extends AppCompatActivity {
         getPropertyPlan();
         getPropertyAmenities();
         getCities();
+
+        binding.textApply.setOnClickListener(view -> startActivity(new Intent(activity, SearchResultActivity.class)));
     }
 
     private void getPropertyType() {

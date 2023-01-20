@@ -24,18 +24,18 @@
 
 
         <TextView
-            android:id="@+id/text_login"
+            android:id="@+id/text_apply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/_5sdp"
-            android:paddingHorizontal="@dimen/_30sdp"
-            android:paddingVertical="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/heebo_bold"
             android:gravity="center"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:paddingVertical="@dimen/_8sdp"
             android:text="Apply"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp" />

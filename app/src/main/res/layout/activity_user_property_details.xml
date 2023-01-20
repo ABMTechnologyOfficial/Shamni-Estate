@@ -68,14 +68,13 @@
                         android:layout_height="@dimen/_210sdp"
                         android:visibility="visible">
 
-                        <com.denzcoskun.imageslider.ImageSlider
+                        <ImageView
                             android:id="@+id/image_slider"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:visibility="visible"
-                            app:iss_auto_cycle="true"
-                            app:iss_delay="0"
-                            app:iss_period="2000" />
+                            android:scaleType="fitXY"
+                          />
 
                         <androidx.viewpager2.widget.ViewPager2
                             android:id="@+id/image_viewpager"
