@@ -529,6 +529,71 @@ public class VisitorUtilModel implements Serializable {
         this.tokenValidity = tokenValidity;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "VisitorUtilModel{" +
+                "visitorId='" + visitorId + '\'' +
+                ", associateId='" + associateId + '\'' +
+                ", visitorName='" + visitorName + '\'' +
+                ", visitorMob='" + visitorMob + '\'' +
+                ", visitorDob='" + visitorDob + '\'' +
+                ", visitorDov='" + visitorDov + '\'' +
+                ", visitorProffession='" + visitorProffession + '\'' +
+                ", visitorEmail='" + visitorEmail + '\'' +
+                ", visitorAddress='" + visitorAddress + '\'' +
+                ", visitorCity='" + visitorCity + '\'' +
+                ", visitorState='" + visitorState + '\'' +
+                ", visitorCityCode='" + visitorCityCode + '\'' +
+                ", visitorAadharCardNo='" + visitorAadharCardNo + '\'' +
+                ", visitorAadharCardFront='" + visitorAadharCardFront + '\'' +
+                ", visitorAadharCardBack='" + visitorAadharCardBack + '\'' +
+                ", visitorBudget='" + visitorBudget + '\'' +
+                ", visitorProjectName='" + visitorProjectName + '\'' +
+                ", visitorProjectCode='" + visitorProjectCode + '\'' +
+                ", visitorUnitNo='" + visitorUnitNo + '\'' +
+                ", created='" + created + '\'' +
+                ", visitorSelfie='" + visitorSelfie + '\'' +
+                ", accountType='" + accountType + '\'' +
+                ", workingType='" + workingType + '\'' +
+                ", associateProfile='" + associateProfile + '\'' +
+                ", associateName='" + associateName + '\'' +
+                ", associateGender='" + associateGender + '\'' +
+                ", associateDob='" + associateDob + '\'' +
+                ", associateMobile='" + associateMobile + '\'' +
+                ", associateOtp='" + associateOtp + '\'' +
+                ", associateAddress='" + associateAddress + '\'' +
+                ", associateCity='" + associateCity + '\'' +
+                ", associateState='" + associateState + '\'' +
+                ", associateCityZip='" + associateCityZip + '\'' +
+                ", associateEmail='" + associateEmail + '\'' +
+                ", associatePass='" + associatePass + '\'' +
+                ", associateAadharCardNo='" + associateAadharCardNo + '\'' +
+                ", associateAadharCardFront='" + associateAadharCardFront + '\'' +
+                ", associateAadharCardBack='" + associateAadharCardBack + '\'' +
+                ", associatePanNo='" + associatePanNo + '\'' +
+                ", associatePanCardFront='" + associatePanCardFront + '\'' +
+                ", associateBankName='" + associateBankName + '\'' +
+                ", associateAccNo='" + associateAccNo + '\'' +
+                ", associateBnkIfscNo='" + associateBnkIfscNo + '\'' +
+                ", associateBnkAccName='" + associateBnkAccName + '\'' +
+                ", associateGstinNo='" + associateGstinNo + '\'' +
+                ", associateReraRegNo='" + associateReraRegNo + '\'' +
+                ", associateBlankCheque='" + associateBlankCheque + '\'' +
+                ", associateInviteCode='" + associateInviteCode + '\'' +
+                ", sponsorId='" + sponsorId + '\'' +
+                ", resetLinkToken='" + resetLinkToken + '\'' +
+                ", resetExpDate='" + resetExpDate + '\'' +
+                ", resetOtpExpDate='" + resetOtpExpDate + '\'' +
+                ", associateMobStatus='" + associateMobStatus + '\'' +
+                ", associateDocStatus='" + associateDocStatus + '\'' +
+                ", formClearingHeading='" + formClearingHeading + '\'' +
+                ", formClearingMessage='" + formClearingMessage + '\'' +
+                ", associateAccountStatus='" + associateAccountStatus + '\'' +
+                ", termsAndConditions='" + termsAndConditions + '\'' +
+                ", privacyPolicy='" + privacyPolicy + '\'' +
+                ", joinType='" + joinType + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                ", tokenValidity='" + tokenValidity + '\'' +
+                '}';
+    }
 }

@@ -307,7 +307,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Project Name"
-                        android:inputType="number"
+                        android:inputType="text|textCapWords"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -348,7 +348,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Project Code"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
@@ -389,7 +389,7 @@
                         android:background="@null"
                         android:gravity="center_vertical"
                         android:hint="Unit Number"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_11sdp" />
