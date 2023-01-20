@@ -20,5 +20,6 @@
     <color name="light_black">#818181</color>
     <color name="red">#FF3939</color>
     <color name="primary_light">#F6FCFF</color>
+    <color name="dark_gray">#5E5E5E</color>
 
 </resources>

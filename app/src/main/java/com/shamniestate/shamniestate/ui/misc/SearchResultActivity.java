@@ -34,9 +34,11 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         activity = this;
 
-        getPropertyList();
+      ///  getPropertyList();
     }
 
+
+ /*
     private void getPropertyList() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getAllProperty(AUTHORIZATION,"").enqueue(new Callback<PropertyModel>() {
@@ -62,5 +64,7 @@ public class SearchResultActivity extends AppCompatActivity {
             }
         });
     }
+
+  */
 
 }
