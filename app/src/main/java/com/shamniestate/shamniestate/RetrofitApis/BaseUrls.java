@@ -18,5 +18,7 @@ public class BaseUrls extends Object{
     public static final String city_list = "city_list";
     public static final String get_profile = "get_profile";
     public static final String my_associates = "my_associates";
+    public static final String img_upload = "img_upload";
+    public static final String new_visitor = "new_visitor";
 
 }

@@ -7,6 +7,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_passwor
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.new_visitor;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
@@ -95,6 +96,31 @@ public interface ApiInterface {
     @POST(forgot_password)
     Call<SignupModel> forgotPassword(
             @Field("associate_email") String associate_email
+    );
+
+
+    @FormUrlEncoded
+    @POST(new_visitor)
+    Call<SignupModel> newVisitor(
+            @Field("associate_id") String associate_id,
+            @Field("visitor_name") String visitor_name,
+            @Field("visitor_mob") String visitor_mob,
+            @Field("visitor_dob") String visitor_dob,
+            @Field("visitor_dov") String visitor_dov,
+            @Field("visitor_proffession") String visitor_proffession,
+            @Field("visitor_email") String visitor_email,
+            @Field("visitor_address") String visitor_address,
+            @Field("visitor_city") String visitor_city,
+            @Field("visitor_state") String visitor_state,
+            @Field("visitor_city_code") String visitor_city_code,
+            @Field("visitor_aadhar_card_no") String visitor_aadhar_card_no,
+            @Field("visitor_budget") String visitor_budget,
+            @Field("visitor_project_name") String visitor_project_name,
+            @Field("visitor_project_code") String visitor_project_code,
+            @Field("visitor_unit_no") String visitor_unit_no,
+            @Field("visitor_aadhar_card_front") String visitor_aadhar_card_front,
+            @Field("visitor_aadhar_card_back") String visitor_aadhar_card_back,
+            @Field("visitor_selfie") String visitor_selfie
     );
 
 
