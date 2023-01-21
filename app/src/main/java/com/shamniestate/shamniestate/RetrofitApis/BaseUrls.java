@@ -20,5 +20,6 @@ public class BaseUrls extends Object{
     public static final String my_associates = "my_associates";
     public static final String img_upload = "img_upload";
     public static final String new_visitor = "new_visitor";
+    public static final String property_details = "property_details";
 
 }

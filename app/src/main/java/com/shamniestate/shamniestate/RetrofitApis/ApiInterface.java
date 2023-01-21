@@ -8,6 +8,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.new_visitor;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_details;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
@@ -19,17 +20,21 @@ import com.shamniestate.shamniestate.models.BankListModel;
 import com.shamniestate.shamniestate.models.CityListModel;
 import com.shamniestate.shamniestate.models.LoginModel;
 import com.shamniestate.shamniestate.models.MyAssociateModel;
+import com.shamniestate.shamniestate.models.PropertyDetailsModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.UserProfileModel;
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
@@ -127,6 +132,15 @@ public interface ApiInterface {
     @GET(property_type)
     Call<PropertyTypeModel> getPropertyType(
             @Header("Access_Token") String Access_Token
+    );
+
+    @FormUrlEncoded
+    @POST(property_details)
+    Call<PropertyDetailsModel> getPropertyDetails(
+            @HeaderMap Map<String, String> header,
+            @Header("Authorization") String Authorization,
+//            @Header("Content-Type") String Content,
+            @Field("property_id") String property_id
     );
 
     @GET(property_plan)

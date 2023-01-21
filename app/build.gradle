@@ -97,4 +97,8 @@ dependencies {
     //Flexbox Layout Manager
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
+    ////Volley Library
+    implementation 'com.android.volley:volley:1.1.0'
+
+
 }

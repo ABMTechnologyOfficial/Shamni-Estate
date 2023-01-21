@@ -58,6 +58,8 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
             holder.binding.recyclerView.setAdapter(new SearchResultAmenityAdapter(context, current.getAmenitiesDataArrayList()));
             holder.binding.recyclerView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
+
+
         }
     }
 
