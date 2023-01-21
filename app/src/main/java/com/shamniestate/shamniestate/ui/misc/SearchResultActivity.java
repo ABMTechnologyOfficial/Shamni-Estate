@@ -98,7 +98,6 @@ public class SearchResultActivity extends AppCompatActivity {
                                 data.add(current);
                             }
 
-
                             binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
                             binding.recyclerView.setAdapter(new SearchResultAdapter(activity, data));
                         }
