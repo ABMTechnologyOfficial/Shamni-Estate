@@ -8,6 +8,8 @@ import static com.shamniestate.shamniestate.utils.BitmapToFile.bitmapToFile;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -36,9 +39,12 @@ import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.BaseUrls;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
+import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
+import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityLoginSuccessBinding;
 import com.shamniestate.shamniestate.databinding.ActivitySignupDocumentsBinding;
 import com.shamniestate.shamniestate.databinding.ActivityVisitorDocumentsBinding;
+import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.VisitorUtilModel;
 import com.shamniestate.shamniestate.ui.auth.LoginSuccessActivity;
@@ -50,6 +56,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,12 +69,14 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
     private Session session;
     private Uri filepath = null;
     private Bitmap bitmap;
+    private ArrayList<String> propertyNameList = new ArrayList<>();
+    private ArrayList<String> propertyCodeList = new ArrayList<>();
 
     int AADHARCARDFRONT = 100, AADHARCARDBACK = 200, PANCARD = 300;
     private File aadharCardFront = null, aadharCardBack = null;
     private String selectedAadharCardFront = "", selectedAadharCardBack = "";
     private VisitorUtilModel model = null;
-
+    private  String selectedPropertyName = "" , selectedPropertyCode = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +88,12 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
 
         binding.textContinue.setOnClickListener(view -> {
             if (validate()) {
-                addVisitor();
+                ///addVisitor();
+                Log.e("TAG", "onCreate() called with: Okay = [" + savedInstanceState + "]");
             }
         });
 
+        getPropertyList();
 
         binding.aadharFrontImage.setOnClickListener(v -> Dexter.withContext(activity)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -153,7 +164,7 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
                 model.getVisitorCityCode(),
                 model.getVisitorAadharCardNo(),
                 binding.budgetEdit.getText().toString(),
-                binding.projectNameEdit.getText().toString(),
+                selectedPropertyName,
                 binding.projectCodeEdit.getText().toString(),
                 binding.projectUnitNumberEdit.getText().toString(),
                 selectedAadharCardFront,
@@ -198,9 +209,8 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
             binding.projectCodeEdit.setError("Enter Project Code..!");
             binding.projectCodeEdit.requestFocus();
             return false;
-        } else if (binding.projectNameEdit.getText().toString().equalsIgnoreCase("")) {
-            binding.projectNameEdit.setError("Enter Project Name..!");
-            binding.projectNameEdit.requestFocus();
+        } else if (selectedPropertyName.equalsIgnoreCase("")) {
+            Toast.makeText(activity, "Select Property Name", Toast.LENGTH_SHORT).show();
             return false;
         } else if (binding.budgetEdit.getText().toString().equalsIgnoreCase("")) {
             binding.budgetEdit.setError("Enter Visitors Budget..!");
@@ -294,4 +304,41 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
 
     }
 
+    private void getPropertyList() {
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+        apiInterface.getAllProperty(AUTHORIZATION,"").enqueue(new Callback<PropertyModel>() {
+            @Override
+            public void onResponse(@NonNull Call<PropertyModel> call, @NonNull Response<PropertyModel> response) {
+                try {
+                    if (response.code() == 200)
+                        if (response.isSuccessful() && response.body() != null) {
+
+                            for (int i = 0; i < response.body().getData().size(); i++) {
+                                propertyNameList.add(response.body().getData().get(i).getPropertyTitle());
+                                propertyCodeList.add(response.body().getData().get(i).getPropertyCode());
+                            }
+                            setPropertyNamesAdapter();
+                        }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<PropertyModel> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
+            }
+        });
+    }
+
+    private void setPropertyNamesAdapter() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, propertyNameList);
+        binding.propertyNameSpi.setAdapter(adapter);
+        binding.propertyNameSpi.setOnItemSelectedListener((view, position, id, item) -> {
+            selectedPropertyName = propertyNameList.get(position);
+            selectedPropertyCode = propertyCodeList.get(position);
+            binding.projectCodeEdit.setText(selectedPropertyCode);
+        });
+
+    }
 }

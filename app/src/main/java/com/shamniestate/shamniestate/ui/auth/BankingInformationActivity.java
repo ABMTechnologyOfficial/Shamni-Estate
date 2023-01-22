@@ -238,6 +238,7 @@ public class BankingInformationActivity extends AppCompatActivity {
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, bankListNames);
                                 binding.bankSpinner.setAdapter(adapter);
                                 binding.bankSpinner.setOnItemSelectedListener((view, position, id, item) -> selectedBankName = bankListNames.get(position));
+
                             } else {
                                 Log.e(BaseUrls.TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
                             }

@@ -288,32 +288,26 @@
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/EditTextOutLineStyle"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    app:boxBackgroundColor="@color/white"
-                    app:boxBackgroundMode="outline"
-                    app:hintEnabled="false"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:hintTextColor="@color/colorPrimary"
-                    app:startIconTint="@color/colorPrimary">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/edit_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_3sdp">
 
-                    <EditText
-                        android:id="@+id/project_name_edit"
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        android:id="@+id/property_name_spi"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:hint="Project Name"
-                        android:inputType="text|textCapWords"
-                        android:singleLine="true"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        app:background="@color/white"
+                        app:ms_background_color="@color/white"
+                        app:ms_padding_bottom="@dimen/_8sdp"
+                        app:ms_padding_top="@dimen/_9sdp"
+                        app:ms_text_color="@color/black" />
 
-                </com.google.android.material.textfield.TextInputLayout>
-
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

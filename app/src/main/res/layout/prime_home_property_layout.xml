@@ -86,7 +86,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/property_type_selected_bg"
+                    android:background="@drawable/prime_home_bg"
                     android:fontFamily="@font/heebo_bold"
                     android:paddingHorizontal="@dimen/_8sdp"
                     android:paddingVertical="@dimen/_3sdp"
