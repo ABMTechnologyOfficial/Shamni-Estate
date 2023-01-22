@@ -86,7 +86,9 @@ public class LoginActivity extends AppCompatActivity {
                                 session.setUserId(data.getAssociateId());
                                 session.setAccessToken(data.getAccessToken());
                                 session.setUserInviteCode(data.getAssociateInviteCode());
-                                startActivity(new Intent(activity, LoginSuccessActivity.class));
+                                session.setUserType(data.getAccountType());
+                                startActivity(new Intent(activity, LoginSuccessActivity.class)
+                                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 finish();
                             } else {
                                 pd.dismiss();

@@ -28,6 +28,7 @@ public class Session extends Object {
     private static final String cancel_cheque_image = "cancel_cheque_image";
     private static final Object user_profile = "user_profile";
     private static final String user_invite_code = "user_invite_code";
+    private static final String user_type = "user_type";
 
     private Context _context;
     private SharedPreferences Rapidine_pref;
@@ -63,10 +64,19 @@ public class Session extends Object {
         editor.apply();
         editor.commit();
     }
+  public void setUserType(String search) {
+        editor.putString(user_type, search);
+        editor.apply();
+        editor.commit();
+    }
 
 
     public String getUserInviteCode(){
         return Rapidine_pref.getString(user_invite_code,"");
+    }
+
+    public String getUserIType(){
+        return Rapidine_pref.getString(user_type,"");
     }
 
     public String getMobile() {

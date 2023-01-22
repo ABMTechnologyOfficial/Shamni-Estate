@@ -119,7 +119,7 @@ public class BankingInformationActivity extends AppCompatActivity {
 
     }
 
-    private Bitmap setBitmap(ImageView imageView) {
+    private Bitmap setBitmap() {
 
         try {
             bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
@@ -165,7 +165,7 @@ public class BankingInformationActivity extends AppCompatActivity {
             assert data != null;
             filepath = data.getData();
             if(requestCode == CANCELCHEQUE ){
-                bitmap = setBitmap(binding.cancelChequeImage);
+                bitmap = setBitmap();
                 cancelCheque = bitmapToFile(activity, bitmap);
                 uploadImage(binding.cancelChequeImage, "associate_blank_cheque" , binding.cancelChequeProgress, cancelCheque ,bitmap, "aadhar_front_image");
             }
@@ -216,7 +216,6 @@ public class BankingInformationActivity extends AppCompatActivity {
 
     }
 
-
     private void getBankList() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getBankList().enqueue(new Callback<BankListModel>() {
@@ -254,11 +253,6 @@ public class BankingInformationActivity extends AppCompatActivity {
         });
     }
 }
-
-
-
-
-
 
 
 /*

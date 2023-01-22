@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +29,6 @@ import retrofit2.Response;
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     private Session session;
-    private boolean isAvailable = false ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,32 +39,32 @@ public class SplashActivity extends AppCompatActivity {
 
         session = new Session(this);
         getAppDetails();
-        ImageView imageView = findViewById(R.id.shamni_logo);
-        // setAnimations(imageView);
 
         Log.e("TAG", "onCreate() called with: savedInstanceState = [" + session.getUserInviteCode() + "]");
     }
 
 
-
-    private  void getAppDetails(){
+    private void getAppDetails() {
         ApiInterface apiInterface = RetrofitClient.getApp(SplashActivity.this);
         apiInterface.getAppDetails("1").enqueue(new Callback<AppDetailsModel>() {
             @Override
             public void onResponse(@NonNull Call<AppDetailsModel> call, @NonNull Response<AppDetailsModel> response) {
                 try {
-                    if(response.code() == 200)
-                        if(response.body() != null ){
-                            if(response.body().getResult().equalsIgnoreCase("true")) {
+                    if (response.code() == 200)
+                        if (response.body() != null) {
+                            if (response.body().getResult().equalsIgnoreCase("true")) {
                                 Thread thread = new Thread(() -> {
                                     try {
                                         sleep(1500);
-                                            if (session.isLoggedIn()) {
-                                                startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
-                                            } else {
+                                        if (session.isLoggedIn()) {
+                                            if (session.getUserIType().equalsIgnoreCase("2"))
                                                 startActivity(new Intent(SplashActivity.this, PrimeHomeActivity.class));
-                                            }
-                                            finish();
+                                            else
+                                                startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
+                                        } else {
+                                            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                                        }
+                                        finish();
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }

@@ -2,14 +2,10 @@ package com.shamniestate.shamniestate.visitors;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.img_upload;
-import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.signup_img;
 import static com.shamniestate.shamniestate.utils.BitmapToFile.bitmapToFile;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
@@ -88,7 +84,7 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
 
         binding.textContinue.setOnClickListener(view -> {
             if (validate()) {
-                ///addVisitor();
+                addVisitor();
                 Log.e("TAG", "onCreate() called with: Okay = [" + savedInstanceState + "]");
             }
         });

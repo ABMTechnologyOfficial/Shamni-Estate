@@ -91,14 +91,17 @@ public class ProfileDetailsActivity extends AppCompatActivity {
                             }
 
                             if (!data.getAssociateAadharCardFront().equalsIgnoreCase("")) {
+                                Log.d(TAG, "onResponse() called with: call = "+ data.getAssociateAadharCardFront()+ "]");
                                 Picasso.get().load(data.getAssociateAadharCardFront()).placeholder(R.drawable.profile).into(binding.aadharFrontImage);
                             }
 
                             if (!data.getAssociateAadharCardBack().equalsIgnoreCase("")) {
+                                Log.d(TAG, "onResponse() called with: data.getAssociateAadharCardBack() = "+ data.getAssociateAadharCardBack()+ "]");
                                 Picasso.get().load(data.getAssociateAadharCardBack()).placeholder(R.drawable.profile).into(binding.aadharBackImage);
                             }
 
                             if (!data.getAssociatePanCardFront().equalsIgnoreCase("")) {
+                                Log.d(TAG, "onResponse() called with: data.getAssociatePanCardFront() = "+ data.getAssociatePanCardFront()+ "]");
                                 Picasso.get().load(data.getAssociatePanCardFront()).placeholder(R.drawable.profile).into(binding.panImage);
                             }
                         } catch (Exception e) {
