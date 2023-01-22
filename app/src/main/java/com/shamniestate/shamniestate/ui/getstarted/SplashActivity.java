@@ -19,6 +19,7 @@ import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.models.AppDetailsModel;
+import com.shamniestate.shamniestate.primeSection.PrimeHomeActivity;
 import com.shamniestate.shamniestate.ui.home.UserHomeActivity;
 import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 import com.shamniestate.shamniestate.utils.Session;
@@ -44,7 +45,6 @@ public class SplashActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.shamni_logo);
         // setAnimations(imageView);
 
-
         Log.e("TAG", "onCreate() called with: savedInstanceState = [" + session.getUserInviteCode() + "]");
     }
 
@@ -65,7 +65,7 @@ public class SplashActivity extends AppCompatActivity {
                                             if (session.isLoggedIn()) {
                                                 startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
                                             } else {
-                                                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                                                startActivity(new Intent(SplashActivity.this, PrimeHomeActivity.class));
                                             }
                                             finish();
                                     } catch (InterruptedException e) {
