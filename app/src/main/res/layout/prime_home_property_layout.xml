@@ -8,11 +8,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_3sdp"
-        android:layout_marginVertical="@dimen/_8sdp"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        android:elevation="@dimen/_2sdp">
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_1sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:elevation="@dimen/_1sdp">
         <LinearLayout
             android:paddingBottom="@dimen/_3sdp"
             android:layout_width="match_parent"
@@ -151,7 +151,21 @@
                 android:textFontWeight="600"
                 android:textSize="@dimen/_16sdp" />
 
-            <RelativeLayout
+                <TextView
+                    android:id="@+id/property_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/heebo_bold"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="Garla Clinic House"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    android:drawablePadding="@dimen/_2sdp"
+                    android:drawableLeft="@drawable/ic_baseline_currency_rupee_242"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp">

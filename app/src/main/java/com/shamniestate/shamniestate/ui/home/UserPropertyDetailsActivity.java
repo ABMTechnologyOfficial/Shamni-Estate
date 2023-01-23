@@ -51,11 +51,12 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
 
     ActivityUserPropertyDetailsBinding binding;
     UserPropertyDetailsActivity activity;
-    PropertyModel.PropertyData data = null;
+   //// PropertyModel.PropertyData data = null;
     ArrayList<SlideModel> slideModelArrayList = new ArrayList<>();
     private List<AmenitiesListModel.AmenitiesData> amenitiesList = new ArrayList<>();
     private List<AmenitiesListModel.AmenitiesData> availableAmenitiesList = new ArrayList<>();
     private Session session ;
+    private  String property_id = "" , property_image = null , total_area = null;
 
 
     @Override
@@ -68,44 +69,17 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         session = new Session(activity);
 
         if (getIntent() != null) {
-            data = (PropertyModel.PropertyData) getIntent().getSerializableExtra("data");
+           // data = (PropertyModel.PropertyData) getIntent().getSerializableExtra("data");
+            property_id = getIntent().getStringExtra("property_id");
+            property_image = getIntent().getStringExtra("property_image");
+            total_area = getIntent().getStringExtra("total_area");
+
+            if(property_image != null)
+             Picasso.get().load(property_image).placeholder(com.denzcoskun.imageslider.R.drawable.loading).into(binding.imageSlider);
+
         }
-
-
-        getPropertyAmenities();
-
-        binding.propertyName.setText(data.getPropertyTitle());
-        binding.propertyBuilderAddress.setText(data.getCityName());
-        binding.propertyCityName.setText(data.getCityName());
-        binding.propertyCode.setText(data.getPropertyCode());
-        binding.propertyByName.setText(data.getPropertyBuilder());
-        binding.propertyByName.setText(data.getPropertyBuilder());
-        binding.propertyDescription.setText(data.getPropertyDes());
-        binding.propertyLication.setText(data.getPropertyAddress());
-        binding.propertyPricePerUnit.setText(data.getPropertyPricePerUnit());
-        binding.totalBalcony.setText(data.getNoOfBalcony());
-        binding.totalBedroom.setText(data.getNoOfBedroom());
-        binding.totalBathroom.setText(data.getNoOfBathroom());
-        binding.propertyArea.setText(data.getMaxUnitArea() + " " + data.getAreaUnitType());
-        binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice())) + " - " + calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
-
-        Picasso.get().load(data.getPropertyImage()).placeholder(com.denzcoskun.imageslider.R.drawable.loading).into(binding.imageSlider);
         getPropertyDetails();
-        ///// slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
-        // binding.imageSlider.setImageList(slideModelArrayList);
 
-
-        String lat, lang;
-        lat = data.getPropertyLatitude();
-        lang = data.getPropertyLongitude();
-
-        if (!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.fragment_container, new MapFragment(Double.parseDouble(lat), Double.parseDouble(lang), false));
-            transaction.commit();
-        } else {
-            binding.mapLinar.setVisibility(View.GONE);
-        }
     }
 
     private String calculate_price(int price) {
@@ -121,71 +95,51 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
         return comnfir_price;
 
     }
-
-
-    /*private  void setAmenities(){
-        String[] amenityArray = data.getAmenitiesId().split(",");
-        Log.e("TAG", "setAmenities() called data.getAmenitiesId() "+data.getAmenitiesId());
-
-        for (String s : amenityArray) {
-            Log.e("TAG", "setAmenities() called data.amenityArray() " + s);
-        }
-
-        for (String currentAmenityId : amenityArray) {
-            for (int x = 0; x < amenitiesList.size(); x++) {
-                if (currentAmenityId.equalsIgnoreCase(amenitiesList.get(x).getAmenitiesId())) {
-                    availableAmenitiesList.add(amenitiesList.get(x));
-                    Log.e("TAG", "setAmenities() called data.amenityArray() " +amenitiesList.get(x));
-                    break;
-                }
-            }
-        }
-        Log.e("TAG", "setAmenities() called amenities array size  "+availableAmenitiesList.size());
-
-       binding.amenitiesRecycler.setLayoutManager(new GridLayoutManager(activity, 2));
-       binding.amenitiesRecycler.setAdapter(new AmenitiesAdapter(activity, availableAmenitiesList));
-
-    }
-    */
-    private void getPropertyAmenities() {
-        ApiInterface apiInterface = RetrofitClient.getClient(activity);
-        apiInterface.getPropertyAmenities(session.getAccessToken()).enqueue(new Callback<AmenitiesListModel>() {
-            @Override
-            public void onResponse(@NonNull Call<AmenitiesListModel> call, @NonNull Response<AmenitiesListModel> response) {
-                if (response.code() == 200)
-                    if (response.body() != null && response.body().getCode() == 200)
-                        if (response.body().getData().size() != 0) {
-                            amenitiesList = response.body().getData();
-                            ////setAmenities();
-                        }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<AmenitiesListModel> call, @NonNull Throwable t) {
-                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
-            }
-        });
-    }
-
-
     private  void getPropertyDetails() {
 
         ProgressDialog pd = new ProgressDialog(activity);
         pd.show();
 
-        Map<String, String> header = new HashMap<>();
-        header.put("Access_Token", session.getAccessToken());
-        header.put("Content-Type", "application/json");
-        header.put("Cookie", "PHPSESSID=34f13756327abbf81f28c886be58d001");
-
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
-        apiInterface.getPropertyDetails(header,AUTHORIZATION, data.getPropertyId()).enqueue(new Callback<PropertyDetailsModel>() {
+        apiInterface.getPropertyDetails( AUTHORIZATION,session.getAccessToken(), property_id).enqueue(new Callback<PropertyDetailsModel>() {
             @Override
             public void onResponse(@NonNull Call<PropertyDetailsModel> call, @NonNull Response<PropertyDetailsModel> response) {
                 pd.dismiss();
                 if (response.code() == 200)
                     if (response.body() != null)
                         if (response.body().getCode() == 200) {
+
+                            PropertyDetailsModel.PropertyData.Property data = response.body().getData().getProperty().get(0);
+                            binding.propertyName.setText(data.getPropertyTitle());
+                            binding.propertyBuilderAddress.setText(data.getCityName());
+                            binding.propertyCityName.setText(data.getCityName());
+                            binding.propertyCode.setText(data.getPropertyCode());
+                            binding.propertyByName.setText(data.getPropertyBuilder());
+                            binding.propertyByName.setText(data.getPropertyBuilder());
+                            binding.propertyDescription.setText(data.getPropertyDes());
+                            binding.propertyLication.setText(data.getPropertyAddress());
+                            binding.propertyPricePerUnit.setText(data.getPropertyPricePerUnit());
+                            binding.totalBalcony.setText(data.getNoOfBalcony());
+                            binding.totalBedroom.setText(data.getNoOfBedroom());
+                            binding.propertyTotalArea.setText(data.getPlotArea());
+                            binding.totalBathroom.setText(data.getNoOfBathroom());
+                            binding.propertyArea.setText(total_area + " " + data.getAreaUnitType());
+                            binding.propertyPrice.setText(calculate_price(Integer.parseInt(data.getPropertyMinPrice())) + " - " + calculate_price(Integer.parseInt(data.getPropertyMaxPrice())));
+
+                            ///// slideModelArrayList.add(new SlideModel(data.getPropertyImage(), ScaleTypes.FIT));
+                            // binding.imageSlider.setImageList(slideModelArrayList);
+
+                            String lat, lang;
+                            lat = data.getPropertyLatitude();
+                            lang = data.getPropertyLongitude();
+
+                            if (!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")) {
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.add(R.id.fragment_container, new MapFragment(Double.parseDouble(lat), Double.parseDouble(lang), false));
+                                transaction.commit();
+                            } else {
+                                binding.mapLinar.setVisibility(View.GONE);
+                            }
 
                             if (response.body().getData().getPropertyGallery().size() != 0) {
                                 for (int i = 0; i < response.body().getData().getPropertyGallery().size(); i++) {
@@ -214,46 +168,6 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                 pd.dismiss();
             }
         });
-
-
-//
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, BASE_URL + property_details, new com.android.volley.Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//             pd.dismiss();
-//                Log.e("TAG", "onResponse() called with: response = [" + response + "]");
-//            }
-//        }, new com.android.volley.Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                pd.dismiss();
-//                Log.e("TAG", "onErrorResponse() called with: error = [" + error.getLocalizedMessage() + "]");
-//
-//            }
-//        }){
-//
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String, String> param = new HashMap<>();
-//                param.put("Access_Token", session.getAccessToken());
-//                return  param ;
-//            }
-//
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> param = new HashMap<>();
-//                param.put("property_id",data.getPropertyId());
-//                return  param ;
-//            }
-//        };
-//
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        requestQueue.add(stringRequest);
-//
-//    }
-//
-//
 
     }
 

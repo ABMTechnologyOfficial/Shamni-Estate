@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
+import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.adapters.primeAdapters.PropertyListAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentPrimeHomeBinding;
@@ -59,11 +60,15 @@ public class PrimeHomeFragment extends Fragment {
                 try {
                     if (response.code() == 200)
                         if (response.isSuccessful() && response.body() != null) {
-                            binding.homeRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-                            binding.homeRecycler.setAdapter(new PropertyListAdapter(getContext(), response.body().getData()));
 
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
                             linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                            binding.popularPropertyRecycelr.setLayoutManager(linearLayoutManager);
+                            binding.popularPropertyRecycelr.setAdapter(new PopularPropertyAdapter(activity,response.body().getData()));
+                            binding.propertyProgress.setVisibility(View.GONE);
+
+                            binding.homeRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+                            binding.homeRecycler.setAdapter(new PropertyListAdapter(getContext(), response.body().getData()));
                         }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -45,7 +45,10 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
         Picasso.get().load(models.get(position).getPropertyImage()).into(holder.binding.image);
 
         holder.itemView.setOnClickListener(v -> context.startActivity(new Intent(context, UserPropertyDetailsActivity.class)
-                .putExtra("data", (Serializable) models.get(holder.getAdapterPosition()))));
+                .putExtra("property_id",  models.get(holder.getAdapterPosition()).getPropertyId())
+                .putExtra("property_image",  models.get(holder.getAdapterPosition()).getPropertyImage())
+                .putExtra("total_area",  models.get(holder.getAdapterPosition()).getMaxUnitArea())
+        ));
     }
 
 

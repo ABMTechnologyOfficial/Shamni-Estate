@@ -137,8 +137,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(property_details)
     Call<PropertyDetailsModel> getPropertyDetails(
-            @HeaderMap Map<String, String> header,
             @Header("Authorization") String Authorization,
+            @Header("Access_Token") String Access_Token,
 //            @Header("Content-Type") String Content,
             @Field("property_id") String property_id
     );

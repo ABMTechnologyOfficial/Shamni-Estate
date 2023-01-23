@@ -41,21 +41,37 @@ public class PropertyListAdapter extends RecyclerView.Adapter<PropertyListAdapte
 
         holder.binding.propertyName.setText(models.get(position).getPropertyTitle());
        // holder.binding.propertyPrice.setText(models.get(position).getPropertyMinPrice());
-      //   holder.binding.propertyPrice.setText(calculate_price(Integer.parseInt(models.get(position).getPropertyMinPrice())));
+        holder.binding.propertyPrice.setText(calculate_price(Integer.parseInt(models.get(position).getPropertyMinPrice())));
         holder.binding.pricePerUnit.setText(models.get(position).getPropertyPricePerUnit());
         holder.binding.unit1.setText("/"+models.get(position).getAreaUnitType());
-        holder.binding.location.setText(models.get(position).getCityName());
+        holder.binding.location.setText(models.get(position).getCityName()+","+models.get(position).getPropertyAddress());
 
         Picasso.get().load(models.get(position).getPropertyImage()).into(holder.binding.image);
 
         holder.itemView.setOnClickListener(v -> context.startActivity(new Intent(context, PrimePropertyDetailsActivity.class)
-                .putExtra("data", (Serializable) models.get(holder.getAdapterPosition()))));
+                .putExtra("data", (Serializable) models.get(holder.getAdapterPosition()))
+        ));
 
     }
 
     @Override
     public int getItemCount() {
         return models.size();
+    }
+
+    private String calculate_price(int price) {
+
+        String comnfir_price = "";
+        if (price >= 100000 && price <= 10000000) {
+            comnfir_price = String.valueOf(price / 100000) + " Lac";
+        } else if (price >= 10000000) {
+            comnfir_price = String.valueOf(price / 10000000) + " Cr";
+        } else {
+            comnfir_price = String.valueOf(price / 1000) + " K ";
+        }
+
+        return comnfir_price;
+
     }
 
 
