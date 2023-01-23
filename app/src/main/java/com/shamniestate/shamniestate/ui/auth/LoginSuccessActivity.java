@@ -15,26 +15,29 @@ import com.shamniestate.shamniestate.utils.Session;
 
 public class LoginSuccessActivity extends AppCompatActivity {
 
-    private Session session ;
+    private Session session;
+    private LoginSuccessActivity activity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_success);
 
-        session = new Session(LoginSuccessActivity.this);
+        activity = this;
+        session = new Session(activity);
 
         Thread thread = new Thread(() -> {
             try {
                 sleep(3000);
 
-                if(session.getUserIType().equalsIgnoreCase("2")){
-                    startActivity(new Intent(LoginSuccessActivity.this, PrimeHomeActivity.class)
+                if (session.getUserIType().equalsIgnoreCase("2")) {
+                    startActivity(new Intent(activity, PrimeHomeActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
-                }else {
-                    startActivity(new Intent(LoginSuccessActivity.this, UserHomeActivity.class)
+                } else {
+                    startActivity(new Intent(activity, UserHomeActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
