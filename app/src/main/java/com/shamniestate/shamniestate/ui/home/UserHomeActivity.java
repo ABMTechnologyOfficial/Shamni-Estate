@@ -45,6 +45,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         session = new Session(activity);
 
+        binding.userNameText.setText(session.getUserName());
         setUpBottomNav();
         setUpNavigationView();
 

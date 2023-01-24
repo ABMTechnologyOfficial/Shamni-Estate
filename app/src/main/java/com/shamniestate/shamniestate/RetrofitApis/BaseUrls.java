@@ -4,6 +4,7 @@ public class BaseUrls extends Object{
     public static final String TAG = "CustomLogs";
 
     public static final String BASE_URL = "http://api.shamniestate.com/";
+    public static final String MAP_IMAGE_URL = "https://shamniestate.com/assets/extra/property_map/";
     public static final String AUTHORIZATION = "Bearer ocLGuJGguH2u1KmxiYLii00XeBFePmvdLzy2MjxE2CoJOra7";
 
     public static final String login_check = "login_check";
@@ -21,5 +22,6 @@ public class BaseUrls extends Object{
     public static final String img_upload = "img_upload";
     public static final String new_visitor = "new_visitor";
     public static final String property_details = "property_details";
+    public static final String home_page = "home_page";
 
 }

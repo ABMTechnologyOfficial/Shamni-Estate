@@ -5,6 +5,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.amenities_list
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_page;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.new_visitor;
@@ -18,6 +19,7 @@ import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.AppDetailsModel;
 import com.shamniestate.shamniestate.models.BankListModel;
 import com.shamniestate.shamniestate.models.CityListModel;
+import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.LoginModel;
 import com.shamniestate.shamniestate.models.MyAssociateModel;
 import com.shamniestate.shamniestate.models.PropertyDetailsModel;
@@ -171,5 +173,14 @@ public interface ApiInterface {
             @Header("Access_Token") String Access_Token,
             @Field("associate_id") String associate_id
     );
+
+    @FormUrlEncoded
+    @POST(home_page)
+    Call<HomeDataModel> getMyHomeData(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
+    );
+
+
 
 }

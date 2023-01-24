@@ -37,6 +37,12 @@ public class HomePageSlider extends SliderViewAdapter<HomePageSlider.SlideView> 
         HomeSliderModel.HomeSliderData homeBannerData = model.get(position);
         viewHolder.binding.totalCount.setText(String.valueOf(homeBannerData.getTotalMembers()));
 
+        if (position == 0)
+            viewHolder.binding.titleText.setText("Team Members");
+        else if (position == 1)
+            viewHolder.binding.titleText.setText("Hold Property");
+        else viewHolder.binding.titleText.setText("Booked Property");
+
     }
 
     @Override

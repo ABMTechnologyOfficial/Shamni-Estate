@@ -49,6 +49,7 @@
                 android:textSize="@dimen/_14sdp"></TextView>
 
             <TextView
+                android:id="@+id/title_text"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

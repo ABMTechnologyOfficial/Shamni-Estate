@@ -1185,6 +1185,42 @@
 
 
                         <LinearLayout
+                            android:id="@+id/map_image_linear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/heebo_medium"
+                                android:maxLines="2"
+                                android:text="Map"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_17sdp" />
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                app:cardCornerRadius="@dimen/_5sdp"
+                                android:elevation="@dimen/_5sdp">
+
+                                <ImageView
+                                    android:scaleType="fitXY"
+                                    android:id="@+id/map_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_150sdp"
+                                    android:src="@drawable/logo"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:id="@+id/amenities_linear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1214,6 +1250,43 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/amenities_recycler"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/slots_linear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/heebo_medium"
+                                android:maxLines="2"
+                                android:text="Slots"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_17sdp" />
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                app:cardCornerRadius="@dimen/_5sdp"
+                                android:elevation="@dimen/_5sdp">
+
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/slots_recycler"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -2167,6 +2240,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/bottamlay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"

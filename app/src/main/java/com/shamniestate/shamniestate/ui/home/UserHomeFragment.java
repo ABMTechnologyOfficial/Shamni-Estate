@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,7 @@ import com.shamniestate.shamniestate.adapters.HomePlanAdapter;
 import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentUserHomeBinding;
+import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
@@ -42,7 +44,7 @@ public class UserHomeFragment extends Fragment {
     private Activity activity;
     private FragmentUserHomeBinding binding;
     private final List<HomeSliderModel.HomeSliderData> models = new ArrayList<>();
-    private Session session ;
+    private Session session;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -54,6 +56,8 @@ public class UserHomeFragment extends Fragment {
 
         getPropertyList();
         getPropertyPlan();
+        getHomeData();
+
 
         binding.homeBanerSliderNew.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         binding.homeBanerSliderNew.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
@@ -61,12 +65,7 @@ public class UserHomeFragment extends Fragment {
         binding.homeBanerSliderNew.setScrollTimeInSec(2); //set scroll delay in seconds :
         binding.homeBanerSliderNew.startAutoCycle();
 
-        models.add(new HomeSliderModel.HomeSliderData(1));
-        models.add(new HomeSliderModel.HomeSliderData(1));
-        models.add(new HomeSliderModel.HomeSliderData(1));
 
-        HomePageSlider homePageSlider = new HomePageSlider(models,getContext());
-        binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
 
         binding.searchView.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
         binding.userEmail.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
@@ -77,7 +76,7 @@ public class UserHomeFragment extends Fragment {
 
     private void getPropertyList() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
-        apiInterface.getAllProperty(AUTHORIZATION,"").enqueue(new Callback<PropertyModel>() {
+        apiInterface.getAllProperty(AUTHORIZATION, "").enqueue(new Callback<PropertyModel>() {
             @Override
             public void onResponse(@NonNull Call<PropertyModel> call, @NonNull Response<PropertyModel> response) {
                 binding.progress.setVisibility(View.GONE);
@@ -90,7 +89,7 @@ public class UserHomeFragment extends Fragment {
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
                             linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
                             binding.popularPropertyRecycelr.setLayoutManager(linearLayoutManager);
-                            binding.popularPropertyRecycelr.setAdapter(new PopularPropertyAdapter(activity,response.body().getData()));
+                            binding.popularPropertyRecycelr.setAdapter(new PopularPropertyAdapter(activity, response.body().getData()));
                             binding.propertyProgress.setVisibility(View.GONE);
                             binding.categoryProgress.setVisibility(View.GONE);
                         }
@@ -118,7 +117,7 @@ public class UserHomeFragment extends Fragment {
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
                             linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
                             binding.palnRecycelr.setLayoutManager(linearLayoutManager);
-                            binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity,response.body().getData()));
+                            binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity, response.body().getData()));
                         }
             }
 
@@ -127,5 +126,43 @@ public class UserHomeFragment extends Fragment {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
+    }
+
+    private void getHomeData() {
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+
+        apiInterface.getMyHomeData(
+                session.getAccessToken(),
+                session.getUserId()
+        ).enqueue(new Callback<HomeDataModel>() {
+            @Override
+            public void onResponse(@NonNull Call<HomeDataModel> call, @NonNull Response<HomeDataModel> response) {
+
+                if(response.code() == 200)
+                    if(response.body() != null)
+                        if(response.body().getCode()  == 200){
+                            int teamMember = response.body().getData().get(0).getTotalMembers();
+                            int holdProperty = response.body().getData().get(0).getHoldProperty();
+                            int bookedProperty = response.body().getData().get(0).getBookedProperty();
+
+                            models.add(new HomeSliderModel.HomeSliderData(teamMember));
+                            models.add(new HomeSliderModel.HomeSliderData(holdProperty));
+                            models.add(new HomeSliderModel.HomeSliderData(bookedProperty));
+
+                            HomePageSlider homePageSlider = new HomePageSlider(models, getContext());
+                            binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
+                        }else {
+                            Toast.makeText(activity, "Server Not responding....!", Toast.LENGTH_SHORT).show();
+                        }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<HomeDataModel> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
+            }
+        });
+
+
     }
 }
