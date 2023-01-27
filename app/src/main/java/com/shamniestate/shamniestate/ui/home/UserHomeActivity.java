@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -104,27 +105,27 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-        binding.navEmiCalculatorLay.setOnClickListener(v -> {
+        binding.navEmiCalculator.setOnClickListener(v -> {
              if(session.isLoggedIn())startActivity(new Intent(activity, EmiCalculatorActivity.class));
              else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-        binding.navNewAssoLay.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
-            else startActivity(new Intent(activity, LoginActivity.class));
-        });
+//        binding.navNewAssoLay.setOnClickListener(v -> {
+//            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
+//            else startActivity(new Intent(activity, LoginActivity.class));
+//        });
 
-        binding.navVisitorListLay.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
-            else startActivity(new Intent(activity, LoginActivity.class));
-        });
+//        binding.navVisitorListLay.setOnClickListener(v -> {
+//            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
+//            else startActivity(new Intent(activity, LoginActivity.class));
+//        });
 
-        binding.navMyAssoLay.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
-            else startActivity(new Intent(activity, LoginActivity.class));
-        });
+//        binding.navMyAssoLay.setOnClickListener(v -> {
+//            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
+//            else startActivity(new Intent(activity, LoginActivity.class));
+//        });
 
-        binding.navChatSupportLay.setOnClickListener(v -> {
+        binding.navSupportManagerLay.setOnClickListener(v -> {
             if (session.isLoggedIn()){
                 String url = "https://api.whatsapp.com/send?phone=+919993511311";
                 Intent i = new Intent(Intent.ACTION_VIEW);
@@ -134,12 +135,42 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-        binding.navHomeLoanLay.setOnClickListener(v -> {
+        binding.navBankLoanLay.setOnClickListener(v -> {
             if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-        binding.navCommercialSearchLay.setOnClickListener(v -> {
+        binding.navContactLay.setOnClickListener(v -> {
+            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
+            else startActivity(new Intent(activity, ChatSupportActivity.class));
+        });
+
+        binding.navMyProfile.setOnClickListener(v -> {
+            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_associate);
+            binding.drawerLayout.close();
+        });
+
+        binding.navHeader.setOnClickListener(v -> {
+            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_associate);
+            binding.drawerLayout.close();
+        });
+
+        binding.navHomeLay.setOnClickListener(v -> {
+            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_home);
+            binding.drawerLayout.close();
+        });
+
+        binding.navDashboardLay.setOnClickListener(view -> {
+            if (binding.navDashboardMenuLay.getVisibility() == View.VISIBLE) {
+                binding.navDashboardMenuLay.setVisibility(View.GONE);
+                binding.imageNavDashboardArrow.setImageResource(R.drawable.ic_arrow_down);
+            } else {
+                binding.navDashboardMenuLay.setVisibility(View.VISIBLE);
+                binding.imageNavDashboardArrow.setImageResource(R.drawable.ic_arrow_up);
+            }
+        });
+
+       /* binding.navCommercialSearchLay.setOnClickListener(v -> {
             if (session.isLoggedIn()){
                 session.setSearch("commercial");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
@@ -166,11 +197,11 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
 
         });
-
-        binding.navLogoutLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()) logout();
-            else startActivity(new Intent(activity, LoginActivity.class));
-        });
+*/
+//        binding.navLogoutLay.setOnClickListener(v -> {
+//            if (session.isLoggedIn()) logout();
+//            else startActivity(new Intent(activity, LoginActivity.class));
+//        });
     }
 
     private void logout() {

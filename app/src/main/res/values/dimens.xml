@@ -3,4 +3,5 @@
     <dimen name="menuTextSize">@dimen/_11sdp</dimen>
     <dimen name="nav_title_padding">@dimen/_5sdp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="menuTextSizeChild">@dimen/_10sdp</dimen>
 </resources>
