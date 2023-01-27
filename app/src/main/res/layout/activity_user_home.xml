@@ -84,6 +84,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/nav_header"
                     android:paddingBottom="@dimen/_6sdp"
                     android:paddingTop="@dimen/_38sdp"
                     android:layout_width="match_parent"
@@ -106,7 +107,6 @@
                         app:tint="@color/white" />
 
                     <TextView
-                        android:id="@+id/user_name_text"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50sdp"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -163,9 +163,8 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
-
                 <RelativeLayout
-                    android:id="@+id/nav_new_asso_lay"
+                    android:id="@+id/nav_dashboard_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -175,161 +174,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/ic_10"
-                        android:fontFamily="@font/heebo_medium"
-                        android:paddingHorizontal="@dimen/_20sdp"
-                        android:paddingVertical="@dimen/_10sdp"
-                        android:text="New Associate"
-                        android:textColor="@color/nav_parent_title"
-                        android:textSize="@dimen/menuTextSize"
-                        app:drawableTint="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/ic_10"
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
-                        app:tint="@color/lighter_gray" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/view_divider" />
-
-
-                <RelativeLayout
-                    android:id="@+id/nav_my_asso_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_2sdp"
-                    android:paddingVertical="@dimen/nav_title_padding">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/ic_11"
-                        android:fontFamily="@font/heebo_medium"
-                        android:paddingHorizontal="@dimen/_20sdp"
-                        android:paddingVertical="@dimen/_10sdp"
-                        android:text="My Associate"
-                        android:textColor="@color/nav_parent_title"
-                        android:textSize="@dimen/menuTextSize"
-                        app:drawableTint="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/ic_11"
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
-                        app:tint="@color/lighter_gray" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/view_divider" />
-
-
-                <RelativeLayout
-                    android:id="@+id/nav_my_add_visitor_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_2sdp"
-                    android:paddingVertical="@dimen/nav_title_padding">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/ic_12"
-                        android:fontFamily="@font/heebo_medium"
-                        android:paddingHorizontal="@dimen/_20sdp"
-                        android:paddingVertical="@dimen/_10sdp"
-                        android:text="Add Visitor"
-                        android:textColor="@color/nav_parent_title"
-                        android:textSize="@dimen/menuTextSize"
-                        app:drawableTint="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/ic_12"
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
-                        app:tint="@color/lighter_gray" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/view_divider" />
-
-
-
-                <RelativeLayout
-                    android:id="@+id/nav_visitor_list_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_2sdp"
-                    android:paddingVertical="@dimen/nav_title_padding">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/ic_13"
-                        android:fontFamily="@font/heebo_medium"
-                        android:paddingHorizontal="@dimen/_20sdp"
-                        android:paddingVertical="@dimen/_10sdp"
-                        android:text="Visitor List"
-                        android:textColor="@color/nav_parent_title"
-                        android:textSize="@dimen/menuTextSize"
-                        app:drawableTint="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/ic_13"
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
-                        app:tint="@color/lighter_gray" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/view_divider" />
-
-
-
-                <RelativeLayout
-                    android:id="@+id/nav_residential_search_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_2sdp"
-                    android:paddingVertical="@dimen/nav_title_padding">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/image_nav_dashboard_arrow"
                         android:layout_toEndOf="@id/ic2"
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Residential Search"
+                        android:text="Dashboard"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -340,10 +190,143 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_baseline_dashboard_24"
+                        app:tint="@color/lighter_gray" />
+
+                    <ImageView
+                        android:id="@+id/image_nav_dashboard_arrow"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/ic_arrow_down"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/nav_dashboard_menu_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_45sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/nav_title_padding"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/nav_my_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="My Profile"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_my_team"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="My Team"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_team_tree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="Team Tree"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_commission_structure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="Commission Structure"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_emi_calculator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="Emi Calculator"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/nav_post_sales"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="Post-Sales"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        android:visibility="gone"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/nav_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="Report"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        android:visibility="gone"
+                        app:drawableTint="@color/white" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -351,7 +334,7 @@
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
-                    android:id="@+id/nav_commercial_search_lay"
+                    android:id="@+id/nav_bank_loan_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -365,7 +348,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Commercial Search"
+                        android:text="Bank loan"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -376,7 +359,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_account_balance"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
@@ -386,8 +369,9 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
+
                 <RelativeLayout
-                    android:id="@+id/nav_farmhouse_search_lay"
+                    android:id="@+id/nav_career_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -401,7 +385,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Farm House Search"
+                        android:text="Career"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -412,7 +396,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_home"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
@@ -422,8 +406,9 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
+
                 <RelativeLayout
-                    android:id="@+id/nav_premium_property_lay"
+                    android:id="@+id/nav_contact_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -437,7 +422,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Premium Property"
+                        android:text="Contact Us"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -448,7 +433,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_baseline_add_ic_call_24"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
@@ -459,7 +444,7 @@
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
-                    android:id="@+id/nav_home_loan_lay"
+                    android:id="@+id/nav_faq_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -473,7 +458,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Home Loan Enquiry"
+                        android:text="FAQ"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -484,7 +469,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_faq"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
@@ -495,7 +480,7 @@
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
-                    android:id="@+id/nav_emi_calculator_lay"
+                    android:id="@+id/nav_blog_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -509,7 +494,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="EMI Calculator"
+                        android:text="Blogs"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -520,20 +505,18 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_calculator"
+                        android:src="@drawable/ic_blog"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
-                    android:visibility="gone"
-                    android:id="@+id/nav_chat_support_lay"
+                    android:id="@+id/nav_gallery_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -547,7 +530,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Chat Support"
+                        android:text="Gallery"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -558,20 +541,18 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_baseline_chat_24"
+                        android:src="@drawable/ic_gallery"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
 
                 <View
-                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
-                    android:visibility="gone"
-                    android:id="@+id/nav_about_us_lay"
+                    android:id="@+id/nav_privacy_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -585,7 +566,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="About Us"
+                        android:text="Privacy Policy"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -596,20 +577,18 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
+                        android:src="@drawable/ic_privacy"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
-                 <RelativeLayout
-                    android:visibility="gone"
-                    android:id="@+id/nav_logout_lay"
+                <RelativeLayout
+                    android:id="@+id/nav_terms_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_2sdp"
@@ -623,7 +602,7 @@
                         android:fontFamily="@font/heebo_medium"
                         android:paddingHorizontal="@dimen/_20sdp"
                         android:paddingVertical="@dimen/_10sdp"
-                        android:text="Logout"
+                        android:text="Terms &amp; Condition"
                         android:textColor="@color/nav_parent_title"
                         android:textSize="@dimen/menuTextSize"
                         app:drawableTint="@color/white" />
@@ -634,17 +613,599 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_logout"
+                        android:src="@drawable/ic_terms"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
+                <RelativeLayout
+                    android:id="@+id/nav_about_us_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic13"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="About Us"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic13"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_about"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/nav_support_manager_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic11"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Support Manager no."
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic11"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_helpline"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/nav_refer_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic12"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Refer"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic12"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_refer"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <!--   <RelativeLayout
+                       android:id="@+id/nav_new_asso_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic_10"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="New Associate"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic_10"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_home"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_my_asso_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic_11"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="My Associate"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic_11"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_home"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_my_add_visitor_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic_12"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Add Visitor"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic_12"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_home"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_visitor_list_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic_13"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Visitor List"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic_13"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_home"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_residential_search_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic2"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Residential Search"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic2"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_search"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_commercial_search_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic3"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Commercial Search"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic3"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_search"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_farmhouse_search_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic4"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Farm House Search"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic4"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_search"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_premium_property_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic5"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Premium Property"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic5"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_search"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_home_loan_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic6"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Home Loan Enquiry"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic6"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_search"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_emi_calculator_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic7"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="EMI Calculator"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic7"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_calculator"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider"
+                       android:visibility="gone" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_chat_support_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding"
+                       android:visibility="gone">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic8"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Chat Support"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic8"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_baseline_chat_24"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider"
+                       android:visibility="visible" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_about_us_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding"
+                       android:visibility="gone">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic9"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="About Us"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic9"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_home"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider"
+                       android:visibility="gone" />
+
+                   <RelativeLayout
+                       android:id="@+id/nav_logout_lay"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="@dimen/_2sdp"
+                       android:paddingVertical="@dimen/nav_title_padding"
+                       android:visibility="gone">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_centerVertical="true"
+                           android:layout_toEndOf="@id/ic10"
+                           android:fontFamily="@font/heebo_medium"
+                           android:paddingHorizontal="@dimen/_20sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Logout"
+                           android:textColor="@color/nav_parent_title"
+                           android:textSize="@dimen/menuTextSize"
+                           app:drawableTint="@color/white" />
+
+                       <ImageView
+                           android:id="@+id/ic10"
+                           android:layout_width="@dimen/_18sdp"
+                           android:layout_height="@dimen/_18sdp"
+                           android:layout_centerVertical="true"
+                           android:layout_marginStart="@dimen/_15sdp"
+                           android:src="@drawable/ic_logout"
+                           app:tint="@color/lighter_gray" />
+
+                   </RelativeLayout>
+
+                   <View
+                       android:visibility="gone"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_1sdp"
+                       android:background="@color/view_divider" />
+                   -->
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
