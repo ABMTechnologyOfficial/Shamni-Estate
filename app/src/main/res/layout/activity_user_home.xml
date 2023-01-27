@@ -231,6 +231,72 @@
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/view_divider" />
 
+
+                    <TextView
+                        android:id="@+id/nav_my_associates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="My Associates"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+
+                    <TextView
+                        android:id="@+id/nav_new_associates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="New Associates"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_my_visitors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="My Visitors"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
+                    <TextView
+                        android:id="@+id/nav_new_visitors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingVertical="@dimen/_6sdp"
+                        android:text="New Visitor"
+                        android:textSize="@dimen/menuTextSize"
+                        android:textColor="@color/black"
+                        app:drawableTint="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/view_divider" />
+
                     <TextView
                         android:id="@+id/nav_my_team"
                         android:layout_width="match_parent"
@@ -332,6 +398,152 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
+
+
+                <RelativeLayout
+                    android:id="@+id/nav_residential_search_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic18"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Residential Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic18"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/nav_commercial_search_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic17"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Commercial Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic17"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/nav_farmhouse_search_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic16"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Farm House Search"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic16"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/nav_premium_property_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:paddingVertical="@dimen/nav_title_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/ic15"
+                        android:fontFamily="@font/heebo_medium"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="Premium Property"
+                        android:textColor="@color/nav_parent_title"
+                        android:textSize="@dimen/menuTextSize"
+                        app:drawableTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ic15"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/lighter_gray" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/view_divider" />
+
 
                 <RelativeLayout
                     android:id="@+id/nav_bank_loan_lay"
@@ -731,7 +943,9 @@
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
-                <!--   <RelativeLayout
+                <!--
+
+                  <RelativeLayout
                        android:id="@+id/nav_new_asso_lay"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"

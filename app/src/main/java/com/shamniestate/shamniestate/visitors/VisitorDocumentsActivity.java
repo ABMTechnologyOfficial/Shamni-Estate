@@ -1,11 +1,14 @@
 package com.shamniestate.shamniestate.visitors;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.MAP_IMAGE_URL;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.img_upload;
 import static com.shamniestate.shamniestate.utils.BitmapToFile.bitmapToFile;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.Manifest;
 import android.content.Intent;
@@ -25,21 +28,19 @@ import com.androidnetworking.common.ANRequest;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
-import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.BaseUrls;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
-import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
-import com.shamniestate.shamniestate.adapters.PropertyAdapter;
-import com.shamniestate.shamniestate.databinding.ActivityLoginSuccessBinding;
-import com.shamniestate.shamniestate.databinding.ActivitySignupDocumentsBinding;
+
 import com.shamniestate.shamniestate.databinding.ActivityVisitorDocumentsBinding;
+import com.shamniestate.shamniestate.models.PropertyDetailsModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.VisitorUtilModel;
@@ -66,19 +67,23 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
     private Uri filepath = null;
     private Bitmap bitmap;
     private ArrayList<String> propertyNameList = new ArrayList<>();
+    private ArrayList<String> propertyIdsList = new ArrayList<>();
     private ArrayList<String> propertyCodeList = new ArrayList<>();
+    private ArrayList<String> propertySlotIdList = new ArrayList<>();
+    private ArrayList<String> propertySlotNameList = new ArrayList<>();
 
     int AADHARCARDFRONT = 100, AADHARCARDBACK = 200, PANCARD = 300;
     private File aadharCardFront = null, aadharCardBack = null;
     private String selectedAadharCardFront = "", selectedAadharCardBack = "";
     private VisitorUtilModel model = null;
-    private  String selectedPropertyName = "" , selectedPropertyCode = "";
+    private  String selectedPropertyName = "" , selectedPropertyCode = "" , selectedPropertyId = "" , selectedSlotId = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityVisitorDocumentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         activity = this;
+        session = new Session(activity);
 
         model = (VisitorUtilModel) getIntent().getSerializableExtra("visitor_data");
 
@@ -96,7 +101,6 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                         intent.setType("image/*");
                         startActivityForResult(intent, AADHARCARDFRONT);
@@ -147,6 +151,7 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.newVisitor(
+                session.getAccessToken(),
                 session.getUserId(),
                 model.getVisitorName(),
                 model.getVisitorMob(),
@@ -162,12 +167,10 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
                 binding.budgetEdit.getText().toString(),
                 selectedPropertyName,
                 binding.projectCodeEdit.getText().toString(),
-                binding.projectUnitNumberEdit.getText().toString(),
+                selectedSlotId,
                 selectedAadharCardFront,
                 selectedAadharCardBack,
                 model.getVisitorSelfie()
-
-
         ).enqueue(new Callback<SignupModel>() {
             @Override
             public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
@@ -197,9 +200,8 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
             binding.aahdarNumberEdit.setError("Enter Your Aadhar Number");
             binding.aahdarNumberEdit.requestFocus();
             return false;
-        } else if (binding.projectUnitNumberEdit.getText().toString().equalsIgnoreCase("")) {
-            binding.projectUnitNumberEdit.setError("Enter Your Unit  Number");
-            binding.projectUnitNumberEdit.requestFocus();
+        } else if (selectedSlotId.equalsIgnoreCase("")) {
+            Toast.makeText(activity, "Select Slot", Toast.LENGTH_SHORT).show();
             return false;
         } else if (binding.projectCodeEdit.getText().toString().equalsIgnoreCase("")) {
             binding.projectCodeEdit.setError("Enter Project Code..!");
@@ -312,6 +314,7 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
                             for (int i = 0; i < response.body().getData().size(); i++) {
                                 propertyNameList.add(response.body().getData().get(i).getPropertyTitle());
                                 propertyCodeList.add(response.body().getData().get(i).getPropertyCode());
+                                propertyIdsList.add(response.body().getData().get(i).getPropertyId());
                             }
                             setPropertyNamesAdapter();
                         }
@@ -333,8 +336,51 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
         binding.propertyNameSpi.setOnItemSelectedListener((view, position, id, item) -> {
             selectedPropertyName = propertyNameList.get(position);
             selectedPropertyCode = propertyCodeList.get(position);
+            selectedPropertyId  = propertyIdsList.get(position);
             binding.projectCodeEdit.setText(selectedPropertyCode);
+            getPropertyDetails(selectedPropertyId);
         });
 
     }
+    private  void getPropertyDetails(String proId) {
+
+        ProgressDialog pd = new ProgressDialog(activity);
+        pd.show();
+
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+        apiInterface.getPropertyDetails( AUTHORIZATION,session.getAccessToken(), proId).enqueue(new Callback<PropertyDetailsModel>() {
+            @Override
+            public void onResponse(@NonNull Call<PropertyDetailsModel> call, @NonNull Response<PropertyDetailsModel> response) {
+                pd.dismiss();
+                if (response.code() == 200)
+                    if (response.body() != null)
+                        if (response.body().getCode() == 200) {
+                            for (int i = 0; i < response.body().getData().getPropertySlot().size(); i++) {
+                                propertySlotIdList.add(response.body().getData().getPropertySlot().get(i).getSlotId());
+                                propertySlotNameList.add(response.body().getData().getPropertySlot().get(i).getSlotNo());
+                                setPropertySlotAdapter();
+                            }
+                       }
+
+            }
+
+            private void setPropertySlotAdapter() {
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, propertySlotNameList);
+                binding.propertySlotSpi.setAdapter(adapter);
+                binding.propertySlotSpi.setOnItemSelectedListener((view, position, id, item) -> {
+                selectedSlotId = propertySlotIdList.get(position);
+                });
+
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<PropertyDetailsModel> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+                pd.dismiss();
+            }
+        });
+
+    }
+
 }

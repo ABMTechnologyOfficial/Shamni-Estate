@@ -112,6 +112,11 @@
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_10sdp">
 
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/home_data_progress"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_200sdp"
@@ -200,7 +205,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

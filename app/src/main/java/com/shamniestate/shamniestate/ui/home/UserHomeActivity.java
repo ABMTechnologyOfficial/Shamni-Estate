@@ -21,6 +21,8 @@ import com.shamniestate.shamniestate.ui.misc.ChatSupportActivity;
 import com.shamniestate.shamniestate.ui.misc.EmiCalculatorActivity;
 import com.shamniestate.shamniestate.ui.misc.HomeLoanEnquiryActivity;
 import com.shamniestate.shamniestate.utils.Session;
+import com.shamniestate.shamniestate.visitors.AddVisitorInfoActivity;
+import com.shamniestate.shamniestate.visitors.VisitorDocumentsActivity;
 import com.shamniestate.shamniestate.visitors.VisitorListActivity;
 
 public class UserHomeActivity extends AppCompatActivity {
@@ -110,20 +112,26 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
-//        binding.navNewAssoLay.setOnClickListener(v -> {
-//            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
-//            else startActivity(new Intent(activity, LoginActivity.class));
-//        });
+        binding.navNewAssociates.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
 
-//        binding.navVisitorListLay.setOnClickListener(v -> {
-//            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
-//            else startActivity(new Intent(activity, LoginActivity.class));
-//        });
+        binding.navMyVisitors.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
 
-//        binding.navMyAssoLay.setOnClickListener(v -> {
-//            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
-//            else startActivity(new Intent(activity, LoginActivity.class));
-//        });
+        binding.navMyAssociates.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+
+        binding.navNewVisitors.setOnClickListener(v -> {
+            if(session.isLoggedIn()) startActivity(new Intent(activity, AddVisitorInfoActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
 
         binding.navSupportManagerLay.setOnClickListener(v -> {
             if (session.isLoggedIn()){
@@ -141,7 +149,7 @@ public class UserHomeActivity extends AppCompatActivity {
         });
 
         binding.navContactLay.setOnClickListener(v -> {
-            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
+            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanInquiryActivity.class));
             else startActivity(new Intent(activity, ChatSupportActivity.class));
         });
 
@@ -170,18 +178,9 @@ public class UserHomeActivity extends AppCompatActivity {
             }
         });
 
-       /* binding.navCommercialSearchLay.setOnClickListener(v -> {
+      binding.navCommercialSearchLay.setOnClickListener(v -> {
             if (session.isLoggedIn()){
                 session.setSearch("commercial");
-                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
-                binding.drawerLayout.close();
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
-        });
-
-        binding.navFarmhouseSearchLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
-                session.setSearch("farmhouse");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
                 binding.drawerLayout.close();
             }
@@ -197,11 +196,24 @@ public class UserHomeActivity extends AppCompatActivity {
             else startActivity(new Intent(activity, LoginActivity.class));
 
         });
-*/
-//        binding.navLogoutLay.setOnClickListener(v -> {
-//            if (session.isLoggedIn()) logout();
-//            else startActivity(new Intent(activity, LoginActivity.class));
-//        });
+
+        binding.navFarmhouseSearchLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()){
+                session.setSearch("farmhouse");
+                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
+                binding.drawerLayout.close();
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navPremiumPropertyLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()){
+                session.setSearch("premium");
+                binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
+                binding.drawerLayout.close();
+            }
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
     }
 
     private void logout() {

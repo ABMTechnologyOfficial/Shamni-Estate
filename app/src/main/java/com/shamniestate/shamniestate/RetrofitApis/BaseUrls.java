@@ -23,5 +23,6 @@ public class BaseUrls extends Object{
     public static final String new_visitor = "new_visitor";
     public static final String property_details = "property_details";
     public static final String home_page = "home_page";
+    public static final String home_loan_inquiry = "home_loan_inquiry";
 
 }

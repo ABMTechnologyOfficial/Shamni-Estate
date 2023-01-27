@@ -5,6 +5,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.amenities_list
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_loan_inquiry;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_page;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
@@ -14,6 +15,8 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
+
+import android.util.Log;
 
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.AppDetailsModel;
@@ -109,6 +112,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(new_visitor)
     Call<SignupModel> newVisitor(
+            @Header("Access_Token") String Access_Token,
             @Field("associate_id") String associate_id,
             @Field("visitor_name") String visitor_name,
             @Field("visitor_mob") String visitor_mob,
@@ -181,6 +185,16 @@ public interface ApiInterface {
             @Field("associate_id") String associate_id
     );
 
+    @FormUrlEncoded
+    @POST(home_loan_inquiry)
+    Call<SignupModel> submitInquiry(
+            @Header("Authorization") String Authorization,
+            @Field("name") String name ,
+            @Field("mob") String mob ,
+            @Field("email") String email ,
+            @Field("location") String location ,
+            @Field("property_type") String property_type
+    );
 
 
 }

@@ -27,6 +27,7 @@ import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
+import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 import com.shamniestate.shamniestate.ui.misc.FilterActivity;
 import com.shamniestate.shamniestate.utils.Session;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -137,7 +138,7 @@ public class UserHomeFragment extends Fragment {
         ).enqueue(new Callback<HomeDataModel>() {
             @Override
             public void onResponse(@NonNull Call<HomeDataModel> call, @NonNull Response<HomeDataModel> response) {
-
+                binding.homeDataProgress.setVisibility(View.GONE);
                 if(response.code() == 200)
                     if(response.body() != null)
                         if(response.body().getCode()  == 200){
@@ -152,6 +153,12 @@ public class UserHomeFragment extends Fragment {
                             HomePageSlider homePageSlider = new HomePageSlider(models, getContext());
                             binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
                         }else {
+                            session.logout();
+                            session.setLogin(false);
+                            startActivity(new Intent(activity , LoginActivity.class)
+                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            );
                             Toast.makeText(activity, "Server Not responding....!", Toast.LENGTH_SHORT).show();
                         }
 
@@ -159,6 +166,7 @@ public class UserHomeFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<HomeDataModel> call, @NonNull Throwable t) {
+                binding.homeDataProgress.setVisibility(View.GONE);
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
