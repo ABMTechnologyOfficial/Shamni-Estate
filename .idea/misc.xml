@@ -21,6 +21,7 @@
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_home.xml" value="0.1734375" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_login.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_my_associates.xml" value="0.2552083333333333" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_my_booked_property.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_payment.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_profile_details.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.33" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_address.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_documents.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_list.xml" value="0.18333333333333332" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/booked_property_layout.xml" value="0.22407407407407406" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/city_layout.xml" value="0.5" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/content_profile_details.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/custom_progress_dialog.xml" value="0.19375" />
@@ -59,13 +61,9 @@
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/edit_bg_selected.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/ic_back.xml" value="0.166" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/login_input_bg.xml" value="0.166" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/drawable/property_type_unselected_bg.xml" value="0.143" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_banking_information.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_filter.xml" value="0.19797382861967075" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_home.xml" value="0.1368106028217187" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_main.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_search_result.xml" value="0.19797382861967075" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_authentication.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_documents.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.2" />

@@ -145,7 +145,6 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
 
     private void addVisitor() {
         Log.e("TAG", "addVisitor() called Model " + model.toString());
-
         ProgressDialog pd = new ProgressDialog(activity);
         pd.show();
 

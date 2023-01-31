@@ -2,6 +2,7 @@ package com.shamniestate.shamniestate.RetrofitApis;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.admin_bank_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.amenities_list;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.booked_property;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
@@ -23,6 +24,7 @@ import android.util.Log;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.AppDetailsModel;
 import com.shamniestate.shamniestate.models.BankListModel;
+import com.shamniestate.shamniestate.models.BookedPropertyModel;
 import com.shamniestate.shamniestate.models.CityListModel;
 import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.LoginModel;
@@ -215,6 +217,14 @@ public interface ApiInterface {
     Call<VisitorDetailsModel> getMyVisitorsDetails(
             @Header("Access_Token") String Access_Token,
             @Field("visitor_id") String visitor_id
+    );
+
+
+    @FormUrlEncoded
+    @POST(booked_property)
+    Call<BookedPropertyModel> getMyBookedProperty(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
     );
 
 
