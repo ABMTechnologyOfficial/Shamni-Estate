@@ -233,18 +233,12 @@ public class UserHomeActivity extends AppCompatActivity {
         if(!session.getUserName().equalsIgnoreCase(""))
             binding.userName.setText(session.getUserName());
 
+        if(!session.getEmail().equalsIgnoreCase(""))
+            binding.userEmail.setText(session.getEmail());
+
         if(!session.getProfileImage().equalsIgnoreCase(""))
             Picasso.get().load(session.getProfileImage()).placeholder(R.drawable.profile).into(binding.profileImage);
         else binding.profileImage.setImageResource(R.drawable.profile);
 
-    }
-
-    private void logout() {
-        new AlertDialog.Builder(activity)
-                .setTitle("Logout?")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Yes", (dialogInterface, i) -> session.logout())
-                .setNegativeButton("Cancel", null)
-                .show();
     }
 }

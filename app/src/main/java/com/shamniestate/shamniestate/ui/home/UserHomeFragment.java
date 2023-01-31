@@ -24,6 +24,7 @@ import com.shamniestate.shamniestate.adapters.MyAssociateAdapter;
 import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentUserHomeBinding;
+import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
 import com.shamniestate.shamniestate.models.MyAssociateModel;
@@ -48,6 +49,7 @@ public class UserHomeFragment extends Fragment {
     private FragmentUserHomeBinding binding;
     private final List<HomeSliderModel.HomeSliderData> models = new ArrayList<>();
     private Session session;
+    private List<AmenitiesListModel.AmenitiesData> amenitiesList;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -57,6 +59,7 @@ public class UserHomeFragment extends Fragment {
 
         session = new Session(activity);
 
+        getPropertyAmenities();
         getPropertyList();
         //getPropertyPlan();
         getMyAssociatesList();
@@ -72,6 +75,7 @@ public class UserHomeFragment extends Fragment {
         binding.searchView.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
         binding.userEmail.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
 
+
         return binding.getRoot();
 
     }
@@ -85,6 +89,7 @@ public class UserHomeFragment extends Fragment {
                 try {
                     if (response.code() == 200)
                         if (response.isSuccessful() && response.body() != null) {
+
                             binding.homeRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
                             binding.homeRecycler.setAdapter(new PropertyAdapter(getContext(), response.body().getData()));
 
@@ -108,7 +113,27 @@ public class UserHomeFragment extends Fragment {
         });
     }
 
-   /* private void getPropertyPlan() {
+    private void getPropertyAmenities() {
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+        apiInterface.getPropertyAmenities(session.getAccessToken()).enqueue(new Callback<AmenitiesListModel>() {
+            @Override
+            public void onResponse(@NonNull Call<AmenitiesListModel> call, @NonNull Response<AmenitiesListModel> response) {
+                if (response.code() == 200)
+                    if (response.body() != null && response.body().getCode() == 200)
+                        if (response.body().getData().size() != 0) {
+                            amenitiesList = response.body().getData();
+                        }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AmenitiesListModel> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
+            }
+        });
+    }
+
+
+    /* private void getPropertyPlan() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyPlan(session.getAccessToken()).enqueue(new Callback<PropertyPlanModel>() {
             @Override

@@ -74,6 +74,7 @@
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/propeerty_type_layout.xml" value="0.20051303976058144" />
         <entry key="..\:/Users/Divyendu Jain/AndroidStudioProjects/ShamniEstate/app/src/main/res/layout/spinner_item.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/drawable/backgroundedt.xml" value="0.2065" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/drawable/call_bg.xml" value="0.1565" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/drawable/hold_slots_bg.xml" value="0.1915" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/drawable/ic_arrow_up.xml" value="0.205" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.193" />
@@ -86,7 +87,9 @@
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_banking_information.xml" value="0.17391304347826086" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_home_loan_inquiry.xml" value="0.22" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_login.xml" value="0.16" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_my_hold_propery.xml" value="0.2" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_prime_home.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_prime_property_details.xml" value="0.2" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_profile_details.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_signup_user_info.xml" value="0.25" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/activity_user_home.xml" value="0.33" />
@@ -98,6 +101,9 @@
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/fragment_prime_home.xml" value="0.22" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/fragment_user_associate.xml" value="0.2" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/fragment_user_home.xml" value="0.25" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/home_city_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/home_property_layout.xml" value="0.22" />
+        <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/item_search_amenity_lay.xml" value="0.33" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/list_layout.xml" value="0.22" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/main_slider_layout.xml" value="0.184375" />
         <entry key="..\:/Users/Windows 11/AndroidStudioProjects/Shamni-Estate/app/src/main/res/layout/popular_property_layout.xml" value="0.2" />
