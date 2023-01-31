@@ -31,17 +31,22 @@ public class LoginSuccessActivity extends AppCompatActivity {
             try {
                 sleep(3000);
 
-                if (session.getUserIType().equalsIgnoreCase("2")) {
-                    startActivity(new Intent(activity, PrimeHomeActivity.class)
-                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                    finish();
-                } else {
-                    startActivity(new Intent(activity, UserHomeActivity.class)
-                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                    finish();
-                }
+//                if (session.getUserIType().equalsIgnoreCase("2")) {
+//                    startActivity(new Intent(activity, PrimeHomeActivity.class)
+//                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                    finish();
+//                } else {
+//                    startActivity(new Intent(activity, UserHomeActivity.class)
+//                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                    finish();
+//                }
+
+                startActivity(new Intent(activity, UserHomeActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -13,8 +13,10 @@ import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.adapters.MyAssociateAdapter;
+import com.shamniestate.shamniestate.adapters.VisitorsListAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityVisitorListBinding;
 import com.shamniestate.shamniestate.models.MyAssociateModel;
+import com.shamniestate.shamniestate.models.VisitorsListModel;
 import com.shamniestate.shamniestate.utils.Session;
 
 import retrofit2.Call;
@@ -42,19 +44,19 @@ public class VisitorListActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
 
-        apiInterface.getMyAssociates(
+        apiInterface.getMyVisitorsList(
                 session.getAccessToken(),
                 session.getUserId()
-        ).enqueue(new Callback<MyAssociateModel>() {
+        ).enqueue(new Callback<VisitorsListModel>() {
             @Override
-            public void onResponse(@NonNull Call<MyAssociateModel> call, @NonNull Response<MyAssociateModel> response) {
+            public void onResponse(@NonNull Call<VisitorsListModel> call, @NonNull Response<VisitorsListModel> response) {
                 binding.myAssocProgress.setVisibility(View.GONE);
                 try {
                     if(response.code() == 200)
                         if(response.body() != null ){
                             if(response.body().getCode() == 200){
                                 binding.myAssocRecycler.setLayoutManager(new LinearLayoutManager(activity));
-                                binding.myAssocRecycler.setAdapter(new MyAssociateAdapter(activity,response.body().getData()));
+                                binding.myAssocRecycler.setAdapter(new VisitorsListAdapter(activity,response.body().getData()));
                             }else {
                                 Toast.makeText(activity, "No Visitors Found", Toast.LENGTH_SHORT).show();
                             }
@@ -66,7 +68,7 @@ public class VisitorListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<MyAssociateModel> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<VisitorsListModel> call, @NonNull Throwable t) {
                 binding.myAssocProgress.setVisibility(View.GONE);
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
             }

@@ -17,7 +17,7 @@ public class Session extends Object {
     private static final String Email = "email";
     private static final String UserId = "user_id";
     private static final String User_name = "user_name";
-    private static final String Pro_Image = "pro_img";
+    private static final String profileImage = "profile_img";
     private static final String role_ = "user_role";
     private static final String SearchMode = "SearchMode";
     private static final String LOGEDIN = "logedIn";
@@ -48,8 +48,18 @@ public class Session extends Object {
         editor.commit();
     }
 
+   public void setProfileImage(String mobile) {
+        editor.putString(profileImage, mobile);
+        editor.apply();
+        editor.commit();
+    }
+
     public String getSearch() {
         return Rapidine_pref.getString(SearchMode, "");
+    }
+
+    public String getProfileImage() {
+        return Rapidine_pref.getString(profileImage, "");
     }
 
     public void setSearch(String search) {

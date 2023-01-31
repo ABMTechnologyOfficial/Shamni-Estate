@@ -24,6 +24,7 @@ import com.shamniestate.shamniestate.utils.Session;
 import com.shamniestate.shamniestate.visitors.AddVisitorInfoActivity;
 import com.shamniestate.shamniestate.visitors.VisitorDocumentsActivity;
 import com.shamniestate.shamniestate.visitors.VisitorListActivity;
+import com.squareup.picasso.Picasso;
 
 public class UserHomeActivity extends AppCompatActivity {
     private Activity activity;
@@ -50,6 +51,14 @@ public class UserHomeActivity extends AppCompatActivity {
 
         setUpBottomNav();
         setUpNavigationView();
+
+        if(!session.getProfileImage().equalsIgnoreCase(""))
+            Picasso.get().load(session.getProfileImage()).placeholder(R.drawable.profile).into(binding.profileImage);
+
+        if(session.getUserName().equalsIgnoreCase(""))
+            binding.userName.setText(session.getUserName());
+
+
 
         binding.icMenu.setOnClickListener(view -> binding.drawerLayout.open());
     }
@@ -78,7 +87,7 @@ public class UserHomeActivity extends AppCompatActivity {
                 binding.textHomeTitle.setText(R.string.search);
             } else if (itemId == R.id.bottom_nav_need_help) {
                 if (session.isLoggedIn()) {
-                    loadFrag(new UserNeedHelpFragment());
+                    loadFrag(new AssociateFragment());
                 } else {
                     startActivity(new Intent(activity, LoginActivity.class));
                 }
@@ -214,6 +223,20 @@ public class UserHomeActivity extends AppCompatActivity {
             }
             else startActivity(new Intent(activity, LoginActivity.class));
         });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(!session.getUserName().equalsIgnoreCase(""))
+            binding.userName.setText(session.getUserName());
+
+        if(!session.getProfileImage().equalsIgnoreCase(""))
+            Picasso.get().load(session.getProfileImage()).placeholder(R.drawable.profile).into(binding.profileImage);
+        else binding.profileImage.setImageResource(R.drawable.profile);
+
     }
 
     private void logout() {

@@ -32,7 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class UserAssociateFragment extends Fragment {
     private Activity activity;
     private FragmentUserAssociateBinding binding;
@@ -46,7 +45,7 @@ public class UserAssociateFragment extends Fragment {
 
         session = new Session(activity);
 
-        binding.editProfile.setOnClickListener(v -> startActivity(new Intent(activity, ProfileDetailsActivity.class)));
+        binding.editProfile.setOnClickListener(v -> startActivity(new Intent(activity, ProfileDetailsActivity.class).putExtra("associateId", session.getUserId())));
 
         binding.textName.setText(session.getUserName());
         binding.logout.setOnClickListener(view -> logout());
@@ -65,7 +64,7 @@ public class UserAssociateFragment extends Fragment {
 
     private void getProfile() {
 
-        Log.d(TAG, "getProfile() called"+session.getAccessToken());
+        Log.d(TAG, "getProfile() called" + session.getAccessToken());
 
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getProfile(
@@ -78,20 +77,20 @@ public class UserAssociateFragment extends Fragment {
                     if (response.body().getCode() == 200) {
                         UserProfileModel.ProfileData.UserProfile data = response.body().getData().getUserProfile().get(0);
 
-                        String workingType= data.getWorkingType() ;
-                        String accountType= data.getWorkingType() ;
+                        String workingType = data.getWorkingType();
+                        String accountType = data.getWorkingType();
 
-                        if(workingType.equalsIgnoreCase("0")){
+                        if (workingType.equalsIgnoreCase("0")) {
                             binding.workingType.setText("Part Time");
-                        }else {
+                        } else {
                             binding.workingType.setText("Full Time");
                         }
 
-                        if(accountType.equalsIgnoreCase("0")){
+                        if (accountType.equalsIgnoreCase("0")) {
                             binding.userType.setText("Individual");
-                        }else if(accountType.equalsIgnoreCase("1")){
+                        } else if (accountType.equalsIgnoreCase("1")) {
                             binding.userType.setText("Channel Partner");
-                        }else {
+                        } else {
                             binding.userType.setText("Associate Prime");
                         }
 
@@ -99,9 +98,9 @@ public class UserAssociateFragment extends Fragment {
                         binding.textName.setText(data.getAssociateName());
                         binding.textPhone.setText(data.getAssociateMobile());
                         binding.textAddress.setText(data.getAssociateAddress());
-                       /// Picasso.get().load(data.getAssociateProfile()).placeholder(R.drawable.profile).into(binding.profileimg);
+                        /// Picasso.get().load(data.getAssociateProfile()).placeholder(R.drawable.profile).into(binding.profileimg);
 
-                    }else {
+                    } else {
                         Toast.makeText(activity, "No", Toast.LENGTH_SHORT).show();
                     }
             }

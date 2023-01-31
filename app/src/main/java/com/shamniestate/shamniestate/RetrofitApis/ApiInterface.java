@@ -15,6 +15,8 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_type;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.register_form;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.visitor_details;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.visitor_list;
 
 import android.util.Log;
 
@@ -31,6 +33,8 @@ import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.UserProfileModel;
+import com.shamniestate.shamniestate.models.VisitorDetailsModel;
+import com.shamniestate.shamniestate.models.VisitorsListModel;
 
 import java.util.Map;
 
@@ -73,11 +77,11 @@ public interface ApiInterface {
     @POST(register_form)
     Call<SignupModel> signup(
             @Header("Authorization") String Authorization,
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id")String associate_id ,
             @Field("account_type")String account_type ,
-            @Field("working_type")String working_type ,
             @Field("associate_name")String associate_name,
             @Field("associate_dob")String associate_dob,
-            @Field("associate_gender")String associate_gender,
             @Field("associate_mobile")String associate_mobile,
             @Field("associate_address")String associate_address,
             @Field("associate_city")String associate_city,
@@ -92,7 +96,6 @@ public interface ApiInterface {
             @Field("associate_email")String associate_email,
             @Field("associate_pass")String associate_pass,
             @Field("associate_con_pass")String associate_con_pass,
-            @Field("sponsor_id")String sponsor_id,
             @Field("terms_and_conditions")String terms_and_conditions,
             @Field("associate_rera_reg_no")String associate_rera_reg_no,
             @Field("associate_aadhar_card_front")String associate_aadhar_card_front,
@@ -174,6 +177,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(my_associates)
     Call<MyAssociateModel> getMyAssociates(
+            @Header("Authorization") String Authorization,
             @Header("Access_Token") String Access_Token,
             @Field("associate_id") String associate_id
     );
@@ -195,6 +199,24 @@ public interface ApiInterface {
             @Field("location") String location ,
             @Field("property_type") String property_type
     );
+
+
+    @FormUrlEncoded
+    @POST(visitor_list)
+    Call<VisitorsListModel> getMyVisitorsList(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
+    );
+
+
+
+    @FormUrlEncoded
+    @POST(visitor_details)
+    Call<VisitorDetailsModel> getMyVisitorsDetails(
+            @Header("Access_Token") String Access_Token,
+            @Field("visitor_id") String visitor_id
+    );
+
 
 
 }

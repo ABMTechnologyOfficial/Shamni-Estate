@@ -28,7 +28,7 @@
             <TextView
                 android:layout_marginHorizontal="@dimen/_2sdp"
                 android:id="@+id/plan_name"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -37,6 +37,19 @@
                 android:fontFamily="@font/heebo_regular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:id="@+id/address"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:text="Name Of City"
+                android:fontFamily="@font/heebo_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp" />
 
         </LinearLayout>
 

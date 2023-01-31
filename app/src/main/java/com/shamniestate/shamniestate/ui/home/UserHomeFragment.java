@@ -20,11 +20,13 @@ import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.adapters.HomePageSlider;
 import com.shamniestate.shamniestate.adapters.HomePlanAdapter;
+import com.shamniestate.shamniestate.adapters.MyAssociateAdapter;
 import com.shamniestate.shamniestate.adapters.PopularPropertyAdapter;
 import com.shamniestate.shamniestate.adapters.PropertyAdapter;
 import com.shamniestate.shamniestate.databinding.FragmentUserHomeBinding;
 import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
+import com.shamniestate.shamniestate.models.MyAssociateModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.ui.auth.LoginActivity;
@@ -56,7 +58,8 @@ public class UserHomeFragment extends Fragment {
         session = new Session(activity);
 
         getPropertyList();
-        getPropertyPlan();
+        //getPropertyPlan();
+        getMyAssociatesList();
         getHomeData();
 
 
@@ -65,8 +68,6 @@ public class UserHomeFragment extends Fragment {
         binding.homeBanerSliderNew.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         binding.homeBanerSliderNew.setScrollTimeInSec(2); //set scroll delay in seconds :
         binding.homeBanerSliderNew.startAutoCycle();
-
-
 
         binding.searchView.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
         binding.userEmail.setOnClickListener(view -> startActivity(new Intent(getContext(), FilterActivity.class)));
@@ -107,7 +108,7 @@ public class UserHomeFragment extends Fragment {
         });
     }
 
-    private void getPropertyPlan() {
+   /* private void getPropertyPlan() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyPlan(session.getAccessToken()).enqueue(new Callback<PropertyPlanModel>() {
             @Override
@@ -128,7 +129,7 @@ public class UserHomeFragment extends Fragment {
             }
         });
     }
-
+*/
     private void getHomeData() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
 
@@ -153,12 +154,14 @@ public class UserHomeFragment extends Fragment {
                             HomePageSlider homePageSlider = new HomePageSlider(models, getContext());
                             binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
                         }else {
-                            session.logout();
+
                             session.setLogin(false);
                             startActivity(new Intent(activity , LoginActivity.class)
                                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             );
+                            session.logout();
+                            activity.finish();
                             Toast.makeText(activity, "Server Not responding....!", Toast.LENGTH_SHORT).show();
                         }
 
@@ -171,6 +174,43 @@ public class UserHomeFragment extends Fragment {
             }
         });
 
+
+    }
+
+    private  void getMyAssociatesList(){
+
+        ApiInterface apiInterface = RetrofitClient.getClient(activity);
+
+        apiInterface.getMyAssociates(
+                AUTHORIZATION,
+                session.getAccessToken(),
+                session.getUserId()
+        ).enqueue(new Callback<MyAssociateModel>() {
+            @Override
+            public void onResponse(@NonNull Call<MyAssociateModel> call, @NonNull Response<MyAssociateModel> response) {
+                try {
+                    if(response.code() == 200)
+                        if(response.body() != null ){
+                            if(response.body().getCode() == 200){
+                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+                                linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                                binding.palnRecycelr.setLayoutManager(linearLayoutManager);
+                                binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity, response.body().getData()));
+                            }else {
+                                Toast.makeText(activity, "No Associates Found", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<MyAssociateModel> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+            }
+        });
 
     }
 }

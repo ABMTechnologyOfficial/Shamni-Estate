@@ -1,5 +1,7 @@
 package com.shamniestate.shamniestate.ui.home;
 
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,6 +51,7 @@ public class MyAssociatesActivity extends AppCompatActivity {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
 
         apiInterface.getMyAssociates(
+                AUTHORIZATION,
                 session.getAccessToken(),
                 session.getUserId()
         ).enqueue(new Callback<MyAssociateModel>() {

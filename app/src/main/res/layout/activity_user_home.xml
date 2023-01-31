@@ -92,31 +92,34 @@
                     android:background="#310850"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_2sdp"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:paddingVertical="@dimen/_13sdp"
-                        android:src="@drawable/ic_person"
+                        android:id="@+id/profileImage"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:paddingVertical="@dimen/_7sdp"
+                        android:src="@drawable/profile"
                         android:tint="@color/white"
                         app:civ_border_color="@color/white"
                         app:civ_border_width=".3dp"
                         app:tint="@color/white" />
 
                     <TextView
+                        android:id="@+id/user_name"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
                         android:fontFamily="@font/heebo_medium"
                         android:gravity="center_vertical"
                         android:paddingVertical="@dimen/_8sdp"
                         android:text="Shamni Estate"
+                        android:ellipsize="end"
+                        android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_12sdp"
+                        android:textSize="@dimen/_11sdp"
                         app:drawableRightCompat="@drawable/ic_arrow_next"
                         app:drawableTint="@color/white" />
 
@@ -164,6 +167,7 @@
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_dashboard_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -395,12 +399,14 @@
                 </LinearLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_residential_search_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -432,11 +438,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_commercial_search_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -468,11 +476,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_farmhouse_search_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -504,11 +514,13 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/nav_premium_property_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -540,10 +552,10 @@
                 </RelativeLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="@color/view_divider" />
-
 
                 <RelativeLayout
                     android:id="@+id/nav_bank_loan_lay"
@@ -608,7 +620,7 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:src="@drawable/ic_home"
+                        android:src="@drawable/ic_career"
                         app:tint="@color/lighter_gray" />
 
                 </RelativeLayout>

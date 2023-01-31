@@ -1,6 +1,7 @@
 package com.shamniestate.shamniestate.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.MyAssociateLayoutBinding;
 import com.shamniestate.shamniestate.models.VisitorsListModel;
+import com.shamniestate.shamniestate.visitors.VisitorProfileActivity;
 
 import java.util.List;
 
@@ -36,6 +38,8 @@ public class VisitorsListAdapter extends RecyclerView.Adapter<VisitorsListAdapte
         holder.binding.assocName.setText(models.get(position).getVisitorName());
         holder.binding.assocEmail.setText(models.get(position).getVisitorEmail());
         holder.binding.assocMobile.setText(models.get(position).getVisitorMob());
+
+        holder.itemView.setOnClickListener(view -> context.startActivity(new Intent(context, VisitorProfileActivity.class).putExtra("visitorId",models.get(position).getVisitorId())));
     }
 
     @Override

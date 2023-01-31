@@ -342,6 +342,7 @@ public class VisitorDocumentsActivity extends AppCompatActivity {
         });
 
     }
+
     private  void getPropertyDetails(String proId) {
 
         ProgressDialog pd = new ProgressDialog(activity);
