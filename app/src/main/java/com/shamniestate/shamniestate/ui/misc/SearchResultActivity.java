@@ -4,6 +4,8 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
@@ -37,6 +39,8 @@ public class SearchResultActivity extends AppCompatActivity {
     private String propertyTypeId = "";
     private String maxBudget = "";
     private String minBudget = "";
+    private ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
+    private ArrayList<PropertyModel.PropertyData> filteredList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,46 @@ public class SearchResultActivity extends AppCompatActivity {
 
         binding.textFilter.setOnClickListener(view -> finish());
 
+        binding.edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filterTextSearch(editable.toString());
+            }
+        });
+
         getPropertyAmenities();
+    }
+
+    private void filterTextSearch(String text) {
+        filteredList.clear();
+
+        for (int i = 0; i < data.size(); i++) {
+            PropertyModel.PropertyData current = data.get(i);
+
+            boolean flag = current.getPropertyTitle().contains(text);
+
+            if (current.getPropertyBuilder().contains(text))
+                flag = true;
+            if (current.getLocalityName().contains(text))
+                flag = true;
+            if (current.getPropertyAddress().contains(text))
+                flag = true;
+
+            if (flag)
+                filteredList.add(current);
+        }
+
+        setAdapter();
     }
 
     private void getPropertyAmenities() {
@@ -88,8 +131,8 @@ public class SearchResultActivity extends AppCompatActivity {
                 try {
                     if (response.code() == 200)
                         if (response.isSuccessful() && response.body() != null) {
-
-                            ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
+                            data.clear();
+                            filteredList.clear();
 
                             for (int i = 0; i < response.body().getData().size(); i++) {
                                 boolean cityIdFlag = false;
@@ -149,8 +192,9 @@ public class SearchResultActivity extends AppCompatActivity {
                                 }
                             }
 
-                            binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-                            binding.recyclerView.setAdapter(new SearchResultAdapter(activity, data));
+                            filteredList = new ArrayList<>(data);
+
+                            setAdapter();
                         }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -163,6 +207,11 @@ public class SearchResultActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
+    }
+
+    private void setAdapter() {
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        binding.recyclerView.setAdapter(new SearchResultAdapter(activity, filteredList));
     }
 
 }
