@@ -40,7 +40,9 @@ public class SearchResultAmenityAdapter extends RecyclerView.Adapter<SearchResul
 
     @Override
     public int getItemCount() {
+        if (data != null)
         return data.size();
+        return 0;
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {

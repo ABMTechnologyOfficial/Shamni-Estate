@@ -175,6 +175,13 @@ public class SearchResultActivity extends AppCompatActivity {
                                     if (Long.parseLong(current.getPropertyPricePerUnit()) > Long.parseLong(minBudget)) minBudgetFlag = true;
                                 }
 
+                                Log.e("TAG", "cityIdFlag " + cityIdFlag);
+                                Log.e("TAG", "propertyAmenityIdFlag " + propertyAmenityIdFlag);
+                                Log.e("TAG", "propertyPlanIdFlag " + propertyPlanIdFlag);
+                                Log.e("TAG", "propertyTypeIdFlag " + propertyTypeIdFlag);
+                                Log.e("TAG", "maxBudgetFlag " + maxBudgetFlag);
+                                Log.e("TAG", "minBudgetFlag " + minBudgetFlag);
+
                                 if (cityIdFlag && propertyAmenityIdFlag && propertyPlanIdFlag &&
                                         propertyTypeIdFlag && maxBudgetFlag && minBudgetFlag) {
                                     String[] amenityArray = current.getAmenitiesId().split(",");
@@ -182,6 +189,8 @@ public class SearchResultActivity extends AppCompatActivity {
                                     for (String currentAmenityId : amenityArray) {
                                         for (int x = 0; x < amenitiesList.size(); x++) {
                                             if (currentAmenityId.equalsIgnoreCase(amenitiesList.get(x).getAmenitiesId())) {
+                                                if (current.getAmenitiesDataArrayList() == null)
+                                                    current.setAmenitiesDataArrayList(new ArrayList<>());
                                                 current.getAmenitiesDataArrayList().add(amenitiesList.get(x));
                                                 break;
                                             }
@@ -210,6 +219,7 @@ public class SearchResultActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
+        Log.e("TAG", "filteredList.size(): " + filteredList.size());
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         binding.recyclerView.setAdapter(new SearchResultAdapter(activity, filteredList));
     }
