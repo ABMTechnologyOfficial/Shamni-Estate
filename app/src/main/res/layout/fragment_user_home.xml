@@ -111,13 +111,44 @@
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_10sdp">
 
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/home_data_progress"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/home_baner_slider_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderScrollTimeInSec="1"
+                        app:sliderStartAutoCycle="true" />
+
+                </LinearLayout>
+
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:fontFamily="@font/heebo_bold"
                     android:gravity="start"
-                    android:text="Get Started With"
+                    android:text="Associates"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp" />
 
@@ -131,7 +162,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:fontFamily="@font/heebo_regular"
                     android:gravity="start"
-                    android:text="Explore real state option"
+                    android:text="Top 10 Associates"
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/_13sdp" />
 
@@ -150,32 +181,9 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:orientation="horizontal">
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/home_baner_slider_new"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderScrollTimeInSec="1"
-                    app:sliderStartAutoCycle="true" />
-
-            </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -195,6 +203,12 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
             <ProgressBar
                 android:id="@+id/progress"
                 android:layout_width="match_parent"
@@ -207,6 +221,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_5sdp" />
 
+
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>

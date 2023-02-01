@@ -20,6 +20,7 @@ import com.shamniestate.shamniestate.databinding.ActivityPaymentBinding;
 import com.shamniestate.shamniestate.models.SignupModel;
 import com.shamniestate.shamniestate.models.UtilModel;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
+import com.shamniestate.shamniestate.utils.Session;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +38,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
     PaymentActivity activity ;
     private ActivityPaymentBinding binding ;
     ProgressDialog progressDialog;
+    private Session session ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         setContentView(binding.getRoot());
 
         activity = PaymentActivity.this;
+        session = new Session(activity);
 
         progressDialog = new ProgressDialog(activity);
         progressDialog.show();
@@ -89,11 +92,11 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.signup(
                 AUTHORIZATION,
+                session.getAccessToken(),
+                session.getUserId(),
                 model.getAccountType(),
-                selectedWorkType,
                 model.getAssociateName(),
                 model.getAssociateDob(),
-                model.getAssociateGender(),
                 model.getAssociateMobile(),
                 model.getAssociateAddress(),
                 model.getAssociateCity(),
@@ -108,7 +111,6 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
                 model.getAssociateEmail(),
                 password,
                 password,
-                model.getAssociateInviteCode(),
                 "1",
                 model.getAssociateReraRegNo(),
                 model.getAssociateAadharCardFront(),

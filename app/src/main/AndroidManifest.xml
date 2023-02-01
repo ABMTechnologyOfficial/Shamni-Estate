@@ -21,6 +21,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.MyBookedPropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.MyHoldProperyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".visitors.VisitorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.HomeLoanInquiryActivity"
+            android:exported="false" />
+        <activity
             android:name=".primeSection.PrimePropertyDetailsActivity"
             android:exported="false" />
         <activity

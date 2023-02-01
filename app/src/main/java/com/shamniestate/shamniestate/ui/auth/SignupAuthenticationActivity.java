@@ -35,7 +35,7 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
     private UtilModel model = new UtilModel();
     String selectedWorkingType = "0";
     boolean ischecked = false;
-    private Session session ;
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
 
         model = (UtilModel) getIntent().getSerializableExtra("model");
 
-        Log.e("TAG", "addData() called"+model);
+        Log.e("TAG", "addData() called" + model);
 
         binding.textContinue.setOnClickListener(view -> startActivity(new Intent(activity, SignupDocumentsActivity.class)));
         binding.icBack.setOnClickListener(view -> onBackPressed());
@@ -74,16 +74,16 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                 Log.e("TAG", "onClick() called with: pass  = [" + binding.userPassword.getText().toString() + "]");
                 Log.e("TAG", "onClick() called with: c pass = [" + binding.userCPassword.getText().toString() + "]");
 
-                if(model.getAccountType().equalsIgnoreCase("2")){
-                    startActivity(new Intent(activity,PaymentActivity.class)
-                            .putExtra("data",model)
-                            .putExtra("pass",binding.userPassword.getText().toString())
-                            .putExtra("workType",selectedWorkingType)
-                            .putExtra("ref_code",binding.userReferrralCode.getText().toString()));
-                      progressDialog.dismiss();
-                }else {
-                    Log.e("TAG", "addData() called"+model);
-                   addData(progressDialog);
+                if (model.getAccountType().equalsIgnoreCase("2")) {
+                    startActivity(new Intent(activity, PaymentActivity.class)
+                            .putExtra("data", model)
+                            .putExtra("pass", binding.userPassword.getText().toString())
+                            .putExtra("workType", selectedWorkingType)
+                            .putExtra("ref_code", binding.userReferrralCode.getText().toString()));
+                    progressDialog.dismiss();
+                } else {
+                    Log.e("TAG", "addData() called" + model);
+                    addData(progressDialog);
                 }
             }
         });
@@ -91,16 +91,16 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
 
     }
 
-    private  void addData(ProgressDialog progressDialog){
+    private void addData(ProgressDialog progressDialog) {
 
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.signup(
                 AUTHORIZATION,
+                session.getAccessToken(),
+                session.getUserId(),
                 model.getAccountType(),
-                selectedWorkingType,
                 model.getAssociateName(),
                 model.getAssociateDob(),
-                model.getAssociateGender(),
                 model.getAssociateMobile(),
                 model.getAssociateAddress(),
                 model.getAssociateCity(),
@@ -115,7 +115,6 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
                 model.getAssociateEmail(),
                 binding.userPassword.getText().toString(),
                 binding.userCPassword.getText().toString(),
-                model.getAssociateInviteCode(),
                 "1",
                 model.getAssociateReraRegNo(),
                 model.getAssociateAadharCardFront(),
@@ -126,28 +125,30 @@ public class SignupAuthenticationActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<SignupModel> call, @NonNull Response<SignupModel> response) {
                 progressDialog.dismiss();
+                Toast.makeText(activity, "Your Associate Added..! ", Toast.LENGTH_SHORT).show();
+                finish();
 
-                if (response.code() == 200)
-                    if (response.body() != null) {
-                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                      if(session.isLoggedIn()){
-                          startActivity(new Intent(activity, UserHomeActivity.class)
-                                  .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                  .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                          Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                          finish();
-                      }else {
-                          startActivity(new Intent(activity,LoginActivity.class)
-                                  .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                  .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                          Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
-                          finish();
-                      }
-
-
-                    } else {
-                        Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
-                    }
+//                if (response.code() == 200)
+//                    if (response.body() != null) {
+//                        Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+//                        if (session.isLoggedIn()) {
+//                            startActivity(new Intent(activity, UserHomeActivity.class)
+//                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                            Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+//                            finish();
+//                        } else {
+//                            startActivity(new Intent(activity, LoginActivity.class)
+//                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                            Toast.makeText(activity, "Your Account Created..! ", Toast.LENGTH_SHORT).show();
+//                            finish();
+//                        }
+//
+//
+//                    } else {
+//                        Toast.makeText(activity, "Failed..", Toast.LENGTH_SHORT).show();
+//                    }
             }
 
             @Override

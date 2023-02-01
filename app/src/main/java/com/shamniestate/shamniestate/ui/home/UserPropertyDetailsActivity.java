@@ -2,6 +2,7 @@ package com.shamniestate.shamniestate.ui.home;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.BASE_URL;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.MAP_IMAGE_URL;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_details;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,7 @@ import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.adapters.AmenitiesAdapter;
+import com.shamniestate.shamniestate.adapters.PropertySlotsAdapter;
 import com.shamniestate.shamniestate.adapters.SearchResultAmenityAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityUserPropertyDetailsBinding;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
@@ -153,6 +155,19 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                             if(response.body().getData().getPropertyAmenities().size() != 0 ){
                                 binding.amenitiesRecycler.setLayoutManager(new GridLayoutManager(activity, 2));
                                 binding.amenitiesRecycler.setAdapter(new AmenitiesAdapter(activity, response.body().getData().getPropertyAmenities()));
+                            }
+
+                            if(response.body().getData().getPropertySlot().size() != 0 ){
+                                binding.slotsLinear.setVisibility(View.VISIBLE);
+                                binding.slotsRecycler.setLayoutManager(new GridLayoutManager(activity,4));
+                                binding.slotsRecycler.setAdapter(new PropertySlotsAdapter(activity, response.body().getData().getPropertySlot()));
+                            }
+
+
+                            if(!response.body().getData().getProperty().get(0).getPropertyMap().equalsIgnoreCase("")){
+                                 Picasso.get().load(MAP_IMAGE_URL+response.body().getData().getProperty().get(0).getPropertyMap())
+                                        .placeholder(com.denzcoskun.imageslider.R.drawable.loading)
+                                        .into(binding.mapImage);
                             }
 
                         }else {

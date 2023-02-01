@@ -57,13 +57,18 @@ public class SplashActivity extends AppCompatActivity {
                                     try {
                                         sleep(1500);
                                         if (session.isLoggedIn()) {
-                                            if (session.getUserIType().equalsIgnoreCase("2"))
-                                                startActivity(new Intent(SplashActivity.this, PrimeHomeActivity.class));
-                                            else
-                                                startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
+                                            Log.e("TAG", "onResponse() called with: UserName = [" + session.getUserName() + "]");
+                                            Log.e("TAG", "onResponse() called with: UserProfile = [" + session.getProfileImage() + "]");
+//                                            if (session.getUserIType().equalsIgnoreCase("2"))
+//                                                startActivity(new Intent(SplashActivity.this, PrimeHomeActivity.class));
+//                                            else
+//                                                startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
+                                            startActivity(new Intent(SplashActivity.this, UserHomeActivity.class));
                                         } else {
                                             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                                         }
+
+
                                         finish();
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();

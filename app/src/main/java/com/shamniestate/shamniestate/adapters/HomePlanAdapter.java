@@ -1,5 +1,6 @@
 package com.shamniestate.shamniestate.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.shamniestate.shamniestate.R;
+import com.shamniestate.shamniestate.models.MyAssociateModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.databinding.HomeCityLayoutBinding;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
@@ -18,9 +20,10 @@ import java.util.List;
 public class HomePlanAdapter extends RecyclerView.Adapter<HomePlanAdapter.ViewHolder>{
 
     Context context ;
-    List<PropertyPlanModel.PropertyPlanData> model ;
 
-    public HomePlanAdapter(Context context, List<PropertyPlanModel.PropertyPlanData> model) {
+    List<MyAssociateModel.MyAssocData> model;
+
+    public HomePlanAdapter(Context context, List<MyAssociateModel.MyAssocData> model) {
         this.context = context;
         this.model = model;
     }
@@ -34,7 +37,8 @@ public class HomePlanAdapter extends RecyclerView.Adapter<HomePlanAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.binding.planName.setText(model.get(position).getPropertyPlanName());
+        holder.binding.planName.setText(model.get(position).getAssociateName());
+        holder.binding.address.setText(model.get(position).getAssociateCity());
     }
 
     @Override

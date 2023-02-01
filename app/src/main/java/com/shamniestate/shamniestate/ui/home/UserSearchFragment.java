@@ -25,7 +25,6 @@ public class UserSearchFragment extends Fragment {
         activity = requireActivity();
 
 
-
         return binding.getRoot();
     }
 }

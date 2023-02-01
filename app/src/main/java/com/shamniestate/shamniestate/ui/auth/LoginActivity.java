@@ -87,6 +87,9 @@ public class LoginActivity extends AppCompatActivity {
                                 session.setAccessToken(data.getAccessToken());
                                 session.setUserInviteCode(data.getAssociateInviteCode());
                                 session.setUserType(data.getAccountType());
+                                session.setUserName(data.getAssociateName());
+                                session.setEmail(data.getAssociateEmail());
+                                session.setProfileImage(data.getAssociateProfile());
                                 startActivity(new Intent(activity, LoginSuccessActivity.class)
                                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 finish();

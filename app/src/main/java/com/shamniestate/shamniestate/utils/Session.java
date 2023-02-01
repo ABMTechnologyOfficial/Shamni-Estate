@@ -17,7 +17,7 @@ public class Session extends Object {
     private static final String Email = "email";
     private static final String UserId = "user_id";
     private static final String User_name = "user_name";
-    private static final String Pro_Image = "pro_img";
+    private static final String profileImage = "profile_img";
     private static final String role_ = "user_role";
     private static final String SearchMode = "SearchMode";
     private static final String LOGEDIN = "logedIn";
@@ -32,7 +32,7 @@ public class Session extends Object {
 
     private Context _context;
     private SharedPreferences Rapidine_pref;
-    private SharedPreferences.Editor  editor;
+    private SharedPreferences.Editor editor;
 
     public Session(Context context) {
         this._context = context;
@@ -48,12 +48,28 @@ public class Session extends Object {
         editor.commit();
     }
 
+    public void setProfileImage(String mobile) {
+        editor.putString(profileImage, mobile);
+        editor.apply();
+        editor.commit();
+    }
+
     public String getSearch() {
         return Rapidine_pref.getString(SearchMode, "");
     }
 
+    public String getProfileImage() {
+        return Rapidine_pref.getString(profileImage, "");
+    }
+
     public void setSearch(String search) {
         editor.putString(SearchMode, search);
+        editor.apply();
+        editor.commit();
+    }
+
+    public void setEmail(String em) {
+        editor.putString(Email, em);
         editor.apply();
         editor.commit();
     }
@@ -64,29 +80,32 @@ public class Session extends Object {
         editor.apply();
         editor.commit();
     }
-  public void setUserType(String search) {
+
+    public void setUserType(String search) {
         editor.putString(user_type, search);
         editor.apply();
         editor.commit();
     }
 
 
-    public String getUserInviteCode(){
-        return Rapidine_pref.getString(user_invite_code,"");
+    public String getUserInviteCode() {
+        return Rapidine_pref.getString(user_invite_code, "");
     }
 
-    public String getUserIType(){
-        return Rapidine_pref.getString(user_type,"");
+    public String getUserIType() {
+        return Rapidine_pref.getString(user_type, "");
     }
 
     public String getMobile() {
         return Rapidine_pref.getString(Mobile, "");
 
     }
-    public  String getUserName() {
+
+    public String getUserName() {
         return Rapidine_pref.getString(User_name, "");
 
     }
+
     public void setUserId(String userId) {
         editor.putString(UserId, userId);
         this.editor.apply();
@@ -98,8 +117,7 @@ public class Session extends Object {
         editor.commit();
     }
 
-    public String getRole()
-    {
+    public String getRole() {
         return Rapidine_pref.getString(role_, "");
     }
 
@@ -127,20 +145,20 @@ public class Session extends Object {
     }
 
 
-    public  String getAadhar_front_image(){
-       return Rapidine_pref.getString(aadhar_front_image,"");
+    public String getAadhar_front_image() {
+        return Rapidine_pref.getString(aadhar_front_image, "");
     }
 
-    public  String getCancel_cheque_image(){
-       return Rapidine_pref.getString(cancel_cheque_image,"");
+    public String getCancel_cheque_image() {
+        return Rapidine_pref.getString(cancel_cheque_image, "");
     }
 
-    public  String getAadhar_back_image(){
-        return Rapidine_pref.getString(aadhar_back_image,"");
+    public String getAadhar_back_image() {
+        return Rapidine_pref.getString(aadhar_back_image, "");
     }
 
-    public  String getPan_image(){
-        return Rapidine_pref.getString(pan_image,"");
+    public String getPan_image() {
+        return Rapidine_pref.getString(pan_image, "");
     }
 
 
@@ -152,8 +170,8 @@ public class Session extends Object {
         return Rapidine_pref.getBoolean(IS_LOGGEDIN, false);
     }
 
-    public void setValue(String key, String value ){
-        editor.putString(key,value);
+    public void setValue(String key, String value) {
+        editor.putString(key, value);
         editor.apply();
     }
 

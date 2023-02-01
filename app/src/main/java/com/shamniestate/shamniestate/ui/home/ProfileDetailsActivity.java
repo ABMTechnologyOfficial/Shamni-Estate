@@ -27,6 +27,7 @@ public class ProfileDetailsActivity extends AppCompatActivity {
     private Session session ;
     private ActivityProfileDetailsBinding binding ;
     private  ProfileDetailsActivity activity ;
+    private String associateId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,9 @@ public class ProfileDetailsActivity extends AppCompatActivity {
         activity = this ;
         session = new Session(activity);
 
-        getProfile();
+        associateId = getIntent().getStringExtra("associateId");
+
+         getProfile();
 
     }
 
@@ -48,7 +51,7 @@ public class ProfileDetailsActivity extends AppCompatActivity {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getProfile(
                 AUTHORIZATION,
-                session.getUserId().trim()
+                associateId
         ).enqueue(new Callback<UserProfileModel>() {
             @Override
             public void onResponse(@NonNull Call<UserProfileModel> call, @NonNull Response<UserProfileModel> response) {

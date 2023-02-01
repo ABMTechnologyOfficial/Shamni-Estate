@@ -4,11 +4,12 @@ public class BaseUrls extends Object{
     public static final String TAG = "CustomLogs";
 
     public static final String BASE_URL = "http://api.shamniestate.com/";
+    public static final String MAP_IMAGE_URL = "https://shamniestate.com/assets/extra/property_map/";
     public static final String AUTHORIZATION = "Bearer ocLGuJGguH2u1KmxiYLii00XeBFePmvdLzy2MjxE2CoJOra7";
 
     public static final String login_check = "login_check";
     public static final String admin_bank_list = "admin_bank_list";
-    public static final String register_form = "register_form";
+    public static final String register_form = "new_associate";
     public static final String signup_img = "signup_img";
     public static final String property_list = "property_list";
     public static final String forgot_password = "forgot_password";
@@ -21,5 +22,9 @@ public class BaseUrls extends Object{
     public static final String img_upload = "img_upload";
     public static final String new_visitor = "new_visitor";
     public static final String property_details = "property_details";
+    public static final String home_page = "home_page";
+    public static final String home_loan_inquiry = "home_loan_inquiry";
+    public static final String visitor_list = "visitor_list";
+    public static final String visitor_details = "visitor_details";
 
 }

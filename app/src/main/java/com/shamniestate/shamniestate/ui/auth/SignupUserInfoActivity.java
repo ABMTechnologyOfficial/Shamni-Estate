@@ -130,7 +130,6 @@ public class SignupUserInfoActivity extends AppCompatActivity {
 
     }
 
-
     private void selectDate(TextView DateBtn) {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);

@@ -1,6 +1,7 @@
 package com.shamniestate.shamniestate.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.HomeSliderLayoutBinding;
 import com.shamniestate.shamniestate.databinding.MainSliderLayoutBinding;
 import com.shamniestate.shamniestate.models.HomeSliderModel;
+import com.shamniestate.shamniestate.ui.home.MyAssociatesActivity;
+import com.shamniestate.shamniestate.ui.home.MyBookedPropertyActivity;
+import com.shamniestate.shamniestate.ui.home.MyHoldProperyActivity;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.List;
@@ -36,6 +40,21 @@ public class HomePageSlider extends SliderViewAdapter<HomePageSlider.SlideView> 
 
         HomeSliderModel.HomeSliderData homeBannerData = model.get(position);
         viewHolder.binding.totalCount.setText(String.valueOf(homeBannerData.getTotalMembers()));
+
+        if (position == 0)
+            viewHolder.binding.titleText.setText("Team Members");
+        else if (position == 1)
+            viewHolder.binding.titleText.setText("Hold Property");
+        else viewHolder.binding.titleText.setText("Booked Property");
+
+        viewHolder.binding.textLogin.setOnClickListener(view -> {
+            Intent intent;
+            if (position == 0) intent = new Intent(context, MyAssociatesActivity.class);
+            else if (position == 1) intent = new Intent(context, MyHoldProperyActivity.class);
+            else intent = new Intent(context, MyBookedPropertyActivity.class);
+
+            context.startActivity(intent);
+        });
 
     }
 

@@ -93,7 +93,7 @@ public class SignupDocumentsActivity extends AppCompatActivity {
                 })
                 .check());
 
-        binding.aadharBackImage.setOnClickListener(v -> Dexter.withContext(activity)
+             binding.aadharBackImage.setOnClickListener(v -> Dexter.withContext(activity)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override

@@ -14,8 +14,9 @@ import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import java.util.ArrayList;
 
 public class SearchResultAmenityAdapter extends RecyclerView.Adapter<SearchResultAmenityAdapter.Viewholder> {
-    private final Context context;
-    private final ArrayList<AmenitiesListModel.AmenitiesData> data;
+
+    private  Context context;
+    private  ArrayList<AmenitiesListModel.AmenitiesData> data;
 
     public SearchResultAmenityAdapter(Context context, ArrayList<AmenitiesListModel.AmenitiesData> data) {
         this.context = context;

@@ -2,31 +2,45 @@ package com.shamniestate.shamniestate.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.helper.widget.Layer;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.shamniestate.shamniestate.R;
+import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
+import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.databinding.HomePropertyLayoutBinding;
+import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.ui.home.UserPropertyDetailsActivity;
+import com.shamniestate.shamniestate.utils.Session;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHolder>{
 
     Context context ;
     List<PropertyModel.PropertyData> models  ;
+    private Session session ;
+    private List<AmenitiesListModel.AmenitiesData> amenitiesList = new ArrayList<>();
 
     public PropertyAdapter(Context context, List<PropertyModel.PropertyData> models) {
         this.context = context;
         this.models = models;
+        session = new Session(context);
     }
 
     @NonNull
@@ -49,6 +63,10 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
                 .putExtra("property_image",  models.get(holder.getAdapterPosition()).getPropertyImage())
                 .putExtra("total_area",  models.get(holder.getAdapterPosition()).getMaxUnitArea())
         ));
+
+//        holder.binding.animRecycler.setAdapter(new SearchResultAmenityAdapter(context, models.get(position).getAmenitiesDataArrayList()));
+//        holder.binding.animRecycler.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
+
     }
 
 
