@@ -23,6 +23,7 @@ import com.shamniestate.shamniestate.utils.Session;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +40,7 @@ public class SearchResultActivity extends AppCompatActivity {
     private String propertyTypeId = "";
     private String maxBudget = "";
     private String minBudget = "";
-    private ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
+    private final ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
     private ArrayList<PropertyModel.PropertyData> filteredList = new ArrayList<>();
 
     @Override
@@ -82,16 +83,18 @@ public class SearchResultActivity extends AppCompatActivity {
     private void filterTextSearch(String text) {
         filteredList.clear();
 
+        text = text.toLowerCase(Locale.ROOT);
+
         for (int i = 0; i < data.size(); i++) {
             PropertyModel.PropertyData current = data.get(i);
 
             boolean flag = current.getPropertyTitle().contains(text);
 
-            if (current.getPropertyBuilder().contains(text))
+            if (current.getPropertyBuilder().toLowerCase(Locale.ROOT).contains(text))
                 flag = true;
-            if (current.getLocalityName().contains(text))
+            if (current.getLocalityName().toLowerCase(Locale.ROOT).contains(text))
                 flag = true;
-            if (current.getPropertyAddress().contains(text))
+            if (current.getPropertyAddress().toLowerCase(Locale.ROOT).contains(text))
                 flag = true;
 
             if (flag)
