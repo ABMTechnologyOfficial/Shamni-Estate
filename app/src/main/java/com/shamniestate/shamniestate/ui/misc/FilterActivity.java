@@ -49,6 +49,10 @@ public class FilterActivity extends AppCompatActivity {
         binding.textApply.setOnClickListener(view -> startActivity(new Intent(activity, SearchResultActivity.class)));
     }
 
+    private void startSearch() {
+
+    }
+
     private void getPropertyType() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getPropertyType(session.getAccessToken()).enqueue(new Callback<PropertyTypeModel>() {
