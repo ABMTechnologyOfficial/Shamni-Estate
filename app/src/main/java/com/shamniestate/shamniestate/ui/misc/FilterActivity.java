@@ -19,19 +19,26 @@ import com.shamniestate.shamniestate.adapters.PropertyTypeAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityFilterBinding;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.CityListModel;
+import com.shamniestate.shamniestate.models.FilterInterface;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;
 import com.shamniestate.shamniestate.utils.Session;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FilterActivity extends AppCompatActivity {
+public class FilterActivity extends AppCompatActivity implements FilterInterface {
 
     private FilterActivity activity;
     private Session session;
     private ActivityFilterBinding binding;
+    private final ArrayList<String> cityIdList = new ArrayList<>();
+    private final ArrayList<String> propertyAmenityIdList = new ArrayList<>();
+    private final ArrayList<String> propertyPlanIdList = new ArrayList<>();
+    private final ArrayList<String> propertyTypeIdList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +53,25 @@ public class FilterActivity extends AppCompatActivity {
         getPropertyAmenities();
         getCities();
 
-        binding.textApply.setOnClickListener(view -> startActivity(new Intent(activity, SearchResultActivity.class)));
+        binding.textApply.setOnClickListener(view -> startSearch());
     }
 
     private void startSearch() {
+        String cityId = cityIdList.toString().replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "").trim();
+        String propertyAmenityId = propertyAmenityIdList.toString().replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "").trim();
+        String propertyPlanId = propertyPlanIdList.toString().replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "").trim();
+        String propertyTypeId = propertyTypeIdList.toString().replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "").trim();
+        String maxBudget = "";
+        String minBudget = "";
 
+        startActivity(new Intent(activity, SearchResultActivity.class)
+                .putExtra("cityId", cityId)
+                .putExtra("propertyAmenityId", propertyAmenityId)
+                .putExtra("propertyPlanId", propertyPlanId)
+                .putExtra("propertyTypeId", propertyTypeId)
+                .putExtra("maxBudget", maxBudget)
+                .putExtra("minBudget", minBudget)
+        );
     }
 
     private void getPropertyType() {
@@ -65,7 +86,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.typePropertyRecy.setLayoutManager(layoutManager);
-                            binding.typePropertyRecy.setAdapter(new PropertyTypeAdapter(activity, response.body().getData()));
+                            binding.typePropertyRecy.setAdapter(new PropertyTypeAdapter(activity, response.body().getData(), FilterActivity.this));
                         }
             }
 
@@ -88,7 +109,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.planPropertyRecy.setLayoutManager(layoutManager);
-                            binding.planPropertyRecy.setAdapter(new PropertyPlanAdapter(activity, response.body().getData()));
+                            binding.planPropertyRecy.setAdapter(new PropertyPlanAdapter(activity, response.body().getData(), FilterActivity.this));
                         }
             }
 
@@ -111,7 +132,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.amenitiesPropertyRecy.setLayoutManager(layoutManager);
-                            binding.amenitiesPropertyRecy.setAdapter(new PropertyAmenitiesAdapter(activity, response.body().getData()));
+                            binding.amenitiesPropertyRecy.setAdapter(new PropertyAmenitiesAdapter(activity, response.body().getData(), FilterActivity.this));
                         }
             }
 
@@ -134,7 +155,7 @@ public class FilterActivity extends AppCompatActivity {
                             layoutManager.setFlexDirection(FlexDirection.ROW);
                             layoutManager.setJustifyContent(JustifyContent.FLEX_START);
                             binding.cityPropertyRecy.setLayoutManager(layoutManager);
-                            binding.cityPropertyRecy.setAdapter(new CityAdapter(activity, response.body().getData()));
+                            binding.cityPropertyRecy.setAdapter(new CityAdapter(activity, response.body().getData(), FilterActivity.this));
                         }
             }
 
@@ -143,5 +164,31 @@ public class FilterActivity extends AppCompatActivity {
                 Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
             }
         });
+    }
+
+    @Override
+    public void addItem(String id, int mode) {
+        if (mode == 0) {
+            cityIdList.add(id);
+        } else if (mode == 1) {
+            propertyAmenityIdList.add(id);
+        } else if (mode == 2) {
+            propertyPlanIdList.add(id);
+        } else if (mode == 3) {
+            propertyTypeIdList.add(id);
+        }
+    }
+
+    @Override
+    public void deleteItem(String id, int mode) {
+        if (mode == 0) {
+            cityIdList.remove(id);
+        } else if (mode == 1) {
+            propertyAmenityIdList.remove(id);
+        } else if (mode == 2) {
+            propertyPlanIdList.remove(id);
+        } else if (mode == 3) {
+            propertyTypeIdList.remove(id);
+        }
     }
 }

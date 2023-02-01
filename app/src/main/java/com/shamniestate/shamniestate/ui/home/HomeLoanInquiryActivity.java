@@ -2,25 +2,16 @@ package com.shamniestate.shamniestate.ui.home;
 
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.AUTHORIZATION;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
-import com.shamniestate.shamniestate.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
-import com.shamniestate.shamniestate.adapters.HomePlanAdapter;
-import com.shamniestate.shamniestate.adapters.PropertyTypeAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityHomeLoanInquiryBinding;
 import com.shamniestate.shamniestate.models.PropertyPlanModel;
 import com.shamniestate.shamniestate.models.PropertyTypeModel;

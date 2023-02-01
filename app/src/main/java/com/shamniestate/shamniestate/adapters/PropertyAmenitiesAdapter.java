@@ -11,16 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.PropeertyTypeLayoutBinding;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
+import com.shamniestate.shamniestate.models.FilterInterface;
 
 import java.util.List;
 
 public class PropertyAmenitiesAdapter extends RecyclerView.Adapter<PropertyAmenitiesAdapter.ViewHolder>{
 
-    Context context ;
-    List<AmenitiesListModel.AmenitiesData> models ;
+    private final Context context ;
+    private final List<AmenitiesListModel.AmenitiesData> models ;
+    private final FilterInterface filterInterface;
 
-    public PropertyAmenitiesAdapter(Context context, List<AmenitiesListModel.AmenitiesData> models) {
+    public PropertyAmenitiesAdapter(Context context, List<AmenitiesListModel.AmenitiesData> models, FilterInterface filterInterface) {
         this.context = context;
+        this.filterInterface = filterInterface;
         this.models = models;
     }
 
@@ -32,6 +35,7 @@ public class PropertyAmenitiesAdapter extends RecyclerView.Adapter<PropertyAmeni
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        AmenitiesListModel.AmenitiesData current = models.get(position);
         holder.binding.typeProperty.setText(models.get(position).getAmenitiesName());
 
         holder.itemView.setOnClickListener(v -> {
@@ -40,11 +44,15 @@ public class PropertyAmenitiesAdapter extends RecyclerView.Adapter<PropertyAmeni
                 holder.binding.image.setImageResource(R.drawable.ic_add);
                 holder.binding.typeProperty.setTextColor(context.getResources().getColor(R.color.light_black));
                 models.get(holder.getAdapterPosition()).setSelected(false);
+
+                filterInterface.deleteItem(current.getAmenitiesId(), 1);
             }else {
                 models.get(holder.getAdapterPosition()).setSelected(true);
                 holder.binding.typeProperty.setTextColor(context.getResources().getColor(R.color.colorPrimary));
                 holder.binding.linear.setBackgroundResource(R.drawable.property_type_selected_bg);
                 holder.binding.image.setImageResource(R.drawable.ic_baseline_check_24);
+
+                filterInterface.addItem(current.getAmenitiesId(), 1);
             }
         });
     }
