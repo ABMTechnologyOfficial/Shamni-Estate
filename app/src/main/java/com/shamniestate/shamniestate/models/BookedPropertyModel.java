@@ -42,6 +42,8 @@ public class BookedPropertyModel {
     }
 
     public  class  BookedPropertyData{
+        boolean isOpened = false ;
+
         @SerializedName("slot_id")
         @Expose
         private String slotId;
@@ -141,6 +143,14 @@ public class BookedPropertyModel {
         @SerializedName("property_type_name")
         @Expose
         private String propertyTypeName;
+
+        public boolean isOpened() {
+            return isOpened;
+        }
+
+        public void setOpened(boolean opened) {
+            isOpened = opened;
+        }
 
         public String getSlotId() {
             return slotId;

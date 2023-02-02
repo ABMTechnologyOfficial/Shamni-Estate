@@ -45,10 +45,38 @@
                 android:layout_width="match_parent"
                 android:layout_height=".5dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/light_gray"/>
+                android:background="@color/light_gray" />
 
         </RelativeLayout>
 
+        <ProgressBar
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/progress_booked"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp" />
+
+        <TextView
+            android:id="@+id/no_data_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:fontFamily="@font/heebo_medium"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="No Booked Property Found"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/booked_recycelr"/>
 
 
     </LinearLayout>
