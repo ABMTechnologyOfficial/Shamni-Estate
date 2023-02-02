@@ -30,6 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchResultActivity extends AppCompatActivity {
+    private final ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
     private Activity activity;
     private ActivitySearchResultBinding binding;
     private Session session;
@@ -40,7 +41,6 @@ public class SearchResultActivity extends AppCompatActivity {
     private String propertyTypeId = "";
     private String maxBudget = "";
     private String minBudget = "";
-    private final ArrayList<PropertyModel.PropertyData> data = new ArrayList<>();
     private ArrayList<PropertyModel.PropertyData> filteredList = new ArrayList<>();
 
     @Override
@@ -58,6 +58,7 @@ public class SearchResultActivity extends AppCompatActivity {
         maxBudget = getIntent().getStringExtra("maxBudget");
         minBudget = getIntent().getStringExtra("minBudget");
 
+        binding.icBack.setOnClickListener(view -> finish());
         binding.textFilter.setOnClickListener(view -> finish());
 
         binding.edtSearch.addTextChangedListener(new TextWatcher() {
@@ -124,7 +125,6 @@ public class SearchResultActivity extends AppCompatActivity {
         });
     }
 
-
     private void getPropertyList() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
         apiInterface.getAllProperty(AUTHORIZATION, "").enqueue(new Callback<PropertyModel>() {
@@ -149,7 +149,8 @@ public class SearchResultActivity extends AppCompatActivity {
 
                                 if (cityId.isEmpty()) cityIdFlag = true;
                                 else {
-                                    if (cityId.contains(current.getPropertyCityId())) cityIdFlag = true;
+                                    if (cityId.contains(current.getPropertyCityId()))
+                                        cityIdFlag = true;
                                 }
                                 if (propertyAmenityId.isEmpty()) propertyAmenityIdFlag = true;
                                 else {
@@ -163,19 +164,23 @@ public class SearchResultActivity extends AppCompatActivity {
                                 }
                                 if (propertyPlanId.isEmpty()) propertyPlanIdFlag = true;
                                 else {
-                                    if (propertyPlanId.contains(current.getPropertyPlanType())) propertyPlanIdFlag = true;
+                                    if (propertyPlanId.contains(current.getPropertyPlanType()))
+                                        propertyPlanIdFlag = true;
                                 }
                                 if (propertyTypeId.isEmpty()) propertyTypeIdFlag = true;
                                 else {
-                                    if (propertyPlanId.contains(current.getPropertyPlanType())) propertyTypeIdFlag = true;
+                                    if (propertyPlanId.contains(current.getPropertyPlanType()))
+                                        propertyTypeIdFlag = true;
                                 }
                                 if (maxBudget.isEmpty()) maxBudgetFlag = true;
                                 else {
-                                    if (Long.parseLong(current.getPropertyPricePerUnit()) < Long.parseLong(maxBudget)) maxBudgetFlag = true;
+                                    if (Long.parseLong(current.getPropertyPricePerUnit()) < Long.parseLong(maxBudget))
+                                        maxBudgetFlag = true;
                                 }
                                 if (minBudget.isEmpty()) minBudgetFlag = true;
                                 else {
-                                    if (Long.parseLong(current.getPropertyPricePerUnit()) > Long.parseLong(minBudget)) minBudgetFlag = true;
+                                    if (Long.parseLong(current.getPropertyPricePerUnit()) > Long.parseLong(minBudget))
+                                        minBudgetFlag = true;
                                 }
 
                                 Log.e("TAG", "cityIdFlag " + cityIdFlag);
@@ -223,6 +228,10 @@ public class SearchResultActivity extends AppCompatActivity {
 
     private void setAdapter() {
         Log.e("TAG", "filteredList.size(): " + filteredList.size());
+
+        if (filteredList.size() == 0) binding.textEmptyList.setVisibility(View.VISIBLE);
+        else binding.textEmptyList.setVisibility(View.GONE);
+
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         binding.recyclerView.setAdapter(new SearchResultAdapter(activity, filteredList));
     }
