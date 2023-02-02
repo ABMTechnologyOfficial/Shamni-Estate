@@ -6,6 +6,7 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.booked_propert
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.city_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.forgot_password;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.get_profile;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.hold_property;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_loan_inquiry;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_page;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
@@ -26,6 +27,7 @@ import com.shamniestate.shamniestate.models.AppDetailsModel;
 import com.shamniestate.shamniestate.models.BankListModel;
 import com.shamniestate.shamniestate.models.BookedPropertyModel;
 import com.shamniestate.shamniestate.models.CityListModel;
+import com.shamniestate.shamniestate.models.HoldPropertyModel;
 import com.shamniestate.shamniestate.models.HomeDataModel;
 import com.shamniestate.shamniestate.models.LoginModel;
 import com.shamniestate.shamniestate.models.MyAssociateModel;
@@ -227,6 +229,13 @@ public interface ApiInterface {
             @Field("associate_id") String associate_id
     );
 
+
+    @FormUrlEncoded
+    @POST(hold_property)
+    Call<HoldPropertyModel> getMyHoldProperty(
+            @Header("Access_Token") String Access_Token,
+            @Field("associate_id") String associate_id
+    );
 
 
 }

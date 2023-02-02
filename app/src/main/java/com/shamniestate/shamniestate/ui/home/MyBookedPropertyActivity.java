@@ -34,8 +34,7 @@ public class MyBookedPropertyActivity extends AppCompatActivity {
         activity = this ;
         session = new Session(activity);
 
-        getMyBookedProperty();
-
+        binding.icBack.setOnClickListener(view -> onBackPressed());
     }
 
     private  void getMyBookedProperty(){
@@ -74,5 +73,11 @@ public class MyBookedPropertyActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getMyBookedProperty();
     }
 }

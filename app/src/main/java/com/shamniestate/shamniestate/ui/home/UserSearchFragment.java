@@ -1,6 +1,7 @@
 package com.shamniestate.shamniestate.ui.home;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.shamniestate.shamniestate.R;
 import com.shamniestate.shamniestate.databinding.FragmentUserSearchBinding;
+import com.shamniestate.shamniestate.ui.misc.FilterActivity;
 
 
 public class UserSearchFragment extends Fragment {
@@ -24,6 +26,7 @@ public class UserSearchFragment extends Fragment {
         binding = FragmentUserSearchBinding.inflate(inflater, container, false);
         activity = requireActivity();
 
+        binding.serachCardview.setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
 
         return binding.getRoot();
     }

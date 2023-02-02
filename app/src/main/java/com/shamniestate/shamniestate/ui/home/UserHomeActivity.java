@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.shamniestate.shamniestate.R;
+import com.shamniestate.shamniestate.ServiceActivity;
 import com.shamniestate.shamniestate.databinding.ActivityUserHomeBinding;
 import com.shamniestate.shamniestate.ui.auth.LoginActivity;
 import com.shamniestate.shamniestate.ui.auth.SignupUserInfoActivity;
@@ -52,12 +53,11 @@ public class UserHomeActivity extends AppCompatActivity {
         setUpBottomNav();
         setUpNavigationView();
 
-        if(!session.getProfileImage().equalsIgnoreCase(""))
+        if (!session.getProfileImage().equalsIgnoreCase(""))
             Picasso.get().load(session.getProfileImage()).placeholder(R.drawable.profile).into(binding.profileImage);
 
-        if(session.getUserName().equalsIgnoreCase(""))
+        if (session.getUserName().equalsIgnoreCase(""))
             binding.userName.setText(session.getUserName());
-
 
 
         binding.icMenu.setOnClickListener(view -> binding.drawerLayout.open());
@@ -112,53 +112,65 @@ public class UserHomeActivity extends AppCompatActivity {
 
     private void setUpNavigationView() {
         binding.navAboutUsLay.setOnClickListener(v -> {
-            if (session.isLoggedIn())startActivity(new Intent(activity, AboutUsActivity.class));
+            if (session.isLoggedIn()) startActivity(new Intent(activity, AboutUsActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navEmiCalculator.setOnClickListener(v -> {
-            if(session.isLoggedIn())startActivity(new Intent(activity, EmiCalculatorActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, EmiCalculatorActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navNewAssociates.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, SignupUserInfoActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, SignupUserInfoActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navMyVisitors.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, VisitorListActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, VisitorListActivity.class));
+            else startActivity(new Intent(activity, LoginActivity.class));
+        });
+
+        binding.navSercvieLay.setOnClickListener(v -> {
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, ServiceActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navMyAssociates.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, MyAssociatesActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, MyAssociatesActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
 
         binding.navNewVisitors.setOnClickListener(v -> {
-            if(session.isLoggedIn()) startActivity(new Intent(activity, AddVisitorInfoActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, AddVisitorInfoActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navSupportManagerLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
+            if (session.isLoggedIn()) {
                 String url = "https://api.whatsapp.com/send?phone=+919993511311";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
+            } else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navBankLoanLay.setOnClickListener(v -> {
-            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navContactLay.setOnClickListener(v -> {
-            if (session.isLoggedIn())startActivity(new Intent(activity, HomeLoanInquiryActivity.class));
+            if (session.isLoggedIn())
+                startActivity(new Intent(activity, HomeLoanInquiryActivity.class));
             else startActivity(new Intent(activity, ChatSupportActivity.class));
         });
 
@@ -187,41 +199,37 @@ public class UserHomeActivity extends AppCompatActivity {
             }
         });
 
-      binding.navCommercialSearchLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
+        binding.navCommercialSearchLay.setOnClickListener(v -> {
+            if (session.isLoggedIn()) {
                 session.setSearch("commercial");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
                 binding.drawerLayout.close();
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
+            } else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navResidentialSearchLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
+            if (session.isLoggedIn()) {
                 session.setSearch("residential");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
                 binding.drawerLayout.close();
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
+            } else startActivity(new Intent(activity, LoginActivity.class));
 
         });
 
         binding.navFarmhouseSearchLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
+            if (session.isLoggedIn()) {
                 session.setSearch("farmhouse");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
                 binding.drawerLayout.close();
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
+            } else startActivity(new Intent(activity, LoginActivity.class));
         });
 
         binding.navPremiumPropertyLay.setOnClickListener(v -> {
-            if (session.isLoggedIn()){
+            if (session.isLoggedIn()) {
                 session.setSearch("premium");
                 binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_search);
                 binding.drawerLayout.close();
-            }
-            else startActivity(new Intent(activity, LoginActivity.class));
+            } else startActivity(new Intent(activity, LoginActivity.class));
         });
     }
 
@@ -230,13 +238,13 @@ public class UserHomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if(!session.getUserName().equalsIgnoreCase(""))
+        if (!session.getUserName().equalsIgnoreCase(""))
             binding.userName.setText(session.getUserName());
 
-        if(!session.getEmail().equalsIgnoreCase(""))
+        if (!session.getEmail().equalsIgnoreCase(""))
             binding.userEmail.setText(session.getEmail());
 
-        if(!session.getProfileImage().equalsIgnoreCase(""))
+        if (!session.getProfileImage().equalsIgnoreCase(""))
             Picasso.get().load(session.getProfileImage()).placeholder(R.drawable.profile).into(binding.profileImage);
         else binding.profileImage.setImageResource(R.drawable.profile);
 

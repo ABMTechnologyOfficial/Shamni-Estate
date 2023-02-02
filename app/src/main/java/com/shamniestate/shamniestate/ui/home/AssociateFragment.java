@@ -20,8 +20,9 @@ import com.shamniestate.shamniestate.visitors.VisitorListActivity;
 
 public class AssociateFragment extends Fragment {
 
-    FragmentAssociateBinding binding ;
-    Activity activity ;
+    FragmentAssociateBinding binding;
+    Activity activity;
+
     public AssociateFragment() {
         // Required empty public constructor
     }
@@ -30,9 +31,9 @@ public class AssociateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-               binding = FragmentAssociateBinding.inflate(getLayoutInflater());
+        binding = FragmentAssociateBinding.inflate(getLayoutInflater());
 
-               activity = requireActivity() ;
+        activity = requireActivity();
 
         binding.addNewAssociate.setOnClickListener(v -> {
             startActivity(new Intent(activity, SignupUserInfoActivity.class));
@@ -46,7 +47,15 @@ public class AssociateFragment extends Fragment {
             startActivity(new Intent(activity, MyAssociatesActivity.class));
         });
 
-      binding.navEmiCalculator.setOnClickListener(v -> {
+        binding.mtHoldProperty.setOnClickListener(v -> {
+            startActivity(new Intent(activity, MyHoldProperyActivity.class));
+        });
+
+        binding.myBookedProperty.setOnClickListener(v -> {
+            startActivity(new Intent(activity, MyBookedPropertyActivity.class));
+        });
+
+        binding.navEmiCalculator.setOnClickListener(v -> {
             startActivity(new Intent(activity, EmiCalculatorActivity.class));
         });
 
