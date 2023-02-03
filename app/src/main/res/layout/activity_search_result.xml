@@ -112,8 +112,8 @@
                 android:text="Sort"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/_12sdp"
-                app:drawableStartCompat="@drawable/ic_filter"
                 app:drawableEndCompat="@drawable/ic_arrow_down"
+                app:drawableStartCompat="@drawable/ic_filter"
                 app:drawableTint="@color/light_gray" />
 
         </LinearLayout>
@@ -121,10 +121,10 @@
     </LinearLayout>
 
     <ProgressBar
-        android:layout_alignTop="@id/recycler_view"
         android:id="@+id/progress"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
+        android:layout_alignTop="@id/recycler_view"
         android:layout_marginTop="@dimen/_5sdp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -133,5 +133,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_options"
         android:layout_marginTop="@dimen/_10sdp" />
+
+    <TextView
+        android:id="@+id/text_empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/heebo_medium"
+        android:text="No Match Found!"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp" />
 
 </RelativeLayout>
