@@ -6,9 +6,9 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:background="@drawable/home"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_310sdp">
+        android:layout_height="@dimen/_310sdp"
+        android:background="@drawable/home">
 
         <LinearLayout
             android:id="@+id/header_linear"
@@ -62,8 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingVertical="@dimen/_10sdp"
-                android:paddingHorizontal="@dimen/_5sdp">
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:paddingVertical="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,8 +84,8 @@
                         android:layout_gravity="center"
                         android:ellipsize="end"
                         android:fontFamily="@font/poppins_regular"
-                        android:maxLength="15"
                         android:gravity="center"
+                        android:maxLength="15"
                         android:text="By Property"
                         android:textColor="@color/black"
                         android:textFontWeight="600"
@@ -164,23 +164,24 @@
             app:cardElevation="@dimen/_1sdp">
 
             <LinearLayout
+                android:id="@+id/ll_search_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/_10sdp"
                 android:paddingHorizontal="@dimen/_10sdp"
-                android:paddingTop="@dimen/_20sdp">
+                android:paddingTop="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp">
 
 
                 <androidx.cardview.widget.CardView
-                    android:layout_below="@id/header"
+                    android:id="@+id/serach_cardview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_2sdp"
-                    android:id="@+id/serach_cardview"
-                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_below="@id/header"
                     android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:padding="@dimen/_2sdp"
                     app:cardBackgroundColor="#EDEDED"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="@dimen/_2sdp">
@@ -219,7 +220,6 @@
 
 
                 <TextView
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
@@ -231,14 +231,15 @@
                     android:text="Recent Search"
                     android:textColor="@color/black"
                     android:textFontWeight="600"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_13sdp"
+                    android:visibility="gone" />
 
 
                 <HorizontalScrollView
-                    android:visibility="gone"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -246,61 +247,63 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_marginHorizontal="@dimen/_5sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:background="@drawable/edit_bg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:gravity="center"
+                            android:layout_marginHorizontal="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/edit_bg"
+                            android:drawableLeft="@drawable/ic_search"
                             android:drawablePadding="@dimen/_5sdp"
                             android:drawableTint="@color/light_gray"
-                            android:drawableLeft="@drawable/ic_search"
-                            android:layout_marginTop="@dimen/_5sdp"
                             android:ellipsize="end"
                             android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
                             android:maxLength="15"
                             android:maxLines="1"
+                            android:padding="@dimen/_5sdp"
                             android:text="Recent Search"
                             android:textColor="@color/light_gray"
                             android:textFontWeight="600"
                             android:textSize="@dimen/_13sdp" />
+
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
                             android:layout_marginHorizontal="@dimen/_5sdp"
-                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:background="@drawable/custom_bg_box"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:gravity="center"
+                            android:drawableLeft="@drawable/ic_search"
                             android:drawablePadding="@dimen/_5sdp"
                             android:drawableTint="@color/light_gray"
-                            android:drawableLeft="@drawable/ic_search"
-                            android:layout_marginTop="@dimen/_5sdp"
                             android:ellipsize="end"
                             android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
                             android:maxLength="15"
                             android:maxLines="1"
+                            android:padding="@dimen/_5sdp"
                             android:text="Recent Search"
                             android:textColor="@color/light_gray"
                             android:textFontWeight="600"
                             android:textSize="@dimen/_13sdp" />
+
                         <TextView
-                            android:layout_marginHorizontal="@dimen/_5sdp"
-                            android:padding="@dimen/_5sdp"
-                            android:background="@drawable/edit_bg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:gravity="center"
+                            android:layout_marginHorizontal="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/edit_bg"
+                            android:drawableLeft="@drawable/ic_search"
                             android:drawablePadding="@dimen/_5sdp"
                             android:drawableTint="@color/light_gray"
-                            android:drawableLeft="@drawable/ic_search"
-                            android:layout_marginTop="@dimen/_5sdp"
                             android:ellipsize="end"
                             android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
                             android:maxLength="15"
                             android:maxLines="1"
+                            android:padding="@dimen/_5sdp"
                             android:text="Recent Search"
                             android:textColor="@color/light_gray"
                             android:textFontWeight="600"

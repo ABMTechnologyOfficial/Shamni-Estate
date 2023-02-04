@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.shamniestate.shamniestate.RetrofitApis.ApiInterface;
 import com.shamniestate.shamniestate.RetrofitApis.RetrofitClient;
 import com.shamniestate.shamniestate.adapters.SearchResultAdapter;
+import com.shamniestate.shamniestate.adapters.SearchResultNewAdapter;
 import com.shamniestate.shamniestate.databinding.ActivitySearchResultBinding;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
@@ -96,6 +97,8 @@ public class SearchResultActivity extends AppCompatActivity {
             if (current.getLocalityName().toLowerCase(Locale.ROOT).contains(text))
                 flag = true;
             if (current.getPropertyAddress().toLowerCase(Locale.ROOT).contains(text))
+                flag = true;
+            if (current.getPropertyCode().toLowerCase(Locale.ROOT).contains(text))
                 flag = true;
 
             if (flag)
@@ -233,7 +236,8 @@ public class SearchResultActivity extends AppCompatActivity {
         else binding.textEmptyList.setVisibility(View.GONE);
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        binding.recyclerView.setAdapter(new SearchResultAdapter(activity, filteredList));
+        binding.recyclerView.setAdapter(new SearchResultNewAdapter(activity, filteredList));
+//        binding.recyclerView.setAdapter(new SearchResultAdapter(activity, filteredList));
     }
 
 }

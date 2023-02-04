@@ -46,13 +46,13 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:drawableTint="@color/light_gray"
                 android:fontFamily="@font/heebo_medium"
-                android:hint="Search"
+                android:hint="Search (by Property Code, Location etc.)"
                 android:inputType="textCapWords"
                 android:padding="@dimen/_5sdp"
                 android:paddingTop="@dimen/_1sdp"
                 android:singleLine="true"
                 android:textColorHint="@color/light_gray"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_11sdp" />
 
         </LinearLayout>
 

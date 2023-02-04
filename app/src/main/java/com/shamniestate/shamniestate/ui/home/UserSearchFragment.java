@@ -27,6 +27,10 @@ public class UserSearchFragment extends Fragment {
         activity = requireActivity();
 
         binding.serachCardview.setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
+        binding.llSearchContainer.setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
+        binding.serachCardview.setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
+        binding.userEmail.setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
+        binding.getRoot().setOnClickListener(v -> startActivity(new Intent(activity, FilterActivity.class)));
 
         return binding.getRoot();
     }
