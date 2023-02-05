@@ -39,8 +39,6 @@ public class MapFragment extends Fragment {
         this.is_activity = isactiity ;
     }
 
-
-
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
