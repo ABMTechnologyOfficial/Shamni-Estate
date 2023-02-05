@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +45,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -59,6 +62,7 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
     private List<AmenitiesListModel.AmenitiesData> availableAmenitiesList = new ArrayList<>();
     private Session session ;
     private  String property_id = "" , property_image = null , total_area = null;
+    private boolean isOpen = false ;
 
 
     @Override
@@ -143,6 +147,19 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                                 binding.mapLinar.setVisibility(View.GONE);
                             }
 
+                            binding.mapLinar.setOnClickListener(v -> {
+                                if (!lat.equalsIgnoreCase("") && !lang.equalsIgnoreCase("")) {
+                                    String geoUri = "http://maps.google.com/maps?q=loc:" + data.getPropertyLatitude() + "," + data.getPropertyLongitude() + " (" + data.getPropertyTitle() + ")";
+                                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                                    if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                                        startActivity(mapIntent);
+                                    }
+                                }
+                            });
+
+
+
+
                             if (response.body().getData().getPropertyGallery().size() != 0) {
                                 for (int i = 0; i < response.body().getData().getPropertyGallery().size(); i++) {
                                     slideModelArrayList.add(new SlideModel(response.body().getData().getPropertyGallery().get(i).getGalleryName(), ScaleTypes.FIT));
@@ -170,10 +187,31 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                                         .into(binding.mapImage);
                             }
 
+
+
+
                         }else {
                             binding.galleryLinear.setVisibility(View.GONE);
                             binding.amenitiesLinear.setVisibility(View.GONE);
                         }
+
+
+
+                binding.detailsImg.setOnClickListener(v -> {
+                    if(isOpen){
+                        binding.detailsImg.setImageResource(R.drawable.ic_baseline_expand_more_24);
+                        binding.detailsLinear.setVisibility(View.GONE);
+                        isOpen = false ;
+                    }else {
+                        binding.detailsImg.setImageResource(R.drawable.ic_baseline_expand_less_24);
+                        binding.detailsLinear.setVisibility(View.VISIBLE);
+                        isOpen = true ;
+                    }
+
+
+                });
+
+
 
             }
 

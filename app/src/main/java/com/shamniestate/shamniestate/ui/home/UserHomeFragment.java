@@ -132,29 +132,35 @@ public class UserHomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getHomeData();
+        getMyAssociatesList();
+    }
 
     /* private void getPropertyPlan() {
-        ApiInterface apiInterface = RetrofitClient.getClient(activity);
-        apiInterface.getPropertyPlan(session.getAccessToken()).enqueue(new Callback<PropertyPlanModel>() {
-            @Override
-            public void onResponse(@NonNull Call<PropertyPlanModel> call, @NonNull Response<PropertyPlanModel> response) {
-                if (response.code() == 200)
-                    if (response.body() != null && response.body().getCode() == 200)
-                        if (response.body().getData().size() != 0) {
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-                            linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                            binding.palnRecycelr.setLayoutManager(linearLayoutManager);
-                            binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity, response.body().getData()));
-                        }
-            }
+            ApiInterface apiInterface = RetrofitClient.getClient(activity);
+            apiInterface.getPropertyPlan(session.getAccessToken()).enqueue(new Callback<PropertyPlanModel>() {
+                @Override
+                public void onResponse(@NonNull Call<PropertyPlanModel> call, @NonNull Response<PropertyPlanModel> response) {
+                    if (response.code() == 200)
+                        if (response.body() != null && response.body().getCode() == 200)
+                            if (response.body().getData().size() != 0) {
+                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+                                linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                                binding.palnRecycelr.setLayoutManager(linearLayoutManager);
+                                binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity, response.body().getData()));
+                            }
+                }
 
-            @Override
-            public void onFailure(@NonNull Call<PropertyPlanModel> call, @NonNull Throwable t) {
-                Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
-            }
-        });
-    }
-*/
+                @Override
+                public void onFailure(@NonNull Call<PropertyPlanModel> call, @NonNull Throwable t) {
+                    Log.e("TAG", "onFailure() called with: call = [" + call + "], t = [" + t.getLocalizedMessage() + "]");
+                }
+            });
+        }
+    */
     private void getHomeData() {
         ApiInterface apiInterface = RetrofitClient.getClient(activity);
 
@@ -168,16 +174,7 @@ public class UserHomeFragment extends Fragment {
                 if(response.code() == 200)
                     if(response.body() != null)
                         if(response.body().getCode()  == 200){
-                            int teamMember = response.body().getData().get(0).getTotalMembers();
-                            int holdProperty = response.body().getData().get(0).getHoldProperty();
-                            int bookedProperty = response.body().getData().get(0).getBookedProperty();
 
-                            models.add(new HomeSliderModel.HomeSliderData(teamMember));
-                            models.add(new HomeSliderModel.HomeSliderData(holdProperty));
-                            models.add(new HomeSliderModel.HomeSliderData(bookedProperty));
-
-                            HomePageSlider homePageSlider = new HomePageSlider(models, getContext());
-                            binding.homeBanerSliderNew.setSliderAdapter(homePageSlider);
                         }else {
 
                             session.setLogin(false);
@@ -218,7 +215,7 @@ public class UserHomeFragment extends Fragment {
                         if(response.body() != null ){
                             if(response.body().getCode() == 200){
                                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-                                linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                                linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
                                 binding.palnRecycelr.setLayoutManager(linearLayoutManager);
                                 binding.palnRecycelr.setAdapter(new HomePlanAdapter(activity, response.body().getData()));
                             }else {

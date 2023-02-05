@@ -7,8 +7,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -20,6 +23,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.shamniestate.shamniestate.R;
 
@@ -34,8 +38,8 @@ public class MapFragment extends Fragment {
         this.lang = lang ;
         this.is_activity = isactiity ;
     }
-    
-    
+
+
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -63,8 +67,33 @@ public class MapFragment extends Fragment {
             googleMap.setMyLocationEnabled(true);
 
 
+            googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lang +  ")";
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                    if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                    return false;
+                }
+            });
+
+            googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
+                    String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lang +  ")";
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                    if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        startActivity(mapIntent);
+                    }
+                }
+            });
+
         }
     };
+
+
 
     @Nullable
     @Override

@@ -94,11 +94,11 @@ public class UserHomeActivity extends AppCompatActivity {
                 binding.textHomeTitle.setText(R.string.need_help);
             } else if (itemId == R.id.bottom_nav_associate) {
                 if (session.isLoggedIn()) {
-                    loadFrag(new UserAssociateFragment());
+                    loadFrag(new TestFragment());
                 } else {
                     startActivity(new Intent(activity, LoginActivity.class));
                 }
-                binding.textHomeTitle.setText(R.string.associate);
+                binding.textHomeTitle.setText(R.string.app_name);
             }
 
             return true;
@@ -114,36 +114,60 @@ public class UserHomeActivity extends AppCompatActivity {
         binding.navAboutUsLay.setOnClickListener(v -> {
             if (session.isLoggedIn()) startActivity(new Intent(activity, AboutUsActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
+        });
+
+     binding.navProfileLay.setOnClickListener(v -> {
+         if (session.isLoggedIn()) {
+             loadFrag(new UserAssociateFragment());
+         } else {
+             startActivity(new Intent(activity, LoginActivity.class));
+         }
+         binding.textHomeTitle.setText(R.string.associate);
+
+         binding.drawerLayout.close();
         });
 
         binding.navEmiCalculator.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, EmiCalculatorActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navNewAssociates.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, SignupUserInfoActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navMyVisitors.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, VisitorListActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navSercvieLay.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, ServiceActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+
+            binding.drawerLayout.close();
         });
 
         binding.navMyAssociates.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, MyAssociatesActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
 
@@ -151,6 +175,8 @@ public class UserHomeActivity extends AppCompatActivity {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, AddVisitorInfoActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navSupportManagerLay.setOnClickListener(v -> {
@@ -160,27 +186,45 @@ public class UserHomeActivity extends AppCompatActivity {
                 i.setData(Uri.parse(url));
                 startActivity(i);
             } else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navBankLoanLay.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, HomeLoanEnquiryActivity.class));
             else startActivity(new Intent(activity, LoginActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navContactLay.setOnClickListener(v -> {
             if (session.isLoggedIn())
                 startActivity(new Intent(activity, HomeLoanInquiryActivity.class));
             else startActivity(new Intent(activity, ChatSupportActivity.class));
+
+            binding.drawerLayout.close();
         });
 
         binding.navMyProfile.setOnClickListener(v -> {
-            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_associate);
+            if (session.isLoggedIn()) {
+                loadFrag(new UserAssociateFragment());
+            } else {
+                startActivity(new Intent(activity, LoginActivity.class));
+            }
+            binding.textHomeTitle.setText(R.string.associate);
+
             binding.drawerLayout.close();
         });
 
         binding.navHeader.setOnClickListener(v -> {
-            binding.bottomNavigation.setSelectedItemId(R.id.bottom_nav_associate);
+            if (session.isLoggedIn()) {
+                loadFrag(new UserAssociateFragment());
+            } else {
+                startActivity(new Intent(activity, LoginActivity.class));
+            }
+            binding.textHomeTitle.setText(R.string.associate);
+
             binding.drawerLayout.close();
         });
 

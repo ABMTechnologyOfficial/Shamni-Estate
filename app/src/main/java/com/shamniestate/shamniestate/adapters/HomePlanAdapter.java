@@ -38,7 +38,8 @@ public class HomePlanAdapter extends RecyclerView.Adapter<HomePlanAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.binding.planName.setText(model.get(position).getAssociateName());
-        holder.binding.address.setText(model.get(position).getAssociateCity());
+        holder.binding.address.setText(model.get(position).getAssociateMobile());
+
     }
 
     @Override
