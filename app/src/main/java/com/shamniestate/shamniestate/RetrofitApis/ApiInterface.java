@@ -12,6 +12,8 @@ import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.home_page;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.login_check;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.my_associates;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.new_visitor;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.plot_book;
+import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.plot_hold;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_details;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_list;
 import static com.shamniestate.shamniestate.RetrofitApis.BaseUrls.property_plan;
@@ -237,5 +239,47 @@ public interface ApiInterface {
             @Field("associate_id") String associate_id
     );
 
+    @FormUrlEncoded
+    @POST(plot_book)
+    Call<SignupModel> bookProperty(
+            @Header("Authorization") String Authorization,
+            @Header("Access_Token") String Access_Token,
+            @Field("slot_id") String slot_id ,
+            @Field("associate_id") String associate_id ,
+            @Field("applicant_name") String applicant_name ,
+            @Field("applicant_dob") String applicant_dob ,
+            @Field("applicant_family_name") String applicant_family_name ,
+            @Field("applicant_contact_no") String applicant_contact_no ,
+            @Field("applicant_contact_second_no") String applicant_contact_second_no ,
+            @Field("applicant_city") String applicant_city ,
+            @Field("applicant_state") String applicant_state ,
+            @Field("applicant_city_pin") String applicant_city_pin ,
+            @Field("applicant_permanent_add") String applicant_permanent_add ,
+            @Field("applicant_current_add") String applicant_current_add ,
+            @Field("applicant_pan_no") String applicant_pan_no ,
+            @Field("applicant_email") String applicant_email
+    );
+
+
+    @FormUrlEncoded
+    @POST(plot_hold)
+    Call<SignupModel> holdProperty(
+            @Header("Authorization") String Authorization,
+            @Header("Access_Token") String Access_Token,
+            @Field("slot_id") String slot_id ,
+            @Field("associate_id") String associate_id ,
+            @Field("applicant_name") String applicant_name ,
+            @Field("applicant_dob") String applicant_dob ,
+            @Field("applicant_family_name") String applicant_family_name ,
+            @Field("applicant_contact_no") String applicant_contact_no ,
+            @Field("applicant_contact_second_no") String applicant_contact_second_no ,
+            @Field("applicant_city") String applicant_city ,
+            @Field("applicant_state") String applicant_state ,
+            @Field("applicant_city_pin") String applicant_city_pin ,
+            @Field("applicant_permanent_add") String applicant_permanent_add ,
+            @Field("applicant_current_add") String applicant_current_add ,
+            @Field("applicant_pan_no") String applicant_pan_no ,
+            @Field("applicant_email") String applicant_email
+    );
 
 }

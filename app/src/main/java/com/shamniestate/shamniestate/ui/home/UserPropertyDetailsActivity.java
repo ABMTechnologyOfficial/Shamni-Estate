@@ -34,6 +34,7 @@ import com.shamniestate.shamniestate.adapters.PropertySlotsAdapter;
 import com.shamniestate.shamniestate.adapters.SearchResultAmenityAdapter;
 import com.shamniestate.shamniestate.databinding.ActivityUserPropertyDetailsBinding;
 import com.shamniestate.shamniestate.models.AmenitiesListModel;
+import com.shamniestate.shamniestate.models.PropertyBuilderModel;
 import com.shamniestate.shamniestate.models.PropertyDetailsModel;
 import com.shamniestate.shamniestate.models.PropertyModel;
 import com.shamniestate.shamniestate.utils.ProgressDialog;
@@ -174,10 +175,17 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                                 binding.amenitiesRecycler.setAdapter(new AmenitiesAdapter(activity, response.body().getData().getPropertyAmenities()));
                             }
 
+                            PropertyBuilderModel model = new PropertyBuilderModel();
+                            model.setAccountNumber(response.body().getData().getProperty().get(0).getAccountNo());
+                            model.setBankName(response.body().getData().getProperty().get(0).getBankName());
+                            model.setIfscCode(response.body().getData().getProperty().get(0).getBankIfscCode());
+                            model.setAccountHolderName(response.body().getData().getProperty().get(0).getAccountHolderName());
+                            model.setPropertyName(response.body().getData().getProperty().get(0).getPropertyTitle());
+
                             if(response.body().getData().getPropertySlot().size() != 0 ){
                                 binding.slotsLinear.setVisibility(View.VISIBLE);
                                 binding.slotsRecycler.setLayoutManager(new GridLayoutManager(activity,4));
-                                binding.slotsRecycler.setAdapter(new PropertySlotsAdapter(activity, response.body().getData().getPropertySlot()));
+                                binding.slotsRecycler.setAdapter(new PropertySlotsAdapter(activity, response.body().getData().getPropertySlot(),model));
                             }
 
 
@@ -186,6 +194,7 @@ public class UserPropertyDetailsActivity extends AppCompatActivity {
                                         .placeholder(com.denzcoskun.imageslider.R.drawable.loading)
                                         .into(binding.mapImage);
                             }
+
 
 
 

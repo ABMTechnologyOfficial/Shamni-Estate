@@ -28,5 +28,7 @@ public class BaseUrls extends Object{
     public static final String visitor_details = "visitor_details";
     public static final String booked_property = "booked_property";
     public static final String hold_property = "hold_property";
+    public static final String plot_hold = "plot_hold";
+    public static final String plot_book = "plot_book";
 
 }

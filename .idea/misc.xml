@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable-v24/slot_linear_bg.xml" value="0.161" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable-v24/slot_selected_linear.xml" value="0.161" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/button_background.xml" value="0.1965" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/greenbackground.xml" value="0.1985" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1965" />
@@ -11,12 +13,14 @@
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_circle.xml" value="0.1865" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_contact_us.xml" value="0.214" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/ic_logout.xml" value="0.116" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/linear_bg.xml" value="0.161" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/primerybackground.xml" value="0.1985" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/redbackground.xml" value="0.1985" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/redbackgroundcorner.xml" value="0.1015" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/drawable/rounded_btn_bg.xml" value="0.1965" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_add_visitor_info.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_banking_information.xml" value="0.2552083333333333" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_book_hold_property.xml" value="0.23020833333333332" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_filter.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_home.xml" value="0.1734375" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_login.xml" value="0.2552083333333333" />
@@ -33,6 +37,7 @@
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_address.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_documents.xml" value="0.2552083333333333" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/activity_visitor_list.xml" value="0.18333333333333332" />
+        <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/book_hold_property_layout.xml" value="0.22" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/booked_property_layout.xml" value="0.33" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/city_layout.xml" value="0.5" />
         <entry key="..\:/Flutter App/Shamni-Estate/app/src/main/res/layout/content_profile_details.xml" value="0.2552083333333333" />

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/property_name"
+        android:padding="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/heebo_medium"
+        android:text="Hold"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="start"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <LinearLayout
+        android:padding="@dimen/_1sdp"
+        android:background="@drawable/linear_bg"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/property_details_tv"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/slot_selected_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/heebo_medium"
+            android:text="Property Details"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp" />
+
+
+        <TextView
+            android:id="@+id/bank_details_tv"
+            android:background="@drawable/slot_linear_bg"
+            android:padding="@dimen/_5sdp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/heebo_medium"
+            android:text="Bank Details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/property_details_linear"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Unit Number"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/unit_number"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Unit Name"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/unit_name"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Unit Size"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/unit_size"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Price Per Sq.ft."
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:drawableLeft="@drawable/ic_baseline_currency_rupee_24"
+                android:id="@+id/perice_per_sqft"
+                android:drawablePadding="@dimen/_2sdp"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Slot Name"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/slot_name"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Unit Extra Charge"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/unit_extra_charge"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/bank_details_linear"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Bank Name"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/bank_name"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Account Number"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/account_number"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="IFSC Code"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/ifsc_code"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Account Holder Name"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+
+            <TextView
+                android:id="@+id/account_holder_name"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="43534"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_3sdp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_weight="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:background="@drawable/hold_slots_bg"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Hold"
+                android:id="@+id/hold_btn"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:id="@+id/book_btn"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center"
+                android:background="@drawable/available_slots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Book"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:background="@drawable/not_available_slots"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/heebo_medium"
+                android:text="Close"
+                android:id="@+id/close"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
